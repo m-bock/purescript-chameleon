@@ -1,0 +1,5 @@
+{
+    "purescript.buildCommand": "spago --config test.dhall build --purs-args --json-errors",
+    "purescript.addSpagoSources": false,
+    "purescript.packagePath": ".spago"
+}
