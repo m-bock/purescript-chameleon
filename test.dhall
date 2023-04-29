@@ -13,6 +13,7 @@
   , "prelude"
   , "react-basic-dom"
   , "react-basic-hooks"
+  , "record"
   , "strings"
   , "transformers"
   , "unsafe-coerce"

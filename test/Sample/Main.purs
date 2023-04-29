@@ -14,8 +14,8 @@ import Halogen as Halogen
 import Halogen.Aff as HA
 import Halogen.HTML as HH
 import Halogen.VDom.Driver (runUI)
-import React.Basic.DOM (render)
 import React.Basic.DOM (div, h1_, text) as DOM
+import React.Basic.DOM (render)
 import React.Basic.Hooks (useState, (/\))
 import React.Basic.Hooks as React
 import Test.Sample.Impls.Halogen (runHalogenHTML)
@@ -33,9 +33,9 @@ import Web.HTML.Window (document)
 --- React Basic Hooks
 --------------------------------------------------------------------------------
 
-appReactBasicHooks :: React.Component {}
-appReactBasicHooks = do
-  React.component "Home" \_props -> React.do
+mkAppReactBasicHooks :: React.Component {}
+mkAppReactBasicHooks = do
+  React.component "Counter" \_props -> React.do
 
     state /\ setState <- useState 0
 
@@ -45,7 +45,7 @@ appReactBasicHooks = do
     pure $ DOM.div
       { children:
           [ DOM.h1_ [ DOM.text "React Basic Hooks" ]
-          , runReactHTML handler $ Counter.view { count: state }
+          , runReactHTML unit handler $ Counter.view { count: state }
           ]
       }
 
@@ -94,7 +94,7 @@ appHalogen =
   render state =
     HH.div_
       [ HH.h1 [] [ HH.text "Halogen" ]
-      , runHalogenHTML $ CounterMsg <$> Counter.view { count: state }
+      , runHalogenHTML unit $ CounterMsg <$> Counter.view { count: state }
       ]
 
   handleAction = case _ of
@@ -107,6 +107,6 @@ appHalogen =
 
 main :: Effect Unit
 main = do
-  runReactBasicHooks appReactBasicHooks
+  runReactBasicHooks mkAppReactBasicHooks
   runHalogen appHalogen
 

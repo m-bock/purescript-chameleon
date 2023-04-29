@@ -9,25 +9,30 @@ import Halogen.HTML as HH
 import Halogen.HTML.Properties (IProp(..))
 import Halogen.Query.Input (Input(..))
 import TaglessVirtualDOM (class Html, Prop(..))
+import Unsafe.Coerce (unsafeCoerce)
 import Web.Event.Event (EventType(..))
 
 instance Html HalogenHTML where
-  elem name props children = HalogenHTML $
+  elem name props children = HalogenHTML \ctx ->
     HH.element
       (ElemName name)
       (mapProp <$> props)
-      (runHalogenHTML <$> children)
+      (runHalogenHTML ctx <$> children)
     where
     mapProp prop = case prop of
       Attr k v -> HH.attr (AttrName k) v
       Event n h -> IProp $ HH.handler (EventType n) (h >>> map Action)
 
-  text str = HalogenHTML $ HH.text str
+  text str = HalogenHTML \_ -> HH.text str
 
-newtype HalogenHTML a = HalogenHTML (HTML Void a)
+  mapCtx f (HalogenHTML mkHtml) = HalogenHTML (f >>> mkHtml)
 
-derive instance Functor HalogenHTML
+  withCtx f = HalogenHTML \ctx -> runHalogenHTML ctx $ f ctx
 
-runHalogenHTML :: forall b a. HalogenHTML a -> (HTML b a)
-runHalogenHTML (HalogenHTML x) = lmap absurd x
+newtype HalogenHTML ctx a = HalogenHTML (ctx -> HTML Void a)
+
+derive instance Functor (HalogenHTML ctx)
+
+runHalogenHTML :: forall ctx b a. ctx -> HalogenHTML ctx a -> (HTML b a)
+runHalogenHTML ctx (HalogenHTML f) = lmap absurd $ f ctx
 

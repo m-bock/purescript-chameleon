@@ -14,28 +14,28 @@ import Foreign.Object as Obj
 import React.Basic.DOM (text) as DOM
 import React.Basic.DOM (unsafeCreateDOMComponent)
 import React.Basic.Hooks (JSX, ReactComponent, element, (/\))
-import TaglessVirtualDOM (class Html, Prop(..))
+import TaglessVirtualDOM (class Html, Prop(..), withCtx)
 import Unsafe.Coerce (unsafeCoerce)
 import Web.Event.Internal.Types (Event) as DOM
 
 type HomeProps = Unit
 
-newtype ReactHTML a = ReactHTML ((a -> Effect Unit) -> JSX)
+newtype ReactHTML ctx a = ReactHTML (ctx -> (a -> Effect Unit) -> JSX)
 
-instance Functor ReactHTML where
-  map f (ReactHTML mkJsx) = ReactHTML \handler -> mkJsx (f >>> handler)
+instance Functor (ReactHTML ctx) where
+  map f (ReactHTML mkJsx) = ReactHTML \ctx handler -> mkJsx ctx (f >>> handler)
 
-runReactHTML :: forall a. (a -> Effect Unit) -> ReactHTML a -> JSX
-runReactHTML handler (ReactHTML f) = f handler
+runReactHTML :: forall ctx a. ctx -> (a -> Effect Unit) -> ReactHTML ctx a -> JSX
+runReactHTML ctx handler (ReactHTML f) = f ctx handler
 
 instance Html ReactHTML where
-  elem name props1 children1 = ReactHTML $ \handleAction ->
+  elem name props1 children1 = ReactHTML $ \ctx handleAction ->
     let
 
       props2 = Obj.fromFoldable $ mkProp <$> props1
       props3 = Obj.insert "children" (toForeign children2) props2
 
-      children2 = runReactHTML handleAction <$> children1
+      children2 = runReactHTML ctx handleAction <$> children1
 
       mkProp = case _ of
         Attr "style" v -> "STYLE" /\ toForeign v
@@ -49,7 +49,11 @@ instance Html ReactHTML where
     in
       (unsafeCoerce $ element $ mkComp name) props3
 
-  text str = ReactHTML $ \_ -> DOM.text str
+  text str = ReactHTML $ \_ _ -> DOM.text str
+
+  mapCtx f (ReactHTML mkJsx) = ReactHTML \ctx handleAction -> mkJsx (f ctx) handleAction
+
+  withCtx mkHtml = ReactHTML \ctx handleAction -> runReactHTML ctx handleAction (mkHtml ctx)
 
 mkElem :: Object Foreign -> JSX
 mkElem = unsafeCoerce mkComp

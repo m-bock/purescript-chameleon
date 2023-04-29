@@ -19,7 +19,7 @@ update msg state = case msg of
   Increment n -> state + n
   Decrement n -> state - n
 
-view :: forall html. Html html => { count :: Int } -> html Msg
+view :: forall html ctx. Html html => { count :: Int } -> html ctx Msg
 view props =
   T.div
     [ TA.style "border: 1px solid red"

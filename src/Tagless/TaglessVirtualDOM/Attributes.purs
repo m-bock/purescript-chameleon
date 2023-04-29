@@ -1,7 +1,5 @@
 module TaglessVirtualDOM.Attributes where
 
-import Prelude
-
 import TaglessVirtualDOM (Prop(..))
 
 id :: forall a. String -> Prop a
