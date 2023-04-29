@@ -1,10 +1,15 @@
 # tagless-virtual-dom
 
-In which framework should I write my PureScript web app? They differ in many aspects like state management, PureScript native virtual DOM or React bindings? Many difficult questions, many pros and cons.
+In which framework should I write my PureScript web app? They differ in many
+aspects like state management, virtual DOM implementation or native solution
+or JS-bindings? Many difficult questions, many pros and cons.
 
-I'd argue that for a large part of many apps this does not matter. Just write your pure views in a framework agnostic way with this library. And you can integrate it in any framework that does provide an matching implementation.
+I'd argue that for a large part of many apps this does not matter. Just write
+your pure views in a framework agnostic way with this library. And you can
+integrate it in any framework that does provide a matching implementation. 
 
-The test suite contains reference implementations for `halogen` and `react-basic-hooks`. You can run the sample app with
+The test suite contains reference implementations for `halogen` and
+`react-basic-hooks`. You can run the sample app with 
 
 ```
 yarn install
@@ -12,7 +17,9 @@ spago --config test.dhall build
 yarn run parcel serve web/index.html 
 ```
 
-In the browser you should see the following component rendered in both frameworks side by side:
+In the browser you should see the sample component rendered in both
+frameworks side by side.
+
 ## Example
 ```hs
 module Test.SampleReadme where
@@ -48,4 +55,14 @@ view props =
     , T.button [ TE.onClick (const $ Just $ Decrement 1) ]
         [ text "-" ]
     ]
+```
+## TODO
+Right now this is in a POC state. These tasks/questions need to be addressed:
+  - How to handle keyed elements?
+  - Do it really need the DOM.Event dependency?
+  - Wow to design `input` element functions?
+  - Auto generate Elements/Events/Arrtributes?
+  - Publish react-basic-hooks and halogen implementations in separate libraries
+```hs
+
 ```
