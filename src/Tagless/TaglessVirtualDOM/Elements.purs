@@ -1,6 +1,6 @@
-module Tagless.HTML.Elements where
+module TaglessVirtualDOM.Elements where
 
-import Tagless.HTML (class Html, Prop, elem)
+import TaglessVirtualDOM (class Html, Prop, elem)
 
 div :: forall html a. Html html => Array (Prop a) -> Array (html a) -> html a
 div = elem "div"

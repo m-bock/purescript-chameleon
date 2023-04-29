@@ -11,10 +11,10 @@ import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign)
 import Foreign.Object (Object)
 import Foreign.Object as Obj
-import React.Basic.DOM (unsafeCreateDOMComponent)
 import React.Basic.DOM (text) as DOM
+import React.Basic.DOM (unsafeCreateDOMComponent)
 import React.Basic.Hooks (JSX, ReactComponent, element, (/\))
-import Tagless.HTML (class Html, Prop(..))
+import TaglessVirtualDOM (class Html, Prop(..))
 import Unsafe.Coerce (unsafeCoerce)
 import Web.Event.Internal.Types (Event) as DOM
 
@@ -22,7 +22,8 @@ type HomeProps = Unit
 
 newtype ReactHTML a = ReactHTML ((a -> Effect Unit) -> JSX)
 
-derive instance Functor ReactHTML
+instance Functor ReactHTML where
+  map f (ReactHTML mkJsx) = ReactHTML \handler -> mkJsx (f >>> handler)
 
 runReactHTML :: forall a. (a -> Effect Unit) -> ReactHTML a -> JSX
 runReactHTML handler (ReactHTML f) = f handler

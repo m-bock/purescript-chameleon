@@ -1,4 +1,4 @@
-# tagless-html
+# tagless-virtual-dom
 
 In which framework should I write my PureScript web app? They differ in many aspects like state management, PureScript native virtual DOM or React bindings? Many difficult questions, many pros and cons.
 
@@ -20,10 +20,10 @@ module Test.SampleReadme where
 import Prelude
 
 import Data.Maybe (Maybe(..))
-import Tagless.HTML (class Html, text)
-import Tagless.HTML.Attributes as TA
-import Tagless.HTML.Elements as T
-import Tagless.HTML.Events as TE
+import TaglessVirtualDOM (class Html, text)
+import TaglessVirtualDOM.Attributes as TA
+import TaglessVirtualDOM.Elements as T
+import TaglessVirtualDOM.Events as TE
 
 type State = Int
 

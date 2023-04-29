@@ -3,10 +3,10 @@ module Test.Sample.Views.Counter where
 import Prelude
 
 import Data.Maybe (Maybe(..))
-import Tagless.HTML (class Html, text)
-import Tagless.HTML.Attributes as TA
-import Tagless.HTML.Elements as T
-import Tagless.HTML.Events as TE
+import TaglessVirtualDOM (class Html, text)
+import TaglessVirtualDOM.Attributes as TA
+import TaglessVirtualDOM.Elements as T
+import TaglessVirtualDOM.Events as TE
 
 type State = Int
 

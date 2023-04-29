@@ -8,7 +8,7 @@ import Halogen.HTML (HTML)
 import Halogen.HTML as HH
 import Halogen.HTML.Properties (IProp(..))
 import Halogen.Query.Input (Input(..))
-import Tagless.HTML (class Html, Prop(..))
+import TaglessVirtualDOM (class Html, Prop(..))
 import Web.Event.Event (EventType(..))
 
 instance Html HalogenHTML where

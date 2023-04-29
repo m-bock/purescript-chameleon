@@ -1,8 +1,8 @@
-module Tagless.HTML.Attributes where
+module TaglessVirtualDOM.Attributes where
 
 import Prelude
 
-import Tagless.HTML (Prop(..))
+import TaglessVirtualDOM (Prop(..))
 
 id :: forall a. String -> Prop a
 id = Attr "id"
