@@ -26,10 +26,9 @@ module Test.SampleReadme where
 
 import Prelude
 
-import Data.Maybe (Maybe(..))
 import TaglessVirtualDOM (class Html, text)
 import TaglessVirtualDOM.Attributes as TA
-import TaglessVirtualDOM.Elements as T
+import TaglessVirtualDOM.HTML.Elements as T
 import TaglessVirtualDOM.Events as TE
 
 type State = Int
@@ -50,9 +49,9 @@ view props =
     ]
     [ text "Counter"
     , T.div [] [ text $ show props.count ]
-    , T.button [ TE.onClick (const $ Just $ Increment 1) ]
+    , T.button [ TE.onClick (Increment 1) ]
         [ text "+" ]
-    , T.button [ TE.onClick (const $ Just $ Decrement 1) ]
+    , T.button [ TE.onClick (Decrement 1) ]
         [ text "-" ]
     ]
 ```
