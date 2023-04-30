@@ -13,6 +13,7 @@ build-prod:
 codegen:
     node codegen/index.js
     purs-tidy format-in-place --width 100 'src/TaglessVirtualDOM/HTML/**/*.purs'
+    purs-tidy format-in-place --width 100 'src/TaglessVirtualDOM/SVG/**/*.purs'
 
 gen-readme:
     purs-to-md test/SampleReadme.purs README.md

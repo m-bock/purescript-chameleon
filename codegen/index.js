@@ -16,13 +16,13 @@ const genElement = ([tagName, { children, description }]) => {
   return children
     ? `
 -- | ${description}
-${tagName} :: forall html ctx a. Html html => Array (Prop a) -> Array (html ctx a) -> html ctx a
-${tagName} props children = elem "${tagName}" props children
+${kebapToCamel(tagName)} :: forall html ctx a. Html html => Array (Prop a) -> Array (html ctx a) -> html ctx a
+${kebapToCamel(tagName)} props children = elem "${tagName}" props children
 `
     : `
 -- | ${description}
-${tagName} :: forall html ctx a. Html html => Array (Prop a) -> html ctx a
-${tagName} props = elem "${tagName}" props []
+${kebapToCamel(tagName)} :: forall html ctx a. Html html => Array (Prop a) -> html ctx a
+${kebapToCamel(tagName)} props = elem "${tagName}" props []
 `;
 };
 
@@ -207,6 +207,7 @@ const gen = (scope) => {
 
 const main = () => {
   gen("HTML");
+  gen("SVG");
 };
 
 main();
