@@ -1,88 +1,210 @@
 {
-    "abort": "Occurs when the loading of an audio/video is aborted",
-    "animationEnd": "Occurs when a CSS animation has completed",
-    "animationIteration": "Occurs when a CSS animation is repeated",
-    "animationStart": "Occurs when a CSS animation has started",
-    "blur": "Occurs when an element loses focus",
-    "canPlay": "Occurs when the browser can start playing the audio/video",
-    "canPlayThrough": "Occurs when the browser can play through the audio/video without stopping",
-    "change": "Occurs when the content of an element has changed (for <input>, <select>, and <textarea>)",
-    "click": "Occurs when an element is clicked",
-    "contextMenu": "Occurs when the user right-clicks on an element to open a context menu",
-    "copy": "Occurs when the user copies the content of an element",
-    "cut": "Occurs when the user cuts the content of an element",
-    "dblClick": "Occurs when an element is double-clicked",
-    "drag": "Occurs when an element is being dragged",
-    "dragEnd": "Occurs when the user has finished dragging an element",
-    "dragEnter": "Occurs when the dragged element enters the drop target",
-    "dragLeave": "Occurs when the dragged element leaves the drop target",
-    "dragOver": "Occurs when the dragged element is over the drop target",
-    "dragStart": "Occurs when the user starts to drag an element",
-    "drop": "Occurs when the dragged element is dropped on the drop target",
-    "durationChange": "Occurs when the duration of the audio/video is changed",
-    "ended": "Occurs when the audio/video has ended playing",
-    "error": "Occurs when an error occurs while loading an external file (like <script> or <img>)",
-    "focus": "Occurs when an element gets focus",
-    "focusIn": "Occurs when an element is about to get focus",
-    "focusOut": "Occurs when an element is about to lose focus",
-    "fullScreenChange": "Occurs when an element is displayed in full-screen mode",
-    "fullScreenError": "Occurs when an element can not be displayed in full-screen mode",
-    "hashChange": "Occurs when there has been changes to the anchor part of a URL",
-    "input": "Occurs when an element gets user input",
-    "invalid": "Occurs when an element is invalid",
-    "keyDown": "Occurs when a user is pressing a key",
-    "keyPress": "Occurs when a user presses a key",
-    "keyUp": "Occurs when a user releases a key",
-    "load": "Occurs when an object has loaded",
-    "loadedData": "Occurs when media data is loaded",
-    "loadedMetadata": "Occurs when meta data (like dimensions and duration) are loaded",
-    "loadStart": "Occurs when the browser starts looking for the specified media",
-    "message": "Occurs when a message is received through the event source",
-    "mouseDown": "Occurs when a user presses a mouse button over an element",
-    "mouseMove": "Occurs when the pointer is moving while it is over an element",
-    "mouseOut": "Occurs when the pointer is moving out of an element",
-    "mouseOver": "Occurs when the pointer is moved onto an element",
-    "mouseUp": "Occurs when a user releases a mouse button over an element",
-    "offline": "Occurs when the browser starts to work offline",
-    "online": "Occurs when the browser starts to work online",
-    "open": "Occurs when a connection with event source is opened",
-    "pageHide": "Occurs when the user navigates away from a webpage",
-    "pageShow": "Occurs when the user navigates to a webpage",
-    "paste": "Occurs when the user pastes some content in an element",
-    "pause": "Occurs when playback is paused",
-    "play": "Occurs when playback starts",
-    "playing": "Occurs when media is playing after having been paused or stopped for buffering",
-    "pointerCancel": "Occurs when the pointer device button is released while the pointer is over an element",
-    "pointerDown": "Occurs when the pointer device button is pressed over an element",
-    "pointerEnter": "Occurs when the pointer is moved onto an element",
-    "pointerLeave": "Occurs when the pointer is moved out of an element",
-    "pointermove": "Occurs when the pointer is moved while it is over an element",
-    "pointerOut": "Occurs when the pointer is moved out of an element",
-    "pointerOver": "Occurs when the pointer is moved onto an element",
-    "pointerUp": "Occurs when the pointer device button is released over an element",
-    "progress": "Occurs when the browser is in the process of getting the media data",
-    "rateChange": "Occurs when the playing speed of the media is changed",
-    "reset": "Occurs when a form is reset",
-    "resize": "Occurs when the size of the browser window is changed",
-    "scroll": "Occurs when an element's scrollbar is being scrolled",
-    "search": "Occurs when the user writes something in a search field",
-    "seeked": "Occurs when the user is finished moving/skipping to a new position in the media",
-    "seeking": "Occurs when the user starts moving/skipping to a new position in the media",
-    "select": "Occurs when some text is selected",
-    "selectionChange": "Occurs when the selection has changed in the document",
-    "selectStart": "Occurs when the user starts to select some text",
-    "stalled": "Occurs when the browser is trying to get media data, but data is not available",
-    "submit": "Occurs when a form is submitted",
-    "suspend": "Occurs when the browser is intentionally not getting media data",
-    "timeUpdate": "Occurs when the current playback position has changed",
-    "toggle": "Occurs when a checkbox or a radio button is checked or unchecked",
-    "touchCancel": "Occurs when a touch event is interrupted",
-    "touchEnd": "Occurs when a finger is removed from a touch screen",
-    "touchMove": "Occurs when a finger is dragged along a touch screen",
-    "touchStart": "Occurs when a finger is placed on a touch screen",
-    "transitionEnd": "Occurs when a CSS transition has completed",
-    "unload": "Occurs once a page has unloaded (or the browser window has been closed)",
-    "volumeChange": "Occurs when the volume of the media has changed (includes setting the volume to 'mute')",
-    "waiting": "Occurs when the video stops because it needs to buffer the next frame",
-    "wheel": "Occurs when the mouse wheel rolls up or down over an element"
+  "abort": {
+    "description": "Occurs when the loading of an audio/video is aborted"
+  },
+  "afterPrint": {
+    "description": "Occurs when a page has started printing, or if the print dialogue box has been closed"
+  },
+  "animationEnd": {
+    "description": "Occurs when a CSS animation has completed"
+  },
+  "animationIteration": {
+    "description": "Occurs when a CSS animation is repeated"
+  },
+  "animationStart": {
+    "description": "Occurs when a CSS animation has started"
+  },
+  "beforePrint": { "description": "Occurs when a page is about to be printed" },
+  "beforeUnload": {
+    "description": "Occurs before the document is about to be unloaded"
+  },
+  "blur": { "description": "Occurs when an element loses focus" },
+  "canPlay": {
+    "description": "Occurs when the browser can start playing the audio/video"
+  },
+  "canPlayThrough": {
+    "description": "Occurs when the browser can play through the audio/video without stopping for buffering"
+  },
+  "change": {
+    "description": "Occurs when the content of a form element, the selection, or the checked state have changed (for <input>, <select>, and <textarea>)",
+    "type": "String"
+  },
+  "click": { "description": "Occurs when the user clicks on an element" },
+  "contextMenu": {
+    "description": "Occurs when the user right-clicks on an element to open a context menu"
+  },
+  "copy": {
+    "description": "Occurs when the user copies the content of an element"
+  },
+  "cut": {
+    "description": "Occurs when the user cuts the content of an element"
+  },
+  "dblClick": {
+    "description": "Occurs when the user double-clicks on an element"
+  },
+  "drag": { "description": "Occurs when an element is being dragged" },
+  "dragEnd": {
+    "description": "Occurs when the user has finished dragging an element"
+  },
+  "dragEnter": {
+    "description": "Occurs when the dragged element enters the drop target"
+  },
+  "dragLeave": {
+    "description": "Occurs when the dragged element leaves the drop target"
+  },
+  "dragOver": {
+    "description": "Occurs when the dragged element is over the drop target"
+  },
+  "dragStart": {
+    "description": "Occurs when the user starts to drag an element"
+  },
+  "drop": {
+    "description": "Occurs when the dragged element is dropped on the drop target"
+  },
+  "durationChange": {
+    "description": "Occurs when the duration of the audio/video is changed"
+  },
+  "ended": { "description": "Occurs when the audio/video has ended" },
+  "error": {
+    "description": "Occurs when an error occurs while loading an audio/video"
+  },
+  "focus": { "description": "Occurs when an element gets focus" },
+  "focusIn": { "description": "Occurs when an element is about to get focus" },
+  "focusOut": {
+    "description": "Occurs when an element is about to lose focus"
+  },
+  "fullscreenChange": {
+    "description": "Occurs when an element is displayed in fullscreen mode"
+  },
+  "fullscreenError": {
+    "description": "Occurs when an element can not be displayed in fullscreen mode"
+  },
+  "hashChange": {
+    "description": "Occurs when there has been changes to the anchor part of a URL"
+  },
+  "input": { "description": "Occurs when an element gets user input" },
+  "invalid": { "description": "Occurs when an element is invalid" },
+  "keyDown": { "description": "Occurs when a user is pressing a key" },
+  "keyPress": { "description": "Occurs when a user presses a key" },
+  "keyUp": { "description": "Occurs when a user releases a key" },
+  "load": { "description": "Occurs when an object has loaded" },
+  "loadedData": { "description": "Occurs when media data is loaded" },
+  "loadedMetadata": {
+    "description": "Occurs when meta data (like dimensions and duration) are loaded"
+  },
+  "loadStart": {
+    "description": "Occurs when the browser starts looking for the specified audio/video"
+  },
+  "message": {
+    "description": "Occurs when a message is received through the event source"
+  },
+  "mouseDown": {
+    "description": "Occurs when a mouse button is pressed down on an element"
+  },
+  "mouseEnter": {
+    "description": "Occurs when the mouse pointer is over the selected element"
+  },
+  "mouseLeave": {
+    "description": "Occurs when the mouse pointer leaves the selected element"
+  },
+  "mouseMove": {
+    "description": "Occurs when the mouse pointer is moving while it is over an element"
+  },
+  "mouseOut": {
+    "description": "Occurs when the mouse pointer moves out of an element"
+  },
+  "mouseOver": {
+    "description": "Occurs when the mouse pointer moves over an element"
+  },
+  "mouseUp": {
+    "description": "Occurs when a mouse button is released over an element"
+  },
+  "mouseWheel": { "description": "Deprecated. Use the wheel event instead" },
+  "offline": {
+    "description": "Occurs when the browser starts to work offline"
+  },
+  "online": { "description": "Occurs when the browser starts to work online" },
+  "open": {
+    "description": "Occurs when a connection with the event source is opened"
+  },
+  "pageHide": {
+    "description": "Occurs when the user navigates away from a webpage"
+  },
+  "pageShow": { "description": "Occurs when the user navigates to a webpage" },
+  "paste": {
+    "description": "Occurs when the user pastes some content in an element"
+  },
+  "pause": { "description": "Occurs when the audio/video has been paused" },
+  "play": {
+    "description": "Occurs when the audio/video has been started or is no longer paused"
+  },
+  "playing": {
+    "description": "Occurs when the audio/video is playing after having been paused or stopped for buffering"
+  },
+  "popState": { "description": "Occurs when the window's history changes" },
+  "progress": {
+    "description": "Occurs when the browser is in the process of getting the media data (downloading the media)"
+  },
+  "rateChange": {
+    "description": "Occurs when the playing speed of the audio/video is changed"
+  },
+  "resize": { "description": "Occurs when the document view is resized" },
+  "reset": { "description": "Occurs when a form is reset" },
+  "scroll": {
+    "description": "Occurs when an element's scrollbar is being scrolled"
+  },
+  "search": {
+    "description": "Occurs when the user writes something in a search field (for <input=\"search\">)"
+  },
+  "seeked": {
+    "description": "Occurs when the user is finished moving/skipping to a new position in the audio/video"
+  },
+  "seeking": {
+    "description": "Occurs when the user starts moving/skipping to a new position in the audio/video"
+  },
+  "select": {
+    "description": "Occurs after the user selects some text (for <input> and <textarea>)"
+  },
+  "show": {
+    "description": "Occurs when a <menu> element is shown as a context menu"
+  },
+  "stalled": {
+    "description": "Occurs when the browser is trying to get media data, but data is not available"
+  },
+  "storage": { "description": "Occurs when a Web Storage area is updated" },
+  "submit": { "description": "Occurs when a form is submitted" },
+  "suspend": {
+    "description": "Occurs when the browser is intentionally not getting media data"
+  },
+  "timeUpdate": {
+    "description": "Occurs when the playing position has changed (like when the user fast forwards to a different point in the media)"
+  },
+  "toggle": {
+    "description": "Occurs when the user opens or closes the <details> element"
+  },
+  "touchCancel": { "description": "Occurs when the touch is interrupted" },
+  "touchEnd": {
+    "description": "Occurs when a finger is removed from a touch screen"
+  },
+  "touchMove": {
+    "description": "Occurs when a finger is dragged across the screen"
+  },
+  "touchStart": {
+    "description": "Occurs when a finger is placed on a touch screen"
+  },
+  "transitionEnd": {
+    "description": "Occurs when a CSS transition has completed"
+  },
+  "unload": {
+    "description": "Occurs once a page has unloaded (or the browser window has been closed)"
+  },
+  "volumeChange": {
+    "description": "Occurs when the volume of the audio/video has changed"
+  },
+  "waiting": {
+    "description": "Occurs when the video stops because it needs to buffer the next frame"
+  },
+  "wheel": {
+    "description": "Occurs when the mouse wheel rolls up or down over an element"
+  }
 }

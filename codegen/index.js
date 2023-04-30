@@ -118,28 +118,69 @@ ${code}
 // Events
 // ----------------------------------------------------------------------------
 
-const genEvent = ([eventName,  description ]) => {
+const genEvent = ([eventName, { description, type }]) => {
   eventName = replaceMap[eventName] || eventName;
 
-  return `
-  
+  return !type
+    ? `
+-- | ${description}
+on${upperFirst(eventName)} :: forall a. a -> Prop a
+on${upperFirst(eventName)} msg = Event "${eventName}" \\_ -> Just msg
+  `
+    : `
+-- | ${description}
+on${upperFirst(eventName)} :: forall a. (${type} -> a) -> Prop a
+on${upperFirst(eventName)} mkMsg = Event "${eventName}" (fromForeign >>> map mkMsg)
   `;
 };
 
 const genEvents = (scope) => (data) => {
+  const code = Object.entries(data).map(genEvent).join("");
 
-}
+  return `
+module TaglessVirtualDOM.${scope}.Events where
 
+import Prelude
+
+import Control.Monad.Except (runExcept)
+import Data.Either (hush)
+import Data.Maybe (Maybe(..))
+import Foreign (Foreign)
+import Foreign as F
+import Foreign.Index as FI
+import TaglessVirtualDOM (Prop(..))
+
+class FromForeign a where
+  fromForeign :: Foreign -> Maybe a
+
+instance FromForeign String where
+  fromForeign for = hush $ runExcept do
+    tgt <- FI.readProp "target" for
+    val <- FI.readProp "value" tgt
+    str <- F.readString val
+    pure str
+
+${code}
+  `;
+};
 
 // ----------------------------------------------------------------------------
 // Utils
 // ----------------------------------------------------------------------------
 
+const toLowerCase = (str) => {
+  return str.toLowerCase();
+};
+
+const upperFirst = (str) => {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 const kebapToCamel = (str) => {
   return str.replace(/-([a-z])/g, function (g) {
     return g[1].toUpperCase();
   });
-}
+};
 
 // ----------------------------------------------------------------------------
 // Main
@@ -158,6 +199,10 @@ const gen = (scope) => {
     `src/TaglessVirtualDOM/${scope}/Attributes.purs`,
     attributes2
   );
+
+  const events1 = readJSON(`codegen/${scope}/events.json`);
+  const events2 = genEvents(scope)(events1);
+  fs.writeFileSync(`src/TaglessVirtualDOM/${scope}/Events.purs`, events2);
 };
 
 const main = () => {

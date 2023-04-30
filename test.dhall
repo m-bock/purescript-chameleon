@@ -17,6 +17,7 @@
   , "strings"
   , "transformers"
   , "unsafe-coerce"
+  , "variant"
   , "web-dom"
   , "web-events"
   , "web-html"

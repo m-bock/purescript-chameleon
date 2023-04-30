@@ -27,9 +27,9 @@ module Test.SampleReadme where
 import Prelude
 
 import TaglessVirtualDOM (class Html, text)
-import TaglessVirtualDOM.Attributes as TA
+import TaglessVirtualDOM.HTML.Attributes as TA
 import TaglessVirtualDOM.HTML.Elements as T
-import TaglessVirtualDOM.Events as TE
+import TaglessVirtualDOM.HTML.Events as TE
 
 type State = Int
 

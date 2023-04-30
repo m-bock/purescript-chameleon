@@ -65,7 +65,7 @@ runReactBasicHooks mkComp = do
 
 runHalogen :: forall q o. Halogen.Component q Unit o Aff -> Effect Unit
 runHalogen comp = HA.runHalogenAff do
-  body <- HA.awaitBody
+  _ <- HA.awaitBody
   win <- liftEffect window
   doc <- liftEffect $ document win
 

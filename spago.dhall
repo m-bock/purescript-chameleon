@@ -7,7 +7,6 @@
   , "strings"
   , "transformers"
   , "variant"
-  , "web-events"
   ]
 , packages = ./packages.dhall
 , sources = [ "src/**/*.purs" ]
