@@ -16,12 +16,16 @@ const genElement = ([tagName, { children, description }]) => {
   return children
     ? `
 -- | ${description}
-${kebapToCamel(tagName)} :: forall html ctx a. Html html => Array (Prop a) -> Array (html ctx a) -> html ctx a
+${kebapToCamel(
+  tagName
+)} :: forall html ctx a. Html html => Array (Prop a) -> Array (html ctx a) -> html ctx a
 ${kebapToCamel(tagName)} props children = elem "${tagName}" props children
 `
     : `
 -- | ${description}
-${kebapToCamel(tagName)} :: forall html ctx a. Html html => Array (Prop a) -> html ctx a
+${kebapToCamel(
+  tagName
+)} :: forall html ctx a. Html html => Array (Prop a) -> html ctx a
 ${kebapToCamel(tagName)} props = elem "${tagName}" props []
 `;
 };
@@ -130,7 +134,9 @@ on${upperFirst(eventName)} msg = Event "${eventName}" \\_ -> Just msg
     : `
 -- | ${description}
 on${upperFirst(eventName)} :: forall a. (${type} -> a) -> Prop a
-on${upperFirst(eventName)} mkMsg = Event "${eventName}" (fromForeign >>> map mkMsg)
+on${upperFirst(
+        eventName
+      )} mkMsg = Event "${eventName}" (fromForeign >>> map mkMsg)
   `;
 };
 
@@ -174,7 +180,7 @@ const toLowerCase = (str) => {
 
 const upperFirst = (str) => {
   return str.charAt(0).toUpperCase() + str.slice(1);
-}
+};
 
 const kebapToCamel = (str) => {
   return str.replace(/-([a-z])/g, function (g) {
@@ -188,7 +194,9 @@ const kebapToCamel = (str) => {
 
 const readJSON = (filePath) => JSON.parse(fs.readFileSync(filePath).toString());
 
-const gen = (scope) => {
+const genHTML = () => {
+  const scope = "HTML";
+
   const elements1 = readJSON(`codegen/${scope}/elements.json`);
   const elements2 = genElements(scope)(elements1);
   fs.writeFileSync(`src/TaglessVirtualDOM/${scope}/Elements.purs`, elements2);
@@ -205,9 +213,24 @@ const gen = (scope) => {
   fs.writeFileSync(`src/TaglessVirtualDOM/${scope}/Events.purs`, events2);
 };
 
+const genSVG = () => {
+  const scope = "SVG";
+
+  const elements1 = readJSON(`codegen/${scope}/elements.json`);
+  const elements2 = genElements(scope)(elements1);
+  fs.writeFileSync(`src/TaglessVirtualDOM/${scope}/Elements.purs`, elements2);
+
+  const attributes1 = readJSON(`codegen/${scope}/attributes.json`);
+  const attributes2 = genAttributes(scope)(attributes1);
+  fs.writeFileSync(
+    `src/TaglessVirtualDOM/${scope}/Attributes.purs`,
+    attributes2
+  );
+};
+
 const main = () => {
-  gen("HTML");
-  gen("SVG");
+  genHTML();
+  genSVG();
 };
 
 main();

@@ -1,2 +1,106 @@
 {
+  "cx": {
+    "description": "Specifies the x coordinate of the center of a circle",
+    "type": "String"
+  },
+  "cy": {
+    "description": "Specifies the y coordinate of the center of a circle",
+    "type": "String"
+  },
+  "d": {
+    "description": "Defines a path to be drawn",
+    "type": "String"
+  },
+  "fill": {
+    "description": "Specifies the fill color of a graphic",
+    "type": "String"
+  },
+  "height": {
+    "description": "Specifies the height of an element",
+    "type": "String"
+  },
+  "href": {
+    "description": "Specifies the URL of the linked resource",
+    "type": "String"
+  },
+  "opacity": {
+    "description": "Specifies the opacity of an element",
+    "type": "String"
+  },
+  "r": {
+    "description": "Specifies the radius of a circle",
+    "type": "String"
+  },
+  "stroke": {
+    "description": "Specifies the stroke color of a graphic",
+    "type": "String"
+  },
+  "stroke-width": {
+    "description": "Specifies the width of the stroke",
+    "type": "String"
+  },
+  "transform": {
+    "description": "Specifies a list of transformations",
+    "type": "String"
+  },
+  "viewBox": {
+    "description": "Defines the position and size of the viewport",
+    "type": "String"
+  },
+  "width": {
+    "description": "Specifies the width of an element",
+    "type": "String"
+  },
+  "x": {
+    "description": "Specifies the x coordinate of an element",
+    "type": "String"
+  },
+  "y": {
+    "description": "Specifies the y coordinate of an element",
+    "type": "String"
+  },
+  "z": {
+    "description": "Specifies the position of the element along the z-axis",
+    "type": "String"
+  },
+  "class": {
+    "description": "Specifies one or more classnames for an element",
+    "type": "String"
+  },
+  "clip-path": {
+    "description": "Specifies a clipping path",
+    "type": "String"
+  },
+  "id": {
+    "description": "Specifies a unique ID for an element",
+    "type": "String"
+  },
+  "mask": {
+    "description": "Specifies a mask for an element",
+    "type": "String"
+  },
+  "preserveAspectRatio": {
+    "description": "Defines how an element's viewBox will be scaled and positioned",
+    "type": "String"
+  },
+  "style": {
+    "description": "Specifies an inline style for an element",
+    "type": "String"
+  },
+  "text-anchor": {
+    "description": "Specifies the horizontal alignment of text",
+    "type": "String"
+  },
+  "text-decoration": {
+    "description": "Specifies the decoration added to text",
+    "type": "String"
+  },
+  "viewTarget": {
+    "description": "Specifies the target of a hyperlink in a 'view' element",
+    "type": "String"
+  },
+  "visibility": {
+    "description": "Specifies whether or not an element is visible",
+    "type": "String"
+  }
 }
