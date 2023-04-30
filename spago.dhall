@@ -1,5 +1,6 @@
 { name = "tagless-virtual-dom"
-, dependencies = [ "maybe", "prelude", "web-events" ]
+, dependencies =
+  [ "either", "foreign", "maybe", "prelude", "transformers", "web-events" ]
 , packages = ./packages.dhall
 , sources = [ "src/**/*.purs" ]
 }

@@ -9,3 +9,6 @@ test:
 
 build-prod:
     yarn run parcel build --dist-dir dist web/index.html
+
+codegen:
+    node scripts/codegen.js

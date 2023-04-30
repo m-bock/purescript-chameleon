@@ -1,0 +1,454 @@
+{
+    "a": {
+        "description": "Defines a hyperlink",
+        "children": true
+    },
+    "abbr": {
+        "description": "Defines an abbreviation",
+        "children": true
+    },
+    "address": {
+        "description": "Defines contact information for the author/owner of a document",
+        "children": true
+    },
+    "area": {
+        "description": "Defines an area inside an image map",
+        "children": false
+    },
+    "article": {
+        "description": "Defines self-contained content, like blog posts or news articles",
+        "children": true
+    },
+    "aside": {
+        "description": "Defines content aside from the content it is placed in",
+        "children": true
+    },
+    "audio": {
+        "description": "Defines sound content, like music or other audio streams",
+        "children": true
+    },
+    "b": {
+        "description": "Defines bold text",
+        "children": true
+    },
+    "base": {
+        "description": "Defines the base URL for all relative URLs in a document",
+        "children": false
+    },
+    "bdi": {
+        "description": "Defines text directionality for its children",
+        "children": true
+    },
+    "bdo": {
+        "description": "Defines text directionality",
+        "children": true
+    },
+    "blockquote": {
+        "description": "Defines a section that is quoted from another source",
+        "children": true
+    },
+    "body": {
+        "description": "Defines the document's body",
+        "children": true
+    },
+    "br": {
+        "description": "Defines a single line break",
+        "children": false
+    },
+    "button": {
+        "description": "Defines a clickable button",
+        "children": true
+    },
+    "canvas": {
+        "description": "Defines an area that can be used to draw graphics using JavaScript",
+        "children": true
+    },
+    "caption": {
+        "description": "Defines a table caption",
+        "children": true
+    },
+    "cite": {
+        "description": "Defines the title of a work",
+        "children": true
+    },
+    "code": {
+        "description": "Defines a piece of computer code",
+        "children": true
+    },
+    "col": {
+        "description": "Defines attributes for table columns",
+        "children": false
+    },
+    "colgroup": {
+        "description": "Defines attributes for a group of table columns",
+        "children": true
+    },
+    "data": {
+        "description": "Defines machine-readable data",
+        "children": true
+    },
+    "datalist": {
+        "description": "Defines a list of pre-defined options for input controls",
+        "children": true
+    },
+    "dd": {
+        "description": "Defines a description/value of a term in a description list",
+        "children": true
+    },
+    "del": {
+        "description": "Defines text that has been deleted from a document",
+        "children": true
+    },
+    "details": {
+        "description": "Defines additional details that the user can view or hide",
+        "children": true
+    },
+    "dfn": {
+        "description": "Defines a definition term",
+        "children": true
+    },
+    "dialog": {
+        "description": "Defines a dialog box or window",
+        "children": true
+    },
+    "div": {
+        "description": "Defines a section of a document",
+        "children": true
+    },
+    "dl": {
+        "description": "Defines a description list",
+        "children": true
+    },
+    "dt": {
+        "description": "Defines a term in a description list",
+        "children": true
+    },
+    "em": {
+        "description": "Defines emphasized text",
+        "children": true
+    },
+    "embed": {
+        "description": "Defines a container for an external application or interactive content",
+        "children": false
+    },
+    "fieldset": {
+        "description": "Groups related form elements",
+        "children": true
+    },
+    "figcaption": {
+        "description": "Defines a caption for a <figure> element",
+        "children": true
+    },
+    "figure": {
+        "description": "Defines self-contained content, like images or diagrams",
+        "children": true
+    },
+    "footer": {
+        "description": "Defines a footer for a document or section",
+        "children": true
+    },
+    "form": {
+        "description": "Defines an HTML form for user input",
+        "children": true
+    },
+    "h1": {
+        "description": "Defines a heading level 1",
+        "children": true
+    },
+    "h2": {
+        "description": "Defines a heading level 2",
+        "children": true
+    },
+    "h3": {
+        "description": "Defines a heading level 3",
+        "children": true
+    },
+    "h4": {
+        "description": "Defines a heading level 4",
+        "children": true
+    },
+    "h5": {
+        "description": "Defines a heading level 5",
+        "children": true
+    },
+    "h6": {
+        "description": "Defines a heading level 6",
+        "children": true
+    },
+    "head": {
+        "description": "Defines information about the document",
+        "children": true
+    },
+    "header": {
+        "description": "Defines a header for a document or section",
+        "children": true
+    },
+    "hr": {
+        "description": "Defines a horizontal rule (line)",
+        "children": false
+    },
+    "html": {
+        "description": "Defines the root of an HTML document",
+        "children": true
+    },
+    "i": {
+        "description": "Defines italic text",
+        "children": true
+    },
+    "iframe": {
+        "description": "Defines an inline frame for embedding external content",
+        "children": true
+    },
+    "img": {
+        "description": "Defines an image",
+        "children": false
+    },
+    "input": {
+        "description": "Defines an input control",
+        "children": false
+    },
+    "ins": {
+        "description": "Defines text that has been inserted into a document",
+        "children": true
+    },
+    "kbd": {
+        "description": "Defines keyboard input",
+        "children": true
+    },
+    "label": {
+        "description": "Defines a label for an <input> element",
+        "children": true
+    },
+    "legend": {
+        "description": "Defines a caption for a <fieldset> element",
+        "children": true
+    },
+    "li": {
+        "description": "Defines a list item",
+        "children": true
+    },
+    "link": {
+        "description": "Defines the relationship between a document and an external resource",
+        "children": false
+    },
+    "main": {
+        "description": "Defines the main content of a document",
+        "children": true
+    },
+    "map": {
+        "description": "Defines an image map",
+        "children": true
+    },
+    "mark": {
+        "description": "Defines marked/highlighted text",
+        "children": true
+    },
+    "menu": {
+        "description": "Defines a list/menu of commands",
+        "children": true
+    },
+    "meta": {
+        "description": "Defines metadata about an HTML document",
+        "children": false
+    },
+    "meter": {
+        "description": "Defines a scalar measurement within a known range",
+        "children": true
+    },
+    "nav": {
+        "description": "Defines a navigation menu",
+        "children": true
+    },
+    "noscript": {
+        "description": "Defines an alternate content for users that do not support client-side scripts",
+        "children": true
+    },
+    "object": {
+        "description": "Defines a container for external application or interactive content",
+        "children": true
+    },
+    "ol": {
+        "description": "Defines an ordered list",
+        "children": true
+    },
+    "optgroup": {
+        "description": "Defines a group of related options in a drop-down list",
+        "children": true
+    },
+    "option": {
+        "description": "Defines an option in a drop-down list",
+        "children": true
+    },
+    "output": {
+        "description": "Defines the result of a calculation",
+        "children": true
+    },
+    "p": {
+        "description": "Defines a paragraph",
+        "children": true
+    },
+    "param": {
+        "description": "Defines a parameter for an object",
+        "children": false
+    },
+    "picture": {
+        "description": "Defines a container for multiple image resources",
+        "children": true
+    },
+    "pre": {
+        "description": "Defines preformatted text",
+        "children": true
+    },
+    "progress": {
+        "description": "Represents the progress of a task",
+        "children": true
+    },
+    "q": {
+        "description": "Defines a short quotation",
+        "children": true
+    },
+    "rb": {
+        "description": "Defines a ruby base (character) for a ruby annotation",
+        "children": true
+    },
+    "rp": {
+        "description": "Defines what to show in browsers that do not support ruby annotations",
+        "children": true
+    },
+    "rt": {
+        "description": "Defines a ruby text (annotation) for a ruby annotation",
+        "children": true
+    },
+    "rtc": {
+        "description": "Defines a ruby text container for a ruby annotation",
+        "children": true
+    },
+    "ruby": {
+        "description": "Defines a ruby annotation (for East Asian typography)",
+        "children": true
+    },
+    "s": {
+        "description": "Defines strikethrough text",
+        "children": true
+    },
+    "samp": {
+        "description": "Defines sample output from a computer program",
+        "children": true
+    },
+    "script": {
+        "description": "Defines a client-side script",
+        "children": false
+    },
+    "section": {
+        "description": "Defines a section in a document",
+        "children": true
+    },
+    "select": {
+        "description": "Defines a drop-down list",
+        "children": true
+    },
+    "slot": {
+        "description": "Defines a slot for content in a web component",
+        "children": true
+    },
+    "small": {
+        "description": "Defines smaller text",
+        "children": true
+    },
+    "source": {
+        "description": "Defines multiple media resources for media elements (<video> and <audio>)",
+        "children": false
+    },
+    "span": {
+        "description": "Defines a small section of text",
+        "children": true
+    },
+    "strong": {
+        "description": "Defines important text",
+        "children": true
+    },
+    "style": {
+        "description": "Defines style information for a document",
+        "children": true
+    },
+    "sub": {
+        "description": "Defines subscripted text",
+        "children": true
+    },
+    "summary": {
+        "description": "Defines a visible heading for a <details> element",
+        "children": true
+    },
+    "sup": {
+        "description": "Defines superscripted text",
+        "children": true
+    },
+    "table": {
+        "description": "Defines a table",
+        "children": true
+    },
+    "tbody": {
+        "description": "Groups the body content in a table",
+        "children": true
+    },
+    "td": {
+        "description": "Defines a cell in a table",
+        "children": true
+    },
+    "template": {
+        "description": "Defines a container for content that should be hidden when the page loads",
+        "children": true
+    },
+    "textarea": {
+        "description": "Defines a multiline input control",
+        "children": true
+    },
+    "tfoot": {
+        "description": "Groups the footer content in a table",
+        "children": true
+    },
+    "th": {
+        "description": "Defines a header cell in a table",
+        "children": true
+    },
+    "thead": {
+        "description": "Groups the header content in a table",
+        "children": true
+    },
+    "time": {
+        "description": "Defines a date/time",
+        "children": true
+    },
+    "title": {
+        "description": "Defines a title for the document",
+        "children": true
+    },
+    "tr": {
+        "description": "Defines a row in a table",
+        "children": true
+    },
+    "track": {
+        "description": "Defines text tracks for media elements (<video> and <audio>)",
+        "children": false
+    },
+    "u": {
+        "description": "Defines underlined text",
+        "children": true
+    },
+    "ul": {
+        "description": "Defines an unordered list",
+        "children": true
+    },
+    "var": {
+        "description": "Defines a variable",
+        "children": true
+    },
+    "video": {
+        "description": "Defines a video",
+        "children": true
+    },
+    "wbr": {
+        "description": "Defines a possible line-break",
+        "children": false
+    }
+}

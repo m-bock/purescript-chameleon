@@ -1,0 +1,300 @@
+{
+    "a": {
+        "description": "Creates a hyperlink element",
+        "children": true
+    },
+    "altGlyph": {
+        "description": "Defines an alternative representation of a glyph in a font",
+        "children": true
+    },
+    "altGlyphDef": {
+        "description": "Defines a set of glyph substitutions for an altGlyph element",
+        "children": true
+    },
+    "altGlyphItem": {
+        "description": "Defines a substitution for a specific glyph in an altGlyphDef element",
+        "children": true
+    },
+    "animate": {
+        "description": "Defines an animation on an SVG element",
+        "children": false
+    },
+    "animateColor": {
+        "description": "Defines an animated color change for an SVG element",
+        "children": false
+    },
+    "animateMotion": {
+        "description": "Defines an animated motion path for an SVG element",
+        "children": false
+    },
+    "animateTransform": {
+        "description": "Defines an animated transformation on an SVG element",
+        "children": false
+    },
+    "circle": {
+        "description": "Creates a circle element",
+        "children": false
+    },
+    "clipPath": {
+        "description": "Defines a clipping path for an SVG element",
+        "children": true
+    },
+    "color-profile": {
+        "description": "Defines a color profile for an SVG document",
+        "children": true
+    },
+    "cursor": {
+        "description": "Defines a cursor for an SVG element",
+        "children": false
+    },
+    "defs": {
+        "description": "Defines a set of reusable SVG elements",
+        "children": true
+    },
+    "desc": {
+        "description": "Defines a description of an SVG element",
+        "children": true
+    },
+    "ellipse": {
+        "description": "Creates an ellipse element",
+        "children": false
+    },
+    "feBlend": {
+        "description": "Defines a blend mode for two input images in a filter",
+        "children": false
+    },
+    "feColorMatrix": {
+        "description": "Applies a color transformation to an input image",
+        "children": false
+    },
+    "feComponentTransfer": {
+        "description": "Allows for component-wise remapping of input image components",
+        "children": false
+    },
+    "feComposite": {
+        "description": "Combines two input images using a composition operation",
+        "children": false
+    },
+    "feConvolveMatrix": {
+        "description": "Applies a matrix convolution filter effect to an input image",
+        "children": false
+    },
+    "feDiffuseLighting": {
+        "description": "Creates a lighting effect using the alpha channel as a bump map",
+        "children": false
+    },
+    "feDisplacementMap": {
+        "description": "Displaces the pixels in an input image according to a displacement map image",
+        "children": false
+    },
+    "feDistantLight": {
+        "description": "Defines a distant light source for use in a lighting filter effect",
+        "children": false
+    },
+    "feFlood": {
+        "description": "Fills the filter subregion with a solid color",
+        "children": false
+    },
+    "feFuncA": {
+        "description": "Defines the alpha transfer function for a component in a filter",
+        "children": false
+    },
+    "feFuncB": {
+        "description": "Defines the transfer function for a component",
+        "children": false
+    },
+    "feFuncG": {
+        "description": "Defines the transfer function for a component",
+        "children": false
+    },
+    "feFuncR": {
+        "description": "Defines the transfer function for a component",
+        "children": false
+    },
+    "feGaussianBlur": {
+        "description": "Applies a Gaussian blur to an input image",
+        "children": false
+    },
+    "feImage": {
+        "description": "Inserts an external image into an SVG element",
+        "children": false
+    },
+    "feMerge": {
+        "description": "Merges multiple input images together",
+        "children": true
+    },
+    "feMergeNode": {
+        "description": "Specifies an input image for use with a feMerge filter",
+        "children": false
+    },
+    "feMorphology": {
+        "description": "Expands or contracts the shape of an input image",
+        "children": false
+    },
+    "feOffset": {
+        "description": "Offsets the position of an input image",
+        "children": false
+    },
+    "fePointLight": {
+        "description": "Defines a point light source for use in a lighting filter effect",
+        "children": false
+    },
+    "feSpecularLighting": {
+        "description": "Creates a specular lighting effect using the alpha channel as a bump map",
+        "children": false
+    },
+    "feSpotLight": {
+        "description": "Defines a spotlight source for use in a lighting filter effect",
+        "children": false
+    },
+    "feTile": {
+        "description": "Repeats an input image to fill a filter subregion",
+        "children": false
+    },
+    "feTurbulence": {
+        "description": "Generates a Perlin noise or turbulence pattern",
+        "children": false
+    },
+    "filter": {
+        "description": "Defines a filter effect",
+        "children": true
+    },
+    "foreignObject": {
+        "description": "Inserts a foreign object into an SVG document",
+        "children": true
+    },
+    "g": {
+        "description": "Creates a group of SVG elements",
+        "children": true
+    },
+    "glyph": {
+        "description": "Defines a single glyph in an SVG font",
+        "children": true
+    },
+    "glyphRef": {
+        "description": "References a glyph in a font",
+        "children": false
+    },
+    "hatch": {
+        "description": "Defines a hatching pattern",
+        "children": true
+    },
+    "hatchpath": {
+        "description": "Defines the path of a hatching pattern",
+        "children": false
+    },
+    "image": {
+        "description": "Inserts an external raster image into an SVG document",
+        "children": false
+    },
+    "line": {
+        "description": "Creates a line element",
+        "children": false
+    },
+    "linearGradient": {
+        "description": "Defines a linear gradient for an SVG element",
+        "children": true
+    },
+    "marker": {
+        "description": "Defines a marker symbol to be used with a shape or line",
+        "children": true
+    },
+    "mask": {
+        "description": "Defines a mask for an SVG element",
+        "children": true
+    },
+    "metadata": {
+        "description": "The metadata element provides a container for storing non-visual data."
+    },
+    "missing-glyph": {
+        "description": "The missing-glyph element provides a fallback for glyphs that are not available in a font."
+    },
+    "mpath": {
+        "description": "The mpath element provides a way to animate the motion of an object along a path.",
+        "children": true
+    },
+    "path": {
+        "description": "The path element defines a path to be drawn.",
+        "children": false
+    },
+    "pattern": {
+        "description": "The pattern element defines a repeating pattern to be used as a fill or stroke.",
+        "children": true
+    },
+    "polygon": {
+        "description": "The polygon element defines a closed shape consisting of a series of connected straight line segments.",
+        "children": false
+    },
+    "polyline": {
+        "description": "The polyline element defines an open shape consisting of a series of connected straight line segments.",
+        "children": false
+    },
+    "radialGradient": {
+        "description": "The radialGradient element defines a radial gradient to be used as a fill or stroke.",
+        "children": true
+    },
+    "rect": {
+        "description": "The rect element defines a rectangle to be drawn.",
+        "children": false
+    },
+    "script": {
+        "description": "The script element contains script statements.",
+        "children": true
+    },
+    "set": {
+        "description": "The set element provides a way to animate an attribute to a given value.",
+        "children": false
+    },
+    "stop": {
+        "description": "The stop element defines a color or gradient stop in a gradient.",
+        "children": false
+    },
+    "style": {
+        "description": "The style element contains style information for a document or part of a document.",
+        "children": true
+    },
+    "svg": {
+        "description": "The svg element is the root element of an SVG document.",
+        "children": true
+    },
+    "switch": {
+        "description": "The switch element allows conditional processing of SVG elements.",
+        "children": true
+    },
+    "symbol": {
+        "description": "The symbol element defines a reusable graphic element.",
+        "children": true
+    },
+    "text": {
+        "description": "The text element defines a block of text to be drawn.",
+        "children": true
+    },
+    "textPath": {
+        "description": "The textPath element provides a way to align text along a path.",
+        "children": true
+    },
+    "title": {
+        "description": "The title element provides a title for a document or part of a document.",
+        "children": true
+    },
+    "tref": {
+        "description": "The tref element provides a way to reference a portion of text in another element.",
+        "children": false
+    },
+    "tspan": {
+        "description": "The tspan element provides a way to group a portion of text within a larger block of text.",
+        "children": true
+    },
+    "use": {
+        "description": "The use element provides a way to reuse a single element and apply transformations to it.",
+        "children": true
+    },
+    "view": {
+        "description": "The view element defines a rectangular portion of the SVG canvas that should be displayed.",
+        "children": true
+    },
+    "vkern": {
+        "description": "Defines vertical kerning for a pair of glyphs in a font.",
+        "children": false
+    }
+}

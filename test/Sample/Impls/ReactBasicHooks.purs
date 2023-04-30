@@ -14,9 +14,8 @@ import Foreign.Object as Obj
 import React.Basic.DOM (text) as DOM
 import React.Basic.DOM (unsafeCreateDOMComponent)
 import React.Basic.Hooks (JSX, ReactComponent, element, (/\))
-import TaglessVirtualDOM (class Html, Prop(..), withCtx)
+import TaglessVirtualDOM (class Html, Prop(..))
 import Unsafe.Coerce (unsafeCoerce)
-import Web.Event.Internal.Types (Event) as DOM
 
 type HomeProps = Unit
 
@@ -76,7 +75,7 @@ instance ToForeign a => ToForeign (Array a) where
 instance ToForeign String where
   toForeign = unsafeCoerce
 
-instance ToForeign (EffectFn1 DOM.Event Unit) where
+instance ToForeign (EffectFn1 Foreign Unit) where
   toForeign = unsafeCoerce
 
 class ToForeign a where

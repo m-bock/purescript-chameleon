@@ -1,0 +1,484 @@
+{
+    "accept": {
+        "description": "Specifies the types of files that the server accepts (only for type=\"file\")",
+        "type": "string"
+    },
+    "accesskey": {
+        "description": "Defines a keyboard shortcut to activate or focus on the element",
+        "type": "string"
+    },
+    "alt": {
+        "description": "Specifies an alternative text for images",
+        "type": "string"
+    },
+    "autocomplete": {
+        "description": "Specifies whether the element should have autocomplete enabled",
+        "type": "string"
+    },
+    "autofocus": {
+        "description": "Specifies that the element should automatically get focus when the page loads",
+        "type": "boolean"
+    },
+    "autoplay": {
+        "description": "Specifies that the audio/video should start playing as soon as it is ready",
+        "type": "boolean"
+    },
+    "buffered": {
+        "description": "Returns a TimeRanges object representing the buffered parts of the audio/video",
+        "type": "TimeRanges"
+    },
+    "challenge": {
+        "description": "Specifies a challenge-response test to ensure that the form was filled out by a human and not a computer",
+        "type": "string"
+    },
+    "charset": {
+        "description": "Specifies the character encoding used in the element",
+        "type": "string"
+    },
+    "checked": {
+        "description": "Specifies that an input element should be pre-selected when the page loads (for type=\"checkbox\" or type=\"radio\")",
+        "type": "boolean"
+    },
+    "cite": {
+        "description": "Specifies a URL which explains the quote/deleted/inserted text",
+        "type": "string"
+    },
+    "class": {
+        "description": "Specifies one or more class names for an element (refers to a class in a style sheet)",
+        "type": "string"
+    },
+    "cols": {
+        "description": "Specifies the visible width of a text area",
+        "type": "number"
+    },
+    "colspan": {
+        "description": "Specifies the number of columns a table cell should span",
+        "type": "number"
+    },
+    "content": {
+        "description": "Gives the value associated with the http-equiv or name attribute",
+        "type": "string"
+    },
+    "contenteditable": {
+        "description": "Specifies whether the content of an element is editable or not",
+        "type": "boolean"
+    },
+    "controls": {
+        "description": "Specifies that audio/video controls should be displayed (such as a play/pause button etc)",
+        "type": "boolean"
+    },
+    "coords": {
+        "description": "Specifies the coordinates of the area",
+        "type": "string"
+    },
+    "data": {
+        "description": "Specifies the URL of the resource to be used by the object",
+        "type": "string"
+    },
+    "datetime": {
+        "description": "Specifies the date and time",
+        "type": "string"
+    },
+    "default": {
+        "description": "Specifies that the track is to be enabled if the user's preferences do not indicate that another track would be more appropriate",
+        "type": "boolean"
+    },
+    "defer": {
+        "description": "Specifies that the script is executed when the page has finished parsing (only for external scripts)",
+        "type": "boolean"
+    },
+    "dir": {
+        "description": "Sets the text directionality of the content within an element",
+        "type": "enumerated",
+        "value": "ltr | rtl | auto"
+    },
+    "disabled": {
+        "description": "Disables an element",
+        "type": "boolean"
+    },
+    "download": {
+        "description": "Prompts the user to save the linked URL instead of navigating to it",
+        "type": "string"
+    },
+    "draggable": {
+        "description": "Indicates whether an element is draggable",
+        "type": "enumerated",
+        "value": "true | false | auto"
+    },
+    "dropzone": {
+        "description": "Specifies whether the dragged data is copied, moved, or linked when dropped",
+        "type": "enumerated",
+        "value": "copy | move | link | string:string"
+    },
+    "enctype": {
+        "description": "Specifies how the form data should be encoded when submitting to the server",
+        "type": "enumerated",
+        "value": "application/x-www-form-urlencoded | multipart/form-data | text/plain"
+    },
+    "for": {
+        "description": "Associates a label with a form control",
+        "type": "string"
+    },
+    "form": {
+        "description": "Indicates the form that an element belongs to",
+        "type": "string"
+    },
+    "formaction": {
+        "description": "Specifies the URL to which the form data will be submitted when a form is submitted",
+        "type": "string"
+    },
+    "headers": {
+        "description": "Defines a list of header cells that are associated with a data cell",
+        "type": "string"
+    },
+    "height": {
+        "description": "Specifies the height of an element",
+        "type": "dimension"
+    },
+    "hidden": {
+        "description": "Hides an element",
+        "type": "boolean"
+    },
+    "high": {
+        "description": "Specifies the range that is considered to be a high value",
+        "type": "number"
+    },
+    "href": {
+        "description": "Specifies the URL of the page the link goes to",
+        "type": "url"
+    },
+    "hreflang": {
+        "description": "Specifies the language of the linked document",
+        "type": "string"
+    },
+    "http-equiv": {
+        "description": "Provides an HTTP header for the information/value of the content attribute",
+        "type": "string"
+    },
+    "id": {
+        "description": "Specifies a unique id for an element",
+        "type": "string"
+    },
+    "inputmode": {
+        "description": "Specifies what kind of input mechanism would be most helpful for users entering content into the element",
+        "type": "enumerated",
+        "value": "none | text | decimal | numeric | tel | search | email | url"
+    },
+    "integrity": {
+        "description": "Specifies the expected cryptographic digest of the resource",
+        "type": "string"
+    },
+    "is": {
+        "description": "Indicates the tag name of the element it is applied to",
+        "type": "string"
+    },
+    "ismap": {
+        "description": "Specifies that an image should be part of a server-side image map",
+        "type": "boolean"
+    },
+    "itemid": {
+        "description": "Specifies a unique identifier for an item",
+        "type": "string"
+    },
+    "itemprop": {
+        "description": "Specifies the property of an item",
+        "type": "text"
+    },
+    "itemref": {
+        "description": "Specifies one or more elements that contain additional information about the item",
+        "type": "list of text"
+    },
+    "itemscope": {
+        "description": "Specifies that the element is an item and defines its scope",
+        "type": "boolean"
+    },
+    "itemtype": {
+        "description": "Specifies the URL of the vocabulary that describes the item",
+        "type": "url"
+    },
+    "keytype": {
+        "description": "Specifies the type of key generated by the keygen element",
+        "type": "text"
+    },
+    "kind": {
+        "description": "Specifies the kind of text track",
+        "type": "text"
+    },
+    "label": {
+        "description": "Specifies the label for the element",
+        "type": "text"
+    },
+    "lang": {
+        "description": "Specifies the language of the element's content",
+        "type": "language code"
+    },
+    "language": {
+        "description": "Specifies the script language of the element",
+        "type": "scripting language code"
+    },
+    "list": {
+        "description": "Refers to a datalist element that contains pre-defined options for an input element",
+        "type": "ID reference"
+    },
+    "loop": {
+        "description": "Specifies that the audio/video will start over again, every time it is finished",
+        "type": "boolean"
+    },
+    "low": {
+        "description": "Specifies the lower bound of the range",
+        "type": "number"
+    },
+    "manifest": {
+        "description": "Specifies the address of the document's cache manifest",
+        "type": "url"
+    },
+    "max": {
+        "description": "Specifies the maximum value for the element",
+        "type": "number"
+    },
+    "maxlength": {
+        "description": "Specifies the maximum number of characters allowed in the element",
+        "type": "number"
+    },
+    "media": {
+        "description": "Specifies what media/device the linked document is optimized for",
+        "type": "media query"
+    },
+    "method": {
+        "description": "Specifies the HTTP method used when submitting the form",
+        "type": "text"
+    },
+    "min": {
+        "description": "Specifies the minimum value for the element",
+        "type": "number"
+    },
+    "minlength": {
+        "description": "Specifies the minimum number of characters required in the element",
+        "type": "number"
+    },
+    "multiple": {
+        "description": "Specifies that a user can enter more than one value in an input element",
+        "type": "boolean"
+    },
+    "muted": {
+        "description": "Specifies that the audio output of the video should be muted",
+        "type": "boolean"
+    },
+    "name": {
+        "description": "Specifies a name for the element",
+        "type": "text"
+    },
+    "novalidate": {
+        "description": "Specifies that the form should not be validated when submitted",
+        "type": "boolean"
+    },
+    "open": {
+        "description": "Specifies that the details should be visible (open) to the user",
+        "type": "boolean"
+    },
+    "optimum": {
+        "description": "Specifies what value is the optimal value for the gauge",
+        "type": "float"
+    },
+    "pattern": {
+        "description": "Specifies a regular expression to check the value of an input element",
+        "type": "string"
+    },
+    "ping": {
+        "description": "Specifies a list of URLs to be notified if a user follows the hyperlink",
+        "type": "string"
+    },
+    "placeholder": {
+        "description": "Specifies a short hint that describes the expected value of an input element",
+        "type": "string"
+    },
+    "poster": {
+        "description": "Specifies an image to be shown while the video is downloading, or until the user hits the play button",
+        "type": "string"
+    },
+    "preload": {
+        "description": "Specifies if and how the author thinks the audio/video should be loaded when the page loads",
+        "type": "string",
+        "values": [
+            "none",
+            "metadata",
+            "auto"
+        ]
+    },
+    "readonly": {
+        "description": "Specifies that the input field is read-only",
+        "type": "boolean"
+    },
+    "referrerpolicy": {
+        "description": "Specifies which referrer information to send when fetching the resource",
+        "type": "string",
+        "values": [
+            "no-referrer",
+            "no-referrer-when-downgrade",
+            "origin",
+            "origin-when-cross-origin",
+            "same-origin",
+            "strict-origin",
+            "strict-origin-when-cross-origin",
+            "unsafe-url"
+        ]
+    },
+    "rel": {
+        "description": "Specifies the relationship between the current document and the linked document/resource",
+        "type": "string",
+        "values": [
+            "alternate",
+            "author",
+            "bookmark",
+            "external",
+            "help",
+            "license",
+            "next",
+            "nofollow",
+            "noreferrer",
+            "noopener",
+            "prev",
+            "search",
+            "tag"
+        ]
+    },
+    "required": {
+        "description": "Specifies that the input field must be filled out before submitting the form",
+        "type": "boolean"
+    },
+    "reversed": {
+        "description": "Specifies that the list order should be descending (9,8,7...)",
+        "type": "boolean"
+    },
+    "rows": {
+        "description": "Specifies the visible number of lines in a text area",
+        "type": "integer"
+    },
+    "rowspan": {
+        "description": "Specifies the number of rows a table cell should span",
+        "type": "integer"
+    },
+    "sandbox": {
+        "description": "Enables an extra set of restrictions for the content in an iframe",
+        "type": "string",
+        "values": [
+            "allow-forms",
+            "allow-modals",
+            "allow-orientation-lock",
+            "allow-pointer-lock",
+            "allow-popups",
+            "allow-popups-to-escape-sandbox",
+            "allow-presentation",
+            "allow-same-origin",
+            "allow-scripts",
+            "allow-top-navigation",
+            "allow-top-navigation-by-user-activation"
+        ]
+    },
+    "scope": {
+        "description": "Specifies whether a header cell is a header for a column, row, or group of columns or rows",
+        "type": "string",
+        "values": [
+            "row",
+            "col",
+            "rowgroup",
+            "colgroup"
+        ]
+    },
+    "selected": {
+        "description": "Indicates whether an option in a <select> element is pre-selected on page load",
+        "type": "Boolean"
+    },
+    "shape": {
+        "description": "Specifies the shape of an <area> element for use with image maps",
+        "type": "String"
+    },
+    "size": {
+        "description": "Specifies the size of an <input> element (in characters)",
+        "type": "Number"
+    },
+    "sizes": {
+        "description": "Specifies a set of possible sizes for an icon",
+        "type": "String"
+    },
+    "slot": {
+        "description": "Assigns a slot in a shadow DOM",
+        "type": "String"
+    },
+    "span": {
+        "description": "Specifies the number of columns a <col> element should span",
+        "type": "Number"
+    },
+    "spellcheck": {
+        "description": "Specifies whether the element is to have its spelling and grammar checked or not",
+        "type": "Boolean"
+    },
+    "src": {
+        "description": "Specifies the URL of the media file",
+        "type": "URL"
+    },
+    "srcdoc": {
+        "description": "Specifies the HTML content of the page to show in the <iframe>",
+        "type": "String"
+    },
+    "srclang": {
+        "description": "Specifies the language of the track text data (required if kind=\"subtitles\")",
+        "type": "String"
+    },
+    "srcset": {
+        "description": "Specifies the URL of the image to use in different situations (e.g. high-resolution displays, small monitors, etc)",
+        "type": "String"
+    },
+    "start": {
+        "description": "Specifies the start value of a <ol> element",
+        "type": "Number"
+    },
+    "step": {
+        "description": "Specifies the legal number intervals for an <input> element",
+        "type": "String"
+    },
+    "style": {
+        "description": "Specifies an inline CSS style for an element",
+        "type": "String"
+    },
+    "tabindex": {
+        "description": "Specifies the tabbing order of an element",
+        "type": "Number"
+    },
+    "target": {
+        "description": "Specifies the target for where to open the linked document or where to submit the form",
+        "type": "String"
+    },
+    "title": {
+        "description": "Specifies extra information about an element",
+        "type": "String"
+    },
+    "translate": {
+        "description": "Specifies whether the content of an element should be translated or not",
+        "type": "Boolean"
+    },
+    "type": {
+        "description": "Specifies the type of element",
+        "type": "String"
+    },
+    "typemustmatch": {
+        "description": "Specifies whether the type attribute and the actual content of the resource must match to be displayed",
+        "type": "Boolean"
+    },
+    "usemap": {
+        "description": "Specifies an image as a client-side image map",
+        "type": "String"
+    },
+    "value": {
+        "description": "Specifies the value of an element",
+        "type": "String"
+    },
+    "width": {
+        "description": "Specifies the width of an element",
+        "type": "Number"
+    },
+    "wrap": {
+        "description": "Specifies how the text in a text area is to be wrapped when submitted in a form",
+        "type": "String"
+    }
+}

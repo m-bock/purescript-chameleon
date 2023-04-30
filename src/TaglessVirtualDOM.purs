@@ -3,13 +3,11 @@ module TaglessVirtualDOM where
 import Prelude
 
 import Data.Maybe (Maybe)
-import Unsafe.Coerce (unsafeCoerce)
-import Web.Event.Internal.Types as DOM
+import Foreign (Foreign)
 
 data Prop a
-  = Event String (DOM.Event -> Maybe a)
+  = Event String (Foreign -> Maybe a)
   | Attr String String
-
 
 class Html :: (Type -> Type -> Type) -> Constraint
 class Functor (html Type) <= Html html where

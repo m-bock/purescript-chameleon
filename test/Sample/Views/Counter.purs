@@ -26,8 +26,8 @@ view props =
     ]
     [ text "Counter"
     , T.div [] [ text $ show props.count ]
-    , T.button [ TE.onClick (const $ Just $ Increment 1) ]
+    , T.button [ TE.onClick (Increment 1) ]
         [ text "+" ]
-    , T.button [ TE.onClick (const $ Just $ Decrement 1) ]
+    , T.button [ TE.onClick (Decrement 1) ]
         [ text "-" ]
     ]
