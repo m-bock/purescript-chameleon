@@ -9,8 +9,8 @@
 -- integrate it in any framework that does provide a matching implementation. 
 --
 -- Currently available implementations:
---   - [halogen](https:://github.com/thought2/virtual-dom-halogen)
---   - [react-basic](https:://github.com/thought2/virtual-dom-react-basic)
+--   - [halogen](https://github.com/thought2/virtual-dom-halogen)
+--   - [react-basic](https://github.com/thought2/virtual-dom-react-basic)
 --
 -- ## Example
 
