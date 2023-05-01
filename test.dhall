@@ -16,6 +16,7 @@
   , "record"
   , "strings"
   , "transformers"
+  , "tuples"
   , "unsafe-coerce"
   , "variant"
   , "web-dom"

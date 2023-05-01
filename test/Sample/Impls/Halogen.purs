@@ -1,30 +1,40 @@
-module Test.Sample.Impls.Halogen where
+module Test.Sample.Impls.Halogen
+  ( HalogenHTML
+  , runHalogenHTML
+  )
+  where
 
 import Prelude
 
 import Data.Bifunctor (lmap)
 import Data.String as Str
+import Data.Tuple.Nested ((/\))
 import Foreign (Foreign)
-import Halogen (AttrName(..), ElemName(..))
 import Halogen.HTML (HTML)
 import Halogen.HTML as HH
 import Halogen.HTML.Properties (IProp(..))
 import Halogen.Query.Input (Input(..))
-import TaglessVirtualDOM (class Html, Prop(..))
+import TaglessVirtualDOM (class Html, ElemName(..), Key(..), Prop(..))
 import Unsafe.Coerce (unsafeCoerce)
 import Web.Event.Event (EventType(..))
 import Web.Event.Internal.Types as DOM
 
+newtype HalogenHTML ctx a = HalogenHTML (ctx -> HTML Void a)
+
+derive instance Functor (HalogenHTML ctx)
+
 instance Html HalogenHTML where
-  elem name props children = HalogenHTML \ctx ->
+  elem (ElemName name) props children = HalogenHTML \ctx ->
     HH.element
-      (ElemName name)
+      (HH.ElemName name)
       (mapProp <$> props)
       (runHalogenHTML ctx <$> children)
-    where
-    mapProp prop = case prop of
-      Attr k v -> HH.attr (AttrName k) v
-      Event n h -> IProp $ HH.handler (EventType $ Str.toLower n) (eventToForeign >>> h >>> map Action)
+
+  elemKeyed (ElemName name) props children = HalogenHTML \ctx ->
+    HH.keyed
+      (HH.ElemName name)
+      (mapProp <$> props)
+      ((\(Key key /\ html) -> key /\ runHalogenHTML ctx html) <$> children)
 
   text str = HalogenHTML \_ -> HH.text str
 
@@ -32,9 +42,10 @@ instance Html HalogenHTML where
 
   withCtx f = HalogenHTML \ctx -> runHalogenHTML ctx $ f ctx
 
-newtype HalogenHTML ctx a = HalogenHTML (ctx -> HTML Void a)
-
-derive instance Functor (HalogenHTML ctx)
+mapProp :: forall r a. Prop a -> IProp r a
+mapProp prop = case prop of
+  Attr k v -> HH.attr (HH.AttrName k) v
+  Event n h -> IProp $ HH.handler (EventType $ Str.toLower n) (eventToForeign >>> h >>> map Action)
 
 eventToForeign :: DOM.Event -> Foreign
 eventToForeign = unsafeCoerce

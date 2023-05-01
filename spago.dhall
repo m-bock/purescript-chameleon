@@ -6,6 +6,7 @@
   , "prelude"
   , "strings"
   , "transformers"
+  , "tuples"
   , "variant"
   ]
 , packages = ./packages.dhall

@@ -19,14 +19,14 @@ const genElement = ([tagName, { children, description }]) => {
 ${kebapToCamel(
   tagName
 )} :: forall html ctx a. Html html => Array (Prop a) -> Array (html ctx a) -> html ctx a
-${kebapToCamel(tagName)} props children = elem "${tagName}" props children
+${kebapToCamel(tagName)} props children = elem (ElemName "${tagName}") props children
 `
     : `
 -- | ${description}
 ${kebapToCamel(
   tagName
 )} :: forall html ctx a. Html html => Array (Prop a) -> html ctx a
-${kebapToCamel(tagName)} props = elem "${tagName}" props []
+${kebapToCamel(tagName)} props = elem (ElemName "${tagName}") props []
 `;
 };
 
@@ -36,7 +36,7 @@ const genElements = (scope) => (data) => {
   return `
 module TaglessVirtualDOM.${scope}.Elements where
 
-import TaglessVirtualDOM (class Html, Prop, elem)
+import TaglessVirtualDOM (class Html, ElemName(..), Prop, elem)
 
 ${code}
 `;
@@ -188,11 +188,11 @@ const kebapToCamel = (str) => {
   });
 };
 
+const readJSON = (filePath) => JSON.parse(fs.readFileSync(filePath).toString());
+
 // ----------------------------------------------------------------------------
 // Main
 // ----------------------------------------------------------------------------
-
-const readJSON = (filePath) => JSON.parse(fs.readFileSync(filePath).toString());
 
 const genHTML = () => {
   const scope = "HTML";
