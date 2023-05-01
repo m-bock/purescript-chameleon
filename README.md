@@ -55,10 +55,3 @@ view props =
         [ text "-" ]
     ]
 ```
-## TODO
-Right now this is in a POC state. These tasks/questions need to be addressed:
-  - How to handle keyed elements?
-  - Do it really need the DOM.Event dependency?
-  - Wow to design `input` element functions?
-  - Auto generate Elements/Events/Arrtributes?
-  - Publish react-basic-hooks and halogen implementations in separate libraries
