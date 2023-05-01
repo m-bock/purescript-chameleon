@@ -19,7 +19,9 @@ const genElement = ([tagName, { children, description }]) => {
 ${kebapToCamel(
   tagName
 )} :: forall html ctx a. Html html => Array (Prop a) -> Array (html ctx a) -> html ctx a
-${kebapToCamel(tagName)} props children = elem (ElemName "${tagName}") props children
+${kebapToCamel(
+  tagName
+)} props children = elem (ElemName "${tagName}") props children
 `
     : `
 -- | ${description}
@@ -37,6 +39,45 @@ const genElements = (scope) => (data) => {
 module TaglessVirtualDOM.${scope}.Elements where
 
 import TaglessVirtualDOM (class Html, ElemName(..), Prop, elem)
+
+${code}
+`;
+};
+
+// ----------------------------------------------------------------------------
+// KeyedElements
+// ----------------------------------------------------------------------------
+
+const genKeyedElement = ([tagName, { children, description }]) => {
+  tagName = replaceMap[tagName] || tagName;
+
+  return children
+    ? `
+-- | ${description}
+${kebapToCamel(
+  tagName
+)} :: forall html ctx a. Html html => Array (Prop a) -> Array (Key /\\ html ctx a) -> html ctx a
+${kebapToCamel(
+  tagName
+)} props children = elemKeyed (ElemName "${tagName}") props children
+`
+    : `
+-- | ${description}
+${kebapToCamel(
+  tagName
+)} :: forall html ctx a. Html html => Array (Prop a) -> html ctx a
+${kebapToCamel(tagName)} props = elemKeyed (ElemName "${tagName}") props []
+`;
+};
+
+const genKeyedElements = (scope) => (data) => {
+  const code = Object.entries(data).map(genKeyedElement).join("");
+
+  return `
+module TaglessVirtualDOM.${scope}.KeyedElements where
+
+import Data.Tuple.Nested (type (/\\))
+import TaglessVirtualDOM (class Html, Key, ElemName(..), Prop, elemKeyed)
 
 ${code}
 `;
@@ -201,6 +242,13 @@ const genHTML = () => {
   const elements2 = genElements(scope)(elements1);
   fs.writeFileSync(`src/TaglessVirtualDOM/${scope}/Elements.purs`, elements2);
 
+  const keyedElements1 = readJSON(`codegen/${scope}/elements.json`);
+  const keyedElements2 = genKeyedElements(scope)(keyedElements1);
+  fs.writeFileSync(
+    `src/TaglessVirtualDOM/${scope}/KeyedElements.purs`,
+    keyedElements2
+  );
+
   const attributes1 = readJSON(`codegen/${scope}/attributes.json`);
   const attributes2 = genAttributes(scope)(attributes1);
   fs.writeFileSync(
@@ -219,6 +267,13 @@ const genSVG = () => {
   const elements1 = readJSON(`codegen/${scope}/elements.json`);
   const elements2 = genElements(scope)(elements1);
   fs.writeFileSync(`src/TaglessVirtualDOM/${scope}/Elements.purs`, elements2);
+
+  const keyedElements1 = readJSON(`codegen/${scope}/elements.json`);
+  const keyedElements2 = genKeyedElements(scope)(keyedElements1);
+  fs.writeFileSync(
+    `src/TaglessVirtualDOM/${scope}/KeyedElements.purs`,
+    keyedElements2
+  );
 
   const attributes1 = readJSON(`codegen/${scope}/attributes.json`);
   const attributes2 = genAttributes(scope)(attributes1);
