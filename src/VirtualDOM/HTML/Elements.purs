@@ -1,6 +1,6 @@
-module TaglessVirtualDOM.HTML.Elements where
+module VirtualDOM.HTML.Elements where
 
-import TaglessVirtualDOM (class Html, ElemName(..), Prop, elem)
+import VirtualDOM (class Html, ElemName(..), Prop, elem)
 
 -- | Defines a hyperlink
 a :: forall html ctx a. Html html => Array (Prop a) -> Array (html ctx a) -> html ctx a

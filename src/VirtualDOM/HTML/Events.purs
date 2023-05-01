@@ -1,4 +1,4 @@
-module TaglessVirtualDOM.HTML.Events where
+module VirtualDOM.HTML.Events where
 
 import Prelude
 
@@ -8,7 +8,7 @@ import Data.Maybe (Maybe(..))
 import Foreign (Foreign)
 import Foreign as F
 import Foreign.Index as FI
-import TaglessVirtualDOM (Prop(..))
+import VirtualDOM (Prop(..))
 
 class FromForeign a where
   fromForeign :: Foreign -> Maybe a

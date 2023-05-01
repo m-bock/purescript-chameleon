@@ -19,7 +19,7 @@ import Foreign.Object as Obj
 import React.Basic.DOM (text) as DOM
 import React.Basic.DOM (unsafeCreateDOMComponent)
 import React.Basic.Hooks (JSX, ReactComponent, element, (/\))
-import TaglessVirtualDOM (class Html, ElemName(..), Key, Prop(..))
+import VirtualDOM (class Html, ElemName(..), Key, Prop(..))
 import Unsafe.Coerce (unsafeCoerce)
 
 newtype ReactHTML ctx a = ReactHTML (ctx -> (a -> Effect Unit) -> Maybe Key -> JSX)

@@ -1,4 +1,4 @@
-module TaglessVirtualDOM where
+module VirtualDOM where
 
 import Prelude
 

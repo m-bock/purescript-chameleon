@@ -3,8 +3,8 @@ module Test.Sample.Views.ContextSample where
 import Prelude
 
 import Record (delete, union)
-import TaglessVirtualDOM (class Html, mapCtx, text, withCtx)
-import TaglessVirtualDOM.HTML.Elements as T
+import VirtualDOM (class Html, mapCtx, text, withCtx)
+import VirtualDOM.HTML.Elements as T
 import Type.Proxy (Proxy(..))
 
 type Ctx r = { theme :: String | r }

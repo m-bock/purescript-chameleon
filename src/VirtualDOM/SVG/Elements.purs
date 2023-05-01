@@ -1,6 +1,6 @@
-module TaglessVirtualDOM.SVG.Elements where
+module VirtualDOM.SVG.Elements where
 
-import TaglessVirtualDOM (class Html, ElemName(..), Prop, elem)
+import VirtualDOM (class Html, ElemName(..), Prop, elem)
 
 -- | Creates a hyperlink element
 a :: forall html ctx a. Html html => Array (Prop a) -> Array (html ctx a) -> html ctx a

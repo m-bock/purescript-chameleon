@@ -1,4 +1,4 @@
-module TaglessVirtualDOM.HTML.Attributes where
+module VirtualDOM.HTML.Attributes where
 
 import Prelude
 
@@ -9,7 +9,7 @@ import Data.Variant as V
 import Prim.Row as Row
 import Prim.RowList (class RowToList, RowList)
 import Prim.RowList as RL
-import TaglessVirtualDOM (Prop(..))
+import VirtualDOM (Prop(..))
 import Type.Proxy (Proxy(..))
 
 class IsAttrib a where
