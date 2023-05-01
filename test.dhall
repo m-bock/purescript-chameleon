@@ -1,4 +1,4 @@
-{ name = "tagless-virtual-dom-test"
+{ name = "virtual-dom-test"
 , dependencies =
   [ "aff"
   , "bifunctors"

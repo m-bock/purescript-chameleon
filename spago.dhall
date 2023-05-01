@@ -1,4 +1,4 @@
-{ name = "tagless-virtual-dom"
+{ name = "virtual-dom"
 , dependencies =
   [ "either"
   , "foreign"
