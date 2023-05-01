@@ -60,6 +60,19 @@ instance
     where
     prxSym = Proxy :: _ sym
 
+else instance
+  ( IsAttribVariantRL rl r'
+  , Row.Cons sym a r' r
+  , IsSymbol sym
+  , IsAttrib a
+  ) =>
+  IsAttribVariantRL (RL.Cons sym a rl) r where
+  toAttribVariantRL _ =
+    toAttribVariantRL (Proxy :: _ rl)
+      # V.on prxSym toAttrib
+    where
+    prxSym = Proxy :: _ sym
+
 ------------------------------------------------------------------------------- 
 --- Attributes
 -------------------------------------------------------------------------------
@@ -68,15 +81,39 @@ instance
 accept :: forall a. String -> Prop a
 accept val = Attr "accept" (toAttrib val)
 
--- | Defines a keyboard shortcut to activate or focus on the element
+-- | Specifies the character encodings that are to be used for the form submission
+acceptCharset :: forall a. String -> Prop a
+acceptCharset val = Attr "accept-charset" (toAttrib val)
+
+-- | Specifies a shortcut key to activate/focus an element
 accesskey :: forall a. String -> Prop a
 accesskey val = Attr "accesskey" (toAttrib val)
 
--- | Specifies an alternative text for images
+-- | Specifies where to send the form-data when a form is submitted
+action :: forall a. String -> Prop a
+action val = Attr "action" (toAttrib val)
+
+-- | Not supported in HTML5. Specifies the alignment according to surrounding elements. Use CSS instead
+align :: forall a. String -> Prop a
+align val = Attr "align" (toAttrib val)
+
+-- | Specifies a feature-policy for the iframe
+allow :: forall a. String -> Prop a
+allow val = Attr "allow" (toAttrib val)
+
+-- | Specifies an alternate text when the original element fails to display
 alt :: forall a. String -> Prop a
 alt val = Attr "alt" (toAttrib val)
 
--- | Specifies whether the element should have autocomplete enabled
+-- | Specifies that the script is executed asynchronously (only for external scripts)
+async :: forall a. Boolean -> Prop a
+async val = Attr "async" (toAttrib val)
+
+-- | Controls whether and how text input is automatically capitalized as it is entered/edited by the user
+autocapitalize :: forall a. String -> Prop a
+autocapitalize val = Attr "autocapitalize" (toAttrib val)
+
+-- | Specifies whether the <form> or the <input> element should have autocomplete enabled
 autocomplete :: forall a. String -> Prop a
 autocomplete val = Attr "autocomplete" (toAttrib val)
 
@@ -84,19 +121,23 @@ autocomplete val = Attr "autocomplete" (toAttrib val)
 autofocus :: forall a. Boolean -> Prop a
 autofocus val = Attr "autofocus" (toAttrib val)
 
--- | Specifies that the audio/video should start playing as soon as it is ready
+-- | Specifies that the audio/video will start playing as soon as it is ready
 autoplay :: forall a. Boolean -> Prop a
 autoplay val = Attr "autoplay" (toAttrib val)
 
--- | Specifies a challenge-response test to ensure that the form was filled out by a human and not a computer
-challenge :: forall a. String -> Prop a
-challenge val = Attr "challenge" (toAttrib val)
+-- | Not supported in HTML5. Specifies the URL of an image to be used as the background for the iframe
+background :: forall a. String -> Prop a
+background val = Attr "background" (toAttrib val)
 
--- | Specifies the character encoding used in the element
+-- | Specifies that the video/audio will be recorded (instead of a live stream)
+capture :: forall a. Variant ("user" :: Unit, "environment" :: Unit) -> Prop a
+capture val = Attr "capture" (toAttrib val)
+
+-- | Specifies the character encoding
 charset :: forall a. String -> Prop a
 charset val = Attr "charset" (toAttrib val)
 
--- | Specifies that an input element should be pre-selected when the page loads (for type="checkbox" or type="radio")
+-- | Specifies that an <input> element should be pre-selected when the page loads (for type="checkbox" or type="radio")
 checked :: forall a. Boolean -> Prop a
 checked val = Attr "checked" (toAttrib val)
 
@@ -104,9 +145,17 @@ checked val = Attr "checked" (toAttrib val)
 cite :: forall a. String -> Prop a
 cite val = Attr "cite" (toAttrib val)
 
--- | Specifies one or more class names for an element (refers to a class in a style sheet)
+-- | Specifies one or more classnames for an element (refers to a class in a style sheet)
 class_ :: forall a. String -> Prop a
 class_ val = Attr "class_" (toAttrib val)
+
+-- | Not supported in HTML5. Specifies the URL of the plugin used to display the <object>
+code :: forall a. String -> Prop a
+code val = Attr "code" (toAttrib val)
+
+-- | Not supported in HTML5. Specifies the URL of the plugin used to display the <object>
+codebase :: forall a. String -> Prop a
+codebase val = Attr "codebase" (toAttrib val)
 
 -- | Specifies the visible width of a text area
 cols :: forall a. Number -> Prop a
@@ -124,6 +173,10 @@ content val = Attr "content" (toAttrib val)
 contenteditable :: forall a. Boolean -> Prop a
 contenteditable val = Attr "contenteditable" (toAttrib val)
 
+-- | Specifies a context menu for an element. The context menu appears when a user right-clicks on the element
+contextmenu :: forall a. String -> Prop a
+contextmenu val = Attr "contextmenu" (toAttrib val)
+
 -- | Specifies that audio/video controls should be displayed (such as a play/pause button etc)
 controls :: forall a. Boolean -> Prop a
 controls val = Attr "controls" (toAttrib val)
@@ -131,6 +184,10 @@ controls val = Attr "controls" (toAttrib val)
 -- | Specifies the coordinates of the area
 coords :: forall a. String -> Prop a
 coords val = Attr "coords" (toAttrib val)
+
+-- | Specifies how the element handles cross-origin requests
+crossorigin :: forall a. Variant ("anonymous" :: Unit, "use-credentials" :: Unit) -> Prop a
+crossorigin val = Attr "crossorigin" (toAttrib val)
 
 -- | Specifies the URL of the resource to be used by the object
 data_ :: forall a. String -> Prop a
@@ -140,6 +197,10 @@ data_ val = Attr "data_" (toAttrib val)
 datetime :: forall a. String -> Prop a
 datetime val = Attr "datetime" (toAttrib val)
 
+-- | Specifies the decoding algorithm
+decoding :: forall a. Variant ("async" :: Unit, "auto" :: Unit, "sync" :: Unit) -> Prop a
+decoding val = Attr "decoding" (toAttrib val)
+
 -- | Specifies that the track is to be enabled if the user's preferences do not indicate that another track would be more appropriate
 default :: forall a. Boolean -> Prop a
 default val = Attr "default" (toAttrib val)
@@ -148,23 +209,27 @@ default val = Attr "default" (toAttrib val)
 defer :: forall a. Boolean -> Prop a
 defer val = Attr "defer" (toAttrib val)
 
--- | Sets the text directionality of the content within an element
+-- | Specifies the text direction for the content in an element
 dir :: forall a. Variant ("ltr" :: Unit, "rtl" :: Unit, "auto" :: Unit) -> Prop a
 dir val = Attr "dir" (toAttrib val)
 
--- | Disables an element
+-- | Specifies that the text direction will be submitted
+dirname :: forall a. String -> Prop a
+dirname val = Attr "dirname" (toAttrib val)
+
+-- | Specifies that the specified element/group of elements should be disabled
 disabled :: forall a. Boolean -> Prop a
 disabled val = Attr "disabled" (toAttrib val)
 
--- | Prompts the user to save the linked URL instead of navigating to it
-download :: forall a. String -> Prop a
+-- | Specifies that the target will be downloaded when a user clicks on the hyperlink
+download :: forall a. Boolean -> Prop a
 download val = Attr "download" (toAttrib val)
 
--- | Indicates whether an element is draggable
-draggable :: forall a. Variant ("true" :: Unit, "false" :: Unit, "auto" :: Unit) -> Prop a
+-- | Specifies whether an element is draggable or not
+draggable :: forall a. Boolean -> Prop a
 draggable val = Attr "draggable" (toAttrib val)
 
--- | Specifies how the form data should be encoded when submitting to the server
+-- | Specifies how the form-data should be encoded when submitting it to the server (only for method="post")
 enctype
   :: forall a
    . Variant
@@ -175,27 +240,54 @@ enctype
   -> Prop a
 enctype val = Attr "enctype" (toAttrib val)
 
--- | Associates a label with a form control
+-- | Specifies what action to take when the user hits the Enter key
+enterkeyhint :: forall a. String -> Prop a
+enterkeyhint val = Attr "enterkeyhint" (toAttrib val)
+
+-- | Specifies which form element(s) a label/calculation is bound to
 for :: forall a. String -> Prop a
 for val = Attr "for" (toAttrib val)
 
--- | Indicates the form that an element belongs to
+-- | Specifies one or more forms the <input> element belongs to
 form :: forall a. String -> Prop a
 form val = Attr "form" (toAttrib val)
 
--- | Specifies the URL to which the form data will be submitted when a form is submitted
+-- | Specifies where to send the form-data when a form is submitted. Only for type="submit"
 formaction :: forall a. String -> Prop a
 formaction val = Attr "formaction" (toAttrib val)
 
--- | Defines a list of header cells that are associated with a data cell
+-- | Specifies how form-data should be encoded before sending it to a server. Only for type="submit"
+formenctype
+  :: forall a
+   . Variant
+       ( "application/x-www-form-urlencoded" :: Unit
+       , "multipart/form-data" :: Unit
+       , "text/plain" :: Unit
+       )
+  -> Prop a
+formenctype val = Attr "formenctype" (toAttrib val)
+
+-- | Specifies how to send the form-data (which HTTP method to use). Only for type="submit"
+formmethod :: forall a. Variant ("get" :: Unit, "post" :: Unit) -> Prop a
+formmethod val = Attr "formmethod" (toAttrib val)
+
+-- | Specifies that the form-data should not be validated on submission. Only for type="submit"
+formnovalidate :: forall a. Boolean -> Prop a
+formnovalidate val = Attr "formnovalidate" (toAttrib val)
+
+-- | Specifies where to display the response after submitting the form. Only for type="submit"
+formtarget
+  :: forall a
+   . Variant
+       ("_blank" :: Unit, "_self" :: Unit, "_parent" :: Unit, "_top" :: Unit, "framename" :: String)
+  -> Prop a
+formtarget val = Attr "formtarget" (toAttrib val)
+
+-- | Specifies one or more headers cells a cell is related to
 headers :: forall a. String -> Prop a
 headers val = Attr "headers" (toAttrib val)
 
--- | Specifies the height of an element
-height :: forall a. Number -> Prop a
-height val = Attr "height" (toAttrib val)
-
--- | Hides an element
+-- | Specifies that an element is not yet, or is no longer, relevant
 hidden :: forall a. Boolean -> Prop a
 hidden val = Attr "hidden" (toAttrib val)
 
@@ -212,70 +304,50 @@ hreflang :: forall a. String -> Prop a
 hreflang val = Attr "hreflang" (toAttrib val)
 
 -- | Provides an HTTP header for the information/value of the content attribute
-httpEquiv :: forall a. String -> Prop a
+httpEquiv
+  :: forall a
+   . Variant ("content-type" :: Unit, "default-style" :: Unit, "refresh" :: Unit)
+  -> Prop a
 httpEquiv val = Attr "http-equiv" (toAttrib val)
 
 -- | Specifies a unique id for an element
 id :: forall a. String -> Prop a
 id val = Attr "id" (toAttrib val)
 
--- | Specifies what kind of input mechanism would be most helpful for users entering content into the element
-inputmode
-  :: forall a
-   . Variant
-       ( "none" :: Unit
-       , "text" :: Unit
-       , "decimal" :: Unit
-       , "numeric" :: Unit
-       , "tel" :: Unit
-       , "search" :: Unit
-       , "email" :: Unit
-       , "url" :: Unit
-       )
-  -> Prop a
-inputmode val = Attr "inputmode" (toAttrib val)
-
--- | Specifies the expected cryptographic digest of the resource
+-- | Specifies the integrity content security policy (CSP) for the resource
 integrity :: forall a. String -> Prop a
 integrity val = Attr "integrity" (toAttrib val)
 
--- | Indicates the tag name of the element it is applied to
-is :: forall a. String -> Prop a
-is val = Attr "is" (toAttrib val)
+-- | Specifies what kind of input mechanism would be most helpful for users entering content into the element
+inputmode :: forall a. String -> Prop a
+inputmode val = Attr "inputmode" (toAttrib val)
 
--- | Specifies that an image should be part of a server-side image map
+-- | Specifies an image as a server-side image-map
 ismap :: forall a. Boolean -> Prop a
 ismap val = Attr "ismap" (toAttrib val)
 
--- | Specifies a unique identifier for an item
-itemid :: forall a. String -> Prop a
-itemid val = Attr "itemid" (toAttrib val)
-
--- | Specifies the property of an item
+-- | Specifies the name of the property the element represents
 itemprop :: forall a. String -> Prop a
 itemprop val = Attr "itemprop" (toAttrib val)
 
--- | Specifies one or more elements that contain additional information about the item
-itemref :: forall a. Array String -> Prop a
-itemref val = Attr "itemref" (toAttrib val)
-
--- | Specifies that the element is an item and defines its scope
-itemscope :: forall a. Boolean -> Prop a
-itemscope val = Attr "itemscope" (toAttrib val)
-
--- | Specifies the URL of the vocabulary that describes the item
-itemtype :: forall a. String -> Prop a
-itemtype val = Attr "itemtype" (toAttrib val)
-
--- | Specifies the type of key generated by the keygen element
+-- | Specifies the type of key generated
 keytype :: forall a. String -> Prop a
 keytype val = Attr "keytype" (toAttrib val)
 
 -- | Specifies the kind of text track
-kind :: forall a. String -> Prop a
+kind
+  :: forall a
+   . Variant
+       ( "subtitles" :: Unit
+       , "captions" :: Unit
+       , "descriptions" :: Unit
+       , "chapters" :: Unit
+       , "metadata" :: Unit
+       )
+  -> Prop a
 kind val = Attr "kind" (toAttrib val)
 
--- | Specifies the label for the element
+-- | Specifies the title of the text track
 label :: forall a. String -> Prop a
 label val = Attr "label" (toAttrib val)
 
@@ -283,11 +355,11 @@ label val = Attr "label" (toAttrib val)
 lang :: forall a. String -> Prop a
 lang val = Attr "lang" (toAttrib val)
 
--- | Specifies the script language of the element
-language :: forall a. String -> Prop a
-language val = Attr "language" (toAttrib val)
+-- | Specifies how the element handles lazy loading of images
+loading :: forall a. Variant ("auto" :: Unit, "eager" :: Unit, "lazy" :: Unit) -> Prop a
+loading val = Attr "loading" (toAttrib val)
 
--- | Refers to a datalist element that contains pre-defined options for an input element
+-- | Refers to a <datalist> element that contains pre-defined options for an <input> element
 list :: forall a. String -> Prop a
 list val = Attr "list" (toAttrib val)
 
@@ -295,39 +367,35 @@ list val = Attr "list" (toAttrib val)
 loop :: forall a. Boolean -> Prop a
 loop val = Attr "loop" (toAttrib val)
 
--- | Specifies the lower bound of the range
+-- | Specifies the range that is considered to be a low value
 low :: forall a. Number -> Prop a
 low val = Attr "low" (toAttrib val)
 
--- | Specifies the address of the document's cache manifest
-manifest :: forall a. String -> Prop a
-manifest val = Attr "manifest" (toAttrib val)
-
--- | Specifies the maximum value for the element
+-- | Specifies the maximum value
 max :: forall a. Number -> Prop a
 max val = Attr "max" (toAttrib val)
 
--- | Specifies the maximum number of characters allowed in the element
+-- | Specifies the maximum number of characters allowed in an element
 maxlength :: forall a. Number -> Prop a
 maxlength val = Attr "maxlength" (toAttrib val)
+
+-- | Specifies the minimum number of characters allowed in an element
+minlength :: forall a. Number -> Prop a
+minlength val = Attr "minlength" (toAttrib val)
 
 -- | Specifies what media/device the linked document is optimized for
 media :: forall a. String -> Prop a
 media val = Attr "media" (toAttrib val)
 
--- | Specifies the HTTP method used when submitting the form
-method :: forall a. String -> Prop a
+-- | Specifies the HTTP method to use when sending form-data
+method :: forall a. Variant ("get" :: Unit, "post" :: Unit) -> Prop a
 method val = Attr "method" (toAttrib val)
 
--- | Specifies the minimum value for the element
+-- | Specifies a minimum value
 min :: forall a. Number -> Prop a
 min val = Attr "min" (toAttrib val)
 
--- | Specifies the minimum number of characters required in the element
-minlength :: forall a. Number -> Prop a
-minlength val = Attr "minlength" (toAttrib val)
-
--- | Specifies that a user can enter more than one value in an input element
+-- | Specifies that a user can enter more than one value
 multiple :: forall a. Boolean -> Prop a
 multiple val = Attr "multiple" (toAttrib val)
 
@@ -335,7 +403,7 @@ multiple val = Attr "multiple" (toAttrib val)
 muted :: forall a. Boolean -> Prop a
 muted val = Attr "muted" (toAttrib val)
 
--- | Specifies a name for the element
+-- | Specifies the name of the element
 name :: forall a. String -> Prop a
 name val = Attr "name" (toAttrib val)
 
@@ -351,31 +419,35 @@ open val = Attr "open" (toAttrib val)
 optimum :: forall a. Number -> Prop a
 optimum val = Attr "optimum" (toAttrib val)
 
--- | Specifies a regular expression to check the value of an input element
+-- | Specifies a regular expression that an <input> element's value is checked against
 pattern :: forall a. String -> Prop a
 pattern val = Attr "pattern" (toAttrib val)
 
--- | Specifies a list of URLs to be notified if a user follows the hyperlink
+-- | Specifies a space-separated list of URLs to which, when the hyperlink is followed, POST requests with the body PING will be sent by the browser (in the background). Typically used for tracking.
 ping :: forall a. String -> Prop a
 ping val = Attr "ping" (toAttrib val)
 
--- | Specifies a short hint that describes the expected value of an input element
+-- | Specifies a short hint that describes the expected value of the element
 placeholder :: forall a. String -> Prop a
 placeholder val = Attr "placeholder" (toAttrib val)
+
+-- | Specifies that the video will start playing as soon as it is ready
+playsinline :: forall a. Boolean -> Prop a
+playsinline val = Attr "playsinline" (toAttrib val)
 
 -- | Specifies an image to be shown while the video is downloading, or until the user hits the play button
 poster :: forall a. String -> Prop a
 poster val = Attr "poster" (toAttrib val)
 
 -- | Specifies if and how the author thinks the audio/video should be loaded when the page loads
-preload :: forall a. Variant ("none" :: Unit, "metadata" :: Unit, "auto" :: Unit) -> Prop a
+preload :: forall a. Variant ("auto" :: Unit, "metadata" :: Unit, "none" :: Unit) -> Prop a
 preload val = Attr "preload" (toAttrib val)
 
--- | Specifies that the input field is read-only
+-- | Specifies that the element is read-only
 readonly :: forall a. Boolean -> Prop a
 readonly val = Attr "readonly" (toAttrib val)
 
--- | Specifies which referrer information to send when fetching the resource
+-- | Specifies which referrer is sent when fetching the resource
 referrerpolicy
   :: forall a
    . Variant
@@ -391,7 +463,7 @@ referrerpolicy
   -> Prop a
 referrerpolicy val = Attr "referrerpolicy" (toAttrib val)
 
--- | Specifies the relationship between the current document and the linked document/resource
+-- | Specifies the relationship between the current document and the linked document
 rel
   :: forall a
    . Variant
@@ -412,7 +484,7 @@ rel
   -> Prop a
 rel val = Attr "rel" (toAttrib val)
 
--- | Specifies that the input field must be filled out before submitting the form
+-- | Specifies that the element must be filled out before submitting the form
 required :: forall a. Boolean -> Prop a
 required val = Attr "required" (toAttrib val)
 
@@ -420,15 +492,19 @@ required val = Attr "required" (toAttrib val)
 reversed :: forall a. Boolean -> Prop a
 reversed val = Attr "reversed" (toAttrib val)
 
+-- | Specifies the role of the element
+role :: forall a. String -> Prop a
+role val = Attr "role" (toAttrib val)
+
 -- | Specifies the visible number of lines in a text area
-rows :: forall a. Int -> Prop a
+rows :: forall a. Number -> Prop a
 rows val = Attr "rows" (toAttrib val)
 
 -- | Specifies the number of rows a table cell should span
-rowspan :: forall a. Int -> Prop a
+rowspan :: forall a. Number -> Prop a
 rowspan val = Attr "rowspan" (toAttrib val)
 
--- | Enables an extra set of restrictions for the content in an iframe
+-- | Enables an extra set of restrictions for the content in an <iframe>
 sandbox
   :: forall a
    . Variant
@@ -442,7 +518,6 @@ sandbox
        , "allow-same-origin" :: Unit
        , "allow-scripts" :: Unit
        , "allow-top-navigation" :: Unit
-       , "allow-top-navigation-by-user-activation" :: Unit
        )
   -> Prop a
 sandbox val = Attr "sandbox" (toAttrib val)
@@ -450,31 +525,38 @@ sandbox val = Attr "sandbox" (toAttrib val)
 -- | Specifies whether a header cell is a header for a column, row, or group of columns or rows
 scope
   :: forall a
-   . Variant ("row" :: Unit, "col" :: Unit, "rowgroup" :: Unit, "colgroup" :: Unit)
+   . Variant ("col" :: Unit, "colgroup" :: Unit, "row" :: Unit, "rowgroup" :: Unit)
   -> Prop a
 scope val = Attr "scope" (toAttrib val)
 
--- | Indicates whether an option in a <select> element is pre-selected on page load
+-- | Specifies that the styles only apply to this element's parent element and that element's child elements
+scoped :: forall a. Boolean -> Prop a
+scoped val = Attr "scoped" (toAttrib val)
+
+-- | Specifies that an option should be pre-selected when the page loads
 selected :: forall a. Boolean -> Prop a
 selected val = Attr "selected" (toAttrib val)
 
--- | Specifies the shape of an <area> element for use with image maps
-shape :: forall a. String -> Prop a
+-- | Specifies the shape of the area
+shape
+  :: forall a
+   . Variant ("default" :: Unit, "rect" :: Unit, "circle" :: Unit, "poly" :: Unit)
+  -> Prop a
 shape val = Attr "shape" (toAttrib val)
 
--- | Specifies the size of an <input> element (in characters)
+-- | Specifies the width, in characters (for <input>) or specifies the number of visible options (for <select>)
 size :: forall a. Number -> Prop a
 size val = Attr "size" (toAttrib val)
 
--- | Specifies a set of possible sizes for an icon
+-- | Specifies the size of the linked resource
 sizes :: forall a. String -> Prop a
 sizes val = Attr "sizes" (toAttrib val)
 
--- | Assigns a slot in a shadow DOM
+-- | Specifies the name of the slot the element's content is going to
 slot :: forall a. String -> Prop a
 slot val = Attr "slot" (toAttrib val)
 
--- | Specifies the number of columns a <col> element should span
+-- | Specifies the number of columns to span
 span :: forall a. Number -> Prop a
 span val = Attr "span" (toAttrib val)
 
@@ -494,28 +576,36 @@ srcdoc val = Attr "srcdoc" (toAttrib val)
 srclang :: forall a. String -> Prop a
 srclang val = Attr "srclang" (toAttrib val)
 
--- | Specifies the URL of the image to use in different situations (e.g. high-resolution displays, small monitors, etc)
+-- | Specifies the URL of the image to use in different situations
 srcset :: forall a. String -> Prop a
 srcset val = Attr "srcset" (toAttrib val)
 
--- | Specifies the start value of a <ol> element
+-- | Specifies the start value of an ordered list
 start :: forall a. Number -> Prop a
 start val = Attr "start" (toAttrib val)
 
--- | Specifies the legal number intervals for an <input> element
-step :: forall a. String -> Prop a
+-- | Specifies the legal number intervals for an input field
+step :: forall a. Number -> Prop a
 step val = Attr "step" (toAttrib val)
 
 -- | Specifies an inline CSS style for an element
 style :: forall a. String -> Prop a
 style val = Attr "style" (toAttrib val)
 
+-- | Specifies a summary of the content of a table
+summary :: forall a. String -> Prop a
+summary val = Attr "summary" (toAttrib val)
+
 -- | Specifies the tabbing order of an element
 tabindex :: forall a. Number -> Prop a
 tabindex val = Attr "tabindex" (toAttrib val)
 
--- | Specifies the target for where to open the linked document or where to submit the form
-target :: forall a. String -> Prop a
+-- | Specifies where to display the linked URL
+target
+  :: forall a
+   . Variant
+       ("_blank" :: Unit, "_parent" :: Unit, "_self" :: Unit, "_top" :: Unit, "framename" :: String)
+  -> Prop a
 target val = Attr "target" (toAttrib val)
 
 -- | Specifies extra information about an element
@@ -530,38 +620,112 @@ translate val = Attr "translate" (toAttrib val)
 type_ :: forall a. String -> Prop a
 type_ val = Attr "type_" (toAttrib val)
 
--- | Specifies whether the type attribute and the actual content of the resource must match to be displayed
-typemustmatch :: forall a. Boolean -> Prop a
-typemustmatch val = Attr "typemustmatch" (toAttrib val)
-
--- | Specifies an image as a client-side image map
+-- | Specifies an image as a client-side image-map
 usemap :: forall a. String -> Prop a
 usemap val = Attr "usemap" (toAttrib val)
 
--- | Specifies the value of an element
+-- | Specifies the value of the element
 value :: forall a. String -> Prop a
 value val = Attr "value" (toAttrib val)
 
--- | Specifies the width of an element
-width :: forall a. Number -> Prop a
-width val = Attr "width" (toAttrib val)
-
 -- | Specifies how the text in a text area is to be wrapped when submitted in a form
-wrap :: forall a. String -> Prop a
+wrap :: forall a. Variant ("hard" :: Unit, "soft" :: Unit) -> Prop a
 wrap val = Attr "wrap" (toAttrib val)
 
 ------------------------------------------------------------------------------- 
 --- Variant Constructors
 -------------------------------------------------------------------------------
 
-_none :: forall r. Variant ("none" :: Unit | r)
-_none = V.inj (Proxy :: Proxy "none") unit
+_user :: forall r. Variant ("user" :: Unit | r)
+_user = V.inj (Proxy :: Proxy "user") unit
+
+_environment :: forall r. Variant ("environment" :: Unit | r)
+_environment = V.inj (Proxy :: Proxy "environment") unit
+
+_anonymous :: forall r. Variant ("anonymous" :: Unit | r)
+_anonymous = V.inj (Proxy :: Proxy "anonymous") unit
+
+_useCredentials :: forall r. Variant ("use-credentials" :: Unit | r)
+_useCredentials = V.inj (Proxy :: Proxy "use-credentials") unit
+
+_async :: forall r. Variant ("async" :: Unit | r)
+_async = V.inj (Proxy :: Proxy "async") unit
+
+_auto :: forall r. Variant ("auto" :: Unit | r)
+_auto = V.inj (Proxy :: Proxy "auto") unit
+
+_sync :: forall r. Variant ("sync" :: Unit | r)
+_sync = V.inj (Proxy :: Proxy "sync") unit
+
+_ltr :: forall r. Variant ("ltr" :: Unit | r)
+_ltr = V.inj (Proxy :: Proxy "ltr") unit
+
+_rtl :: forall r. Variant ("rtl" :: Unit | r)
+_rtl = V.inj (Proxy :: Proxy "rtl") unit
+
+_application_xWwwFormUrlencoded
+  :: forall r. Variant ("application/x-www-form-urlencoded" :: Unit | r)
+_application_xWwwFormUrlencoded = V.inj (Proxy :: Proxy "application/x-www-form-urlencoded") unit
+
+_multipart_formData :: forall r. Variant ("multipart/form-data" :: Unit | r)
+_multipart_formData = V.inj (Proxy :: Proxy "multipart/form-data") unit
+
+_text_plain :: forall r. Variant ("text/plain" :: Unit | r)
+_text_plain = V.inj (Proxy :: Proxy "text/plain") unit
+
+_get :: forall r. Variant ("get" :: Unit | r)
+_get = V.inj (Proxy :: Proxy "get") unit
+
+_post :: forall r. Variant ("post" :: Unit | r)
+_post = V.inj (Proxy :: Proxy "post") unit
+
+__blank :: forall r. Variant ("_blank" :: Unit | r)
+__blank = V.inj (Proxy :: Proxy "_blank") unit
+
+__self :: forall r. Variant ("_self" :: Unit | r)
+__self = V.inj (Proxy :: Proxy "_self") unit
+
+__parent :: forall r. Variant ("_parent" :: Unit | r)
+__parent = V.inj (Proxy :: Proxy "_parent") unit
+
+__top :: forall r. Variant ("_top" :: Unit | r)
+__top = V.inj (Proxy :: Proxy "_top") unit
+
+_framename :: forall r. String -> Variant ("framename" :: String | r)
+_framename = V.inj (Proxy :: Proxy "framename")
+
+_contentType :: forall r. Variant ("content-type" :: Unit | r)
+_contentType = V.inj (Proxy :: Proxy "content-type") unit
+
+_defaultStyle :: forall r. Variant ("default-style" :: Unit | r)
+_defaultStyle = V.inj (Proxy :: Proxy "default-style") unit
+
+_refresh :: forall r. Variant ("refresh" :: Unit | r)
+_refresh = V.inj (Proxy :: Proxy "refresh") unit
+
+_subtitles :: forall r. Variant ("subtitles" :: Unit | r)
+_subtitles = V.inj (Proxy :: Proxy "subtitles") unit
+
+_captions :: forall r. Variant ("captions" :: Unit | r)
+_captions = V.inj (Proxy :: Proxy "captions") unit
+
+_descriptions :: forall r. Variant ("descriptions" :: Unit | r)
+_descriptions = V.inj (Proxy :: Proxy "descriptions") unit
+
+_chapters :: forall r. Variant ("chapters" :: Unit | r)
+_chapters = V.inj (Proxy :: Proxy "chapters") unit
 
 _metadata :: forall r. Variant ("metadata" :: Unit | r)
 _metadata = V.inj (Proxy :: Proxy "metadata") unit
 
-_auto :: forall r. Variant ("auto" :: Unit | r)
-_auto = V.inj (Proxy :: Proxy "auto") unit
+_eager :: forall r. Variant ("eager" :: Unit | r)
+_eager = V.inj (Proxy :: Proxy "eager") unit
+
+_lazy :: forall r. Variant ("lazy" :: Unit | r)
+_lazy = V.inj (Proxy :: Proxy "lazy") unit
+
+_none :: forall r. Variant ("none" :: Unit | r)
+_none = V.inj (Proxy :: Proxy "none") unit
 
 _noReferrer :: forall r. Variant ("no-referrer" :: Unit | r)
 _noReferrer = V.inj (Proxy :: Proxy "no-referrer") unit
@@ -656,20 +820,32 @@ _allowScripts = V.inj (Proxy :: Proxy "allow-scripts") unit
 _allowTopNavigation :: forall r. Variant ("allow-top-navigation" :: Unit | r)
 _allowTopNavigation = V.inj (Proxy :: Proxy "allow-top-navigation") unit
 
-_allowTopNavigationByUserActivation
-  :: forall r. Variant ("allow-top-navigation-by-user-activation" :: Unit | r)
-_allowTopNavigationByUserActivation = V.inj
-  (Proxy :: Proxy "allow-top-navigation-by-user-activation")
-  unit
+_col :: forall r. Variant ("col" :: Unit | r)
+_col = V.inj (Proxy :: Proxy "col") unit
+
+_colgroup :: forall r. Variant ("colgroup" :: Unit | r)
+_colgroup = V.inj (Proxy :: Proxy "colgroup") unit
 
 _row :: forall r. Variant ("row" :: Unit | r)
 _row = V.inj (Proxy :: Proxy "row") unit
 
-_col :: forall r. Variant ("col" :: Unit | r)
-_col = V.inj (Proxy :: Proxy "col") unit
-
 _rowgroup :: forall r. Variant ("rowgroup" :: Unit | r)
 _rowgroup = V.inj (Proxy :: Proxy "rowgroup") unit
 
-_colgroup :: forall r. Variant ("colgroup" :: Unit | r)
-_colgroup = V.inj (Proxy :: Proxy "colgroup") unit
+_default :: forall r. Variant ("default" :: Unit | r)
+_default = V.inj (Proxy :: Proxy "default") unit
+
+_rect :: forall r. Variant ("rect" :: Unit | r)
+_rect = V.inj (Proxy :: Proxy "rect") unit
+
+_circle :: forall r. Variant ("circle" :: Unit | r)
+_circle = V.inj (Proxy :: Proxy "circle") unit
+
+_poly :: forall r. Variant ("poly" :: Unit | r)
+_poly = V.inj (Proxy :: Proxy "poly") unit
+
+_hard :: forall r. Variant ("hard" :: Unit | r)
+_hard = V.inj (Proxy :: Proxy "hard") unit
+
+_soft :: forall r. Variant ("soft" :: Unit | r)
+_soft = V.inj (Proxy :: Proxy "soft") unit

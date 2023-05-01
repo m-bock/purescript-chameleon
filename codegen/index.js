@@ -4,6 +4,7 @@ const replaceMap = {
   class: "class_",
   type: "type_",
   data: "data_",
+  in: "in_",
 };
 
 // ----------------------------------------------------------------------------
@@ -22,6 +23,13 @@ ${kebabToCamel(
 ${kebabToCamel(
   tagName
 )} props children = elem (ElemName "${tagName}") props children
+
+-- | ${description} [No Attributes]
+${kebabToCamel(
+  tagName
+)}_ :: forall html ctx a. Html html => Array (html ctx a) -> html ctx a
+${kebabToCamel(tagName)}_ children = elem (ElemName "${tagName}") [] children
+
 `
     : `
 -- | ${description}
@@ -29,6 +37,11 @@ ${kebabToCamel(
   tagName
 )} :: forall html ctx a. Html html => Array (Prop a) -> html ctx a
 ${kebabToCamel(tagName)} props = elem (ElemName "${tagName}") props []
+
+-- | ${description} [No Attributes]
+${kebabToCamel(tagName)}_ :: forall html ctx a. Html html => html ctx a
+${kebabToCamel(tagName)}_ = elem (ElemName "${tagName}") [] []
+
 `;
 };
 
@@ -49,17 +62,26 @@ ${code}
 // ----------------------------------------------------------------------------
 
 const genKeyedElement = ([tagName, { children, description }]) => {
-  tagName = replaceMap[tagName] || tagName;
+  tagName2 = replaceMap[tagName] || tagName;
 
   return children
     ? `
 -- | ${description}
 ${kebabToCamel(
-  tagName
+  tagName2
 )} :: forall html ctx a. Html html => Array (Prop a) -> Array (Key /\\ html ctx a) -> html ctx a
 ${kebabToCamel(
-  tagName
+  tagName2
 )} props children = elemKeyed (ElemName "${tagName}") props children
+
+-- | ${description} [No Attributes]
+${kebabToCamel(
+  tagName2
+)}_ :: forall html ctx a. Html html => Array (Key /\\ html ctx a) -> html ctx a
+${kebabToCamel(
+  tagName2
+)}_ children = elemKeyed (ElemName "${tagName}") [] children
+
 `
     : `
 -- | ${description}
@@ -67,6 +89,10 @@ ${kebabToCamel(
   tagName
 )} :: forall html ctx a. Html html => Array (Prop a) -> html ctx a
 ${kebabToCamel(tagName)} props = elemKeyed (ElemName "${tagName}") props []
+
+-- | ${description} [No Attributes]
+${kebabToCamel(tagName)}_ :: forall html ctx a. Html html => html ctx a
+${kebabToCamel(tagName)}_ = elemKeyed (ElemName "${tagName}") [] []
 `;
 };
 
@@ -87,20 +113,28 @@ ${code}
 // Attributes
 // ----------------------------------------------------------------------------
 
-const genAttribute = ([attrName, { description, type }]) => {
+const genAttribute = ([attrName, { description, type }], untyped) => {
   attrName = replaceMap[attrName] || attrName;
 
-  let variants = [];
+  let variants = {};
 
-  const type2 =
-    typeof type === "string"
-      ? type
-      : `Variant(${type
-          .map((x) => {
-            variants.push(x);
+  const type2 = untyped
+    ? "String"
+    : typeof type === "string"
+    ? type
+    : type.length
+    ? `Variant(${type[1]
+        .map((x) => {
+          if (typeof x !== "string") {
+            variants[x[0]] = x[1];
+            return `"${x[0]}" :: ${x[1]}`;
+          } else {
+            variants[x] = null;
             return `"${x}" :: Unit`;
-          })
-          .join(", ")})`;
+          }
+        })
+        .join(", ")})`
+    : "String";
 
   code = `
 -- | ${description}
@@ -111,13 +145,13 @@ ${kebabToCamel(attrName)} val = Attr "${attrName}" (toAttrib val)
   return { code, variants };
 };
 
-const genAttributes = (scope) => (data) => {
+const genAttributes = (scope, untyped) => (data) => {
   let variants = [];
 
   const code = Object.entries(data)
     .map((entry) => {
-      const result = genAttribute(entry);
-      variants.push(...result.variants);
+      const result = genAttribute(entry, untyped);
+      variants = { ...variants, ...result.variants };
       return result.code;
     })
     .join("");
@@ -181,13 +215,26 @@ instance
     where
     prxSym = Proxy :: _ sym
 
+else instance
+  ( IsAttribVariantRL rl r'
+  , Row.Cons sym a r' r
+  , IsSymbol sym
+  , IsAttrib a
+  ) =>
+  IsAttribVariantRL (RL.Cons sym a rl) r where
+  toAttribVariantRL _ =
+    toAttribVariantRL (Proxy :: _ rl)
+      # V.on prxSym toAttrib
+    where
+    prxSym = Proxy :: _ sym
+
 ${genSection("Attributes")}
 
 ${code}
 
 ${genSection("Variant Constructors")}
 
-${variants.map(genVariantConstructor).join("\n\n")}
+${Object.entries(variants).map(genVariantConstructor).join("\n\n")}
 `;
 };
 
@@ -195,12 +242,16 @@ ${variants.map(genVariantConstructor).join("\n\n")}
 // Gen Variant Constructor
 // ----------------------------------------------------------------------------
 
-const genVariantConstructor = (variant) => {
-  return `
-_${kebabToCamel(variant)} :: forall r. Variant ("${variant}" :: Unit | r)
-_${kebabToCamel(variant)} = V.inj (Proxy :: Proxy "${variant}") unit
-  `.trim();
-};
+const genVariantConstructor = ([k, v]) =>
+  v === null
+    ? `
+_${kebabToCamel(k)} :: forall r. Variant ("${k}" :: Unit | r)
+_${kebabToCamel(k)} = V.inj (Proxy :: Proxy "${k}") unit
+  `.trim()
+    : `
+_${kebabToCamel(k)} :: forall r. ${v} -> Variant ("${k}" :: ${v} | r)
+_${kebabToCamel(k)} = V.inj (Proxy :: Proxy "${k}")
+`.trim();
 
 // ----------------------------------------------------------------------------
 // Events
@@ -274,9 +325,14 @@ const upperFirst = (str) => {
 };
 
 const kebabToCamel = (str) => {
-  return str.replace(/-([a-z])/g, function (g) {
-    return g[1].toUpperCase();
-  });
+  return str
+    .replace(/-([a-z])/g, function (g) {
+      return g[1].toUpperCase();
+    })
+    .replace(/[/]/g, "_")
+    .replace(/[-]/g, "_")
+    .replace(/[:]/g, "_")
+    ;
 };
 
 const readJSON = (filePath) => JSON.parse(fs.readFileSync(filePath).toString());
@@ -310,7 +366,6 @@ const genHTML = () => {
 
 const genSVG = () => {
   const scope = "SVG";
-
   const elements1 = readJSON(`codegen/${scope}/elements.json`);
   const elements2 = genElements(scope)(elements1);
   fs.writeFileSync(`src/VirtualDOM/${scope}/Elements.purs`, elements2);
@@ -323,7 +378,7 @@ const genSVG = () => {
   );
 
   const attributes1 = readJSON(`codegen/${scope}/attributes.json`);
-  const attributes2 = genAttributes(scope)(attributes1);
+  const attributes2 = genAttributes(scope, true)(attributes1);
   fs.writeFileSync(`src/VirtualDOM/${scope}/Attributes.purs`, attributes2);
 };
 

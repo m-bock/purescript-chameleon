@@ -3,16 +3,40 @@
     "description": "Specifies the types of files that the server accepts (only for type=\"file\")",
     "type": "String"
   },
+  "accept-charset": {
+    "description": "Specifies the character encodings that are to be used for the form submission",
+    "type": "String"
+  },
   "accesskey": {
-    "description": "Defines a keyboard shortcut to activate or focus on the element",
+    "description": "Specifies a shortcut key to activate/focus an element",
+    "type": "String"
+  },
+  "action": {
+    "description": "Specifies where to send the form-data when a form is submitted",
+    "type": "String"
+  },
+  "align": {
+    "description": "Not supported in HTML5. Specifies the alignment according to surrounding elements. Use CSS instead",
+    "type": "String"
+  },
+  "allow": {
+    "description": "Specifies a feature-policy for the iframe",
     "type": "String"
   },
   "alt": {
-    "description": "Specifies an alternative text for images",
+    "description": "Specifies an alternate text when the original element fails to display",
+    "type": "String"
+  },
+  "async": {
+    "description": "Specifies that the script is executed asynchronously (only for external scripts)",
+    "type": "Boolean"
+  },
+  "autocapitalize": {
+    "description": "Controls whether and how text input is automatically capitalized as it is entered/edited by the user",
     "type": "String"
   },
   "autocomplete": {
-    "description": "Specifies whether the element should have autocomplete enabled",
+    "description": "Specifies whether the <form> or the <input> element should have autocomplete enabled",
     "type": "String"
   },
   "autofocus": {
@@ -20,19 +44,24 @@
     "type": "Boolean"
   },
   "autoplay": {
-    "description": "Specifies that the audio/video should start playing as soon as it is ready",
+    "description": "Specifies that the audio/video will start playing as soon as it is ready",
     "type": "Boolean"
   },
-  "challenge": {
-    "description": "Specifies a challenge-response test to ensure that the form was filled out by a human and not a computer",
+  "background": {
+    "description": "Not supported in HTML5. Specifies the URL of an image to be used as the background for the iframe",
     "type": "String"
   },
+  "capture": {
+    "description": "Specifies that the video/audio will be recorded (instead of a live stream)",
+    "type_": "user | environment",
+    "type": ["Variant", ["user", "environment"]]
+  },
   "charset": {
-    "description": "Specifies the character encoding used in the element",
+    "description": "Specifies the character encoding",
     "type": "String"
   },
   "checked": {
-    "description": "Specifies that an input element should be pre-selected when the page loads (for type=\"checkbox\" or type=\"radio\")",
+    "description": "Specifies that an <input> element should be pre-selected when the page loads (for type=\"checkbox\" or type=\"radio\")",
     "type": "Boolean"
   },
   "cite": {
@@ -40,7 +69,15 @@
     "type": "String"
   },
   "class": {
-    "description": "Specifies one or more class names for an element (refers to a class in a style sheet)",
+    "description": "Specifies one or more classnames for an element (refers to a class in a style sheet)",
+    "type": "String"
+  },
+  "code": {
+    "description": "Not supported in HTML5. Specifies the URL of the plugin used to display the <object>",
+    "type": "String"
+  },
+  "codebase": {
+    "description": "Not supported in HTML5. Specifies the URL of the plugin used to display the <object>",
     "type": "String"
   },
   "cols": {
@@ -59,6 +96,10 @@
     "description": "Specifies whether the content of an element is editable or not",
     "type": "Boolean"
   },
+  "contextmenu": {
+    "description": "Specifies a context menu for an element. The context menu appears when a user right-clicks on the element",
+    "type": "String"
+  },
   "controls": {
     "description": "Specifies that audio/video controls should be displayed (such as a play/pause button etc)",
     "type": "Boolean"
@@ -67,6 +108,11 @@
     "description": "Specifies the coordinates of the area",
     "type": "String"
   },
+  "crossorigin": {
+    "description": "Specifies how the element handles cross-origin requests",
+    "type_": "anonymous | use-credentials",
+    "type": ["Variant", ["anonymous", "use-credentials"]]
+  },
   "data": {
     "description": "Specifies the URL of the resource to be used by the object",
     "type": "String"
@@ -74,6 +120,11 @@
   "datetime": {
     "description": "Specifies the date and time",
     "type": "String"
+  },
+  "decoding": {
+    "description": "Specifies the decoding algorithm",
+    "type_": "async | auto | sync",
+    "type": ["Variant", ["async", "auto", "sync"]]
   },
   "default": {
     "description": "Specifies that the track is to be enabled if the user's preferences do not indicate that another track would be more appropriate",
@@ -84,47 +135,78 @@
     "type": "Boolean"
   },
   "dir": {
-    "description": "Sets the text directionality of the content within an element",
-    "type": "Variant (\"ltr\" :: Unit, \"rtl\" :: Unit, \"auto\" :: Unit)"
+    "description": "Specifies the text direction for the content in an element",
+    "type_": "ltr | rtl | auto",
+    "type": ["Variant", ["ltr", "rtl", "auto"]]
+  },
+  "dirname": {
+    "description": "Specifies that the text direction will be submitted",
+    "type": "String"
   },
   "disabled": {
-    "description": "Disables an element",
+    "description": "Specifies that the specified element/group of elements should be disabled",
     "type": "Boolean"
   },
   "download": {
-    "description": "Prompts the user to save the linked URL instead of navigating to it",
-    "type": "String"
+    "description": "Specifies that the target will be downloaded when a user clicks on the hyperlink",
+    "type": "Boolean"
   },
   "draggable": {
-    "description": "Indicates whether an element is draggable",
-    "type": "Variant (\"true\" :: Unit, \"false\" :: Unit, \"auto\" :: Unit)"
+    "description": "Specifies whether an element is draggable or not",
+    "type": "Boolean"
   },
   "enctype": {
-    "description": "Specifies how the form data should be encoded when submitting to the server",
-    "type": "Variant (\"application/x-www-form-urlencoded\" :: Unit, \"multipart/form-data\" :: Unit, \"text/plain\" :: Unit)"
+    "description": "Specifies how the form-data should be encoded when submitting it to the server (only for method=\"post\")",
+    "type_": "application/x-www-form-urlencoded | multipart/form-data | text/plain",
+    "type": [
+      "Variant",
+      ["application/x-www-form-urlencoded", "multipart/form-data", "text/plain"]
+    ]
+  },
+  "enterkeyhint": {
+    "description": "Specifies what action to take when the user hits the Enter key",
+    "type": "String"
   },
   "for": {
-    "description": "Associates a label with a form control",
+    "description": "Specifies which form element(s) a label/calculation is bound to",
     "type": "String"
   },
   "form": {
-    "description": "Indicates the form that an element belongs to",
+    "description": "Specifies one or more forms the <input> element belongs to",
     "type": "String"
   },
   "formaction": {
-    "description": "Specifies the URL to which the form data will be submitted when a form is submitted",
+    "description": "Specifies where to send the form-data when a form is submitted. Only for type=\"submit\"",
     "type": "String"
+  },
+  "formenctype": {
+    "description": "Specifies how form-data should be encoded before sending it to a server. Only for type=\"submit\"",
+    "type_": "application/x-www-form-urlencoded | multipart/form-data | text/plain",
+    "type": [
+      "Variant",
+      ["application/x-www-form-urlencoded", "multipart/form-data", "text/plain"]
+    ]
+  },
+  "formmethod": {
+    "description": "Specifies how to send the form-data (which HTTP method to use). Only for type=\"submit\"",
+    "type_": "get | post",
+    "type": ["Variant", ["get", "post"]]
+  },
+  "formnovalidate": {
+    "description": "Specifies that the form-data should not be validated on submission. Only for type=\"submit\"",
+    "type": "Boolean"
+  },
+  "formtarget": {
+    "description": "Specifies where to display the response after submitting the form. Only for type=\"submit\"",
+    "type_": "_blank | _self | _parent | _top | framename",
+    "type": ["Variant", ["_blank", "_self", "_parent", "_top", ["framename" , "String"]]]
   },
   "headers": {
-    "description": "Defines a list of header cells that are associated with a data cell",
+    "description": "Specifies one or more headers cells a cell is related to",
     "type": "String"
   },
-  "height": {
-    "description": "Specifies the height of an element",
-    "type": "Number"
-  },
   "hidden": {
-    "description": "Hides an element",
+    "description": "Specifies that an element is not yet, or is no longer, relevant",
     "type": "Boolean"
   },
   "high": {
@@ -141,70 +223,56 @@
   },
   "http-equiv": {
     "description": "Provides an HTTP header for the information/value of the content attribute",
-    "type": "String"
+    "type_": "content-type | default-style | refresh",
+    "type": ["Variant", ["content-type", "default-style", "refresh"]]
   },
   "id": {
     "description": "Specifies a unique id for an element",
     "type": "String"
   },
-  "inputmode": {
-    "description": "Specifies what kind of input mechanism would be most helpful for users entering content into the element",
-    "type": "Variant (\"none\" :: Unit, \"text\" :: Unit, \"decimal\" :: Unit, \"numeric\" :: Unit, \"tel\" :: Unit, \"search\" :: Unit, \"email\" :: Unit, \"url\" :: Unit)"
-  },
   "integrity": {
-    "description": "Specifies the expected cryptographic digest of the resource",
+    "description": "Specifies the integrity content security policy (CSP) for the resource",
     "type": "String"
   },
-  "is": {
-    "description": "Indicates the tag name of the element it is applied to",
+  "inputmode": {
+    "description": "Specifies what kind of input mechanism would be most helpful for users entering content into the element",
     "type": "String"
   },
   "ismap": {
-    "description": "Specifies that an image should be part of a server-side image map",
+    "description": "Specifies an image as a server-side image-map",
     "type": "Boolean"
-  },
-  "itemid": {
-    "description": "Specifies a unique identifier for an item",
-    "type": "String"
   },
   "itemprop": {
-    "description": "Specifies the property of an item",
-    "type": "String"
-  },
-  "itemref": {
-    "description": "Specifies one or more elements that contain additional information about the item",
-    "type": "Array String"
-  },
-  "itemscope": {
-    "description": "Specifies that the element is an item and defines its scope",
-    "type": "Boolean"
-  },
-  "itemtype": {
-    "description": "Specifies the URL of the vocabulary that describes the item",
+    "description": "Specifies the name of the property the element represents",
     "type": "String"
   },
   "keytype": {
-    "description": "Specifies the type of key generated by the keygen element",
+    "description": "Specifies the type of key generated",
     "type": "String"
   },
   "kind": {
     "description": "Specifies the kind of text track",
-    "type": "String"
+    "type_": "subtitles | captions | descriptions | chapters | metadata",
+    "type": [
+      "Variant",
+      ["subtitles", "captions", "descriptions", "chapters", "metadata"]
+    ]
   },
   "label": {
-    "description": "Specifies the label for the element",
+    "description": "Specifies the title of the text track",
     "type": "String"
   },
   "lang": {
     "description": "Specifies the language of the element's content",
     "type": "String"
   },
-  "language": {
-    "description": "Specifies the script language of the element",
-    "type": "String"
+  "loading": {
+    "description": "Specifies how the element handles lazy loading of images",
+    "type_": "auto | eager | lazy",
+    "type": ["Variant", ["auto", "eager", "lazy"]]
   },
   "list": {
-    "description": "Refers to a datalist element that contains pre-defined options for an input element",
+    "description": "Refers to a <datalist> element that contains pre-defined options for an <input> element",
     "type": "String"
   },
   "loop": {
@@ -212,19 +280,19 @@
     "type": "Boolean"
   },
   "low": {
-    "description": "Specifies the lower bound of the range",
+    "description": "Specifies the range that is considered to be a low value",
     "type": "Number"
   },
-  "manifest": {
-    "description": "Specifies the address of the document's cache manifest",
-    "type": "String"
-  },
   "max": {
-    "description": "Specifies the maximum value for the element",
+    "description": "Specifies the maximum value",
     "type": "Number"
   },
   "maxlength": {
-    "description": "Specifies the maximum number of characters allowed in the element",
+    "description": "Specifies the maximum number of characters allowed in an element",
+    "type": "Number"
+  },
+  "minlength": {
+    "description": "Specifies the minimum number of characters allowed in an element",
     "type": "Number"
   },
   "media": {
@@ -232,19 +300,16 @@
     "type": "String"
   },
   "method": {
-    "description": "Specifies the HTTP method used when submitting the form",
-    "type": "String"
+    "description": "Specifies the HTTP method to use when sending form-data",
+    "type_": "get | post",
+    "type": ["Variant", ["get", "post"]]
   },
   "min": {
-    "description": "Specifies the minimum value for the element",
-    "type": "Number"
-  },
-  "minlength": {
-    "description": "Specifies the minimum number of characters required in the element",
+    "description": "Specifies a minimum value",
     "type": "Number"
   },
   "multiple": {
-    "description": "Specifies that a user can enter more than one value in an input element",
+    "description": "Specifies that a user can enter more than one value",
     "type": "Boolean"
   },
   "muted": {
@@ -252,7 +317,7 @@
     "type": "Boolean"
   },
   "name": {
-    "description": "Specifies a name for the element",
+    "description": "Specifies the name of the element",
     "type": "String"
   },
   "novalidate": {
@@ -268,16 +333,20 @@
     "type": "Number"
   },
   "pattern": {
-    "description": "Specifies a regular expression to check the value of an input element",
+    "description": "Specifies a regular expression that an <input> element's value is checked against",
     "type": "String"
   },
   "ping": {
-    "description": "Specifies a list of URLs to be notified if a user follows the hyperlink",
+    "description": "Specifies a space-separated list of URLs to which, when the hyperlink is followed, POST requests with the body PING will be sent by the browser (in the background). Typically used for tracking.",
     "type": "String"
   },
   "placeholder": {
-    "description": "Specifies a short hint that describes the expected value of an input element",
+    "description": "Specifies a short hint that describes the expected value of the element",
     "type": "String"
+  },
+  "playsinline": {
+    "description": "Specifies that the video will start playing as soon as it is ready",
+    "type": "Boolean"
   },
   "poster": {
     "description": "Specifies an image to be shown while the video is downloading, or until the user hits the play button",
@@ -285,101 +354,123 @@
   },
   "preload": {
     "description": "Specifies if and how the author thinks the audio/video should be loaded when the page loads",
-    "type": ["none", "metadata", "auto"]
+    "type_": "auto | metadata | none",
+    "type": ["Variant", ["auto", "metadata", "none"]]
   },
   "readonly": {
-    "description": "Specifies that the input field is read-only",
+    "description": "Specifies that the element is read-only",
     "type": "Boolean"
   },
   "referrerpolicy": {
-    "description": "Specifies which referrer information to send when fetching the resource",
+    "description": "Specifies which referrer is sent when fetching the resource",
+    "type_": "no-referrer | no-referrer-when-downgrade | origin | origin-when-cross-origin | same-origin | strict-origin | strict-origin-when-cross-origin | unsafe-url",
     "type": [
-      "no-referrer",
-      "no-referrer-when-downgrade",
-      "origin",
-      "origin-when-cross-origin",
-      "same-origin",
-      "strict-origin",
-      "strict-origin-when-cross-origin",
-      "unsafe-url"
+      "Variant",
+      [
+        "no-referrer",
+        "no-referrer-when-downgrade",
+        "origin",
+        "origin-when-cross-origin",
+        "same-origin",
+        "strict-origin",
+        "strict-origin-when-cross-origin",
+        "unsafe-url"
+      ]
     ]
   },
   "rel": {
-    "description": "Specifies the relationship between the current document and the linked document/resource",
+    "description": "Specifies the relationship between the current document and the linked document",
+    "type_": "alternate | author | bookmark | external | help | license | next | nofollow | noreferrer | noopener | prev | search | tag",
     "type": [
-      "alternate",
-      "author",
-      "bookmark",
-      "external",
-      "help",
-      "license",
-      "next",
-      "nofollow",
-      "noreferrer",
-      "noopener",
-      "prev",
-      "search",
-      "tag"
+      "Variant",
+      [
+        "alternate",
+        "author",
+        "bookmark",
+        "external",
+        "help",
+        "license",
+        "next",
+        "nofollow",
+        "noreferrer",
+        "noopener",
+        "prev",
+        "search",
+        "tag"
+      ]
     ]
   },
   "required": {
-    "description": "Specifies that the input field must be filled out before submitting the form",
+    "description": "Specifies that the element must be filled out before submitting the form",
     "type": "Boolean"
   },
   "reversed": {
     "description": "Specifies that the list order should be descending (9,8,7...)",
     "type": "Boolean"
   },
+  "role": {
+    "description": "Specifies the role of the element",
+    "type": "String"
+  },
   "rows": {
     "description": "Specifies the visible number of lines in a text area",
-    "type": "Int"
+    "type": "Number"
   },
   "rowspan": {
     "description": "Specifies the number of rows a table cell should span",
-    "type": "Int"
+    "type": "Number"
   },
   "sandbox": {
-    "description": "Enables an extra set of restrictions for the content in an iframe",
+    "description": "Enables an extra set of restrictions for the content in an <iframe>",
+    "type_": "allow-forms | allow-modals | allow-orientation-lock | allow-pointer-lock | allow-popups | allow-popups-to-escape-sandbox | allow-presentation | allow-same-origin | allow-scripts | allow-top-navigation",
     "type": [
-      "allow-forms",
-      "allow-modals",
-      "allow-orientation-lock",
-      "allow-pointer-lock",
-      "allow-popups",
-      "allow-popups-to-escape-sandbox",
-      "allow-presentation",
-      "allow-same-origin",
-      "allow-scripts",
-      "allow-top-navigation",
-      "allow-top-navigation-by-user-activation"
+      "Variant",
+      [
+        "allow-forms",
+        "allow-modals",
+        "allow-orientation-lock",
+        "allow-pointer-lock",
+        "allow-popups",
+        "allow-popups-to-escape-sandbox",
+        "allow-presentation",
+        "allow-same-origin",
+        "allow-scripts",
+        "allow-top-navigation"
+      ]
     ]
   },
   "scope": {
     "description": "Specifies whether a header cell is a header for a column, row, or group of columns or rows",
-    "type": ["row", "col", "rowgroup", "colgroup"]
+    "type_": "col | colgroup | row | rowgroup",
+    "type": ["Variant", ["col", "colgroup", "row", "rowgroup"]]
+  },
+  "scoped": {
+    "description": "Specifies that the styles only apply to this element's parent element and that element's child elements",
+    "type": "Boolean"
   },
   "selected": {
-    "description": "Indicates whether an option in a <select> element is pre-selected on page load",
+    "description": "Specifies that an option should be pre-selected when the page loads",
     "type": "Boolean"
   },
   "shape": {
-    "description": "Specifies the shape of an <area> element for use with image maps",
-    "type": "String"
+    "description": "Specifies the shape of the area",
+    "type_": "default | rect | circle | poly",
+    "type": ["Variant", ["default", "rect", "circle", "poly"]]
   },
   "size": {
-    "description": "Specifies the size of an <input> element (in characters)",
+    "description": "Specifies the width, in characters (for <input>) or specifies the number of visible options (for <select>)",
     "type": "Number"
   },
   "sizes": {
-    "description": "Specifies a set of possible sizes for an icon",
+    "description": "Specifies the size of the linked resource",
     "type": "String"
   },
   "slot": {
-    "description": "Assigns a slot in a shadow DOM",
+    "description": "Specifies the name of the slot the element's content is going to",
     "type": "String"
   },
   "span": {
-    "description": "Specifies the number of columns a <col> element should span",
+    "description": "Specifies the number of columns to span",
     "type": "Number"
   },
   "spellcheck": {
@@ -399,19 +490,23 @@
     "type": "String"
   },
   "srcset": {
-    "description": "Specifies the URL of the image to use in different situations (e.g. high-resolution displays, small monitors, etc)",
+    "description": "Specifies the URL of the image to use in different situations",
     "type": "String"
   },
   "start": {
-    "description": "Specifies the start value of a <ol> element",
+    "description": "Specifies the start value of an ordered list",
     "type": "Number"
   },
   "step": {
-    "description": "Specifies the legal number intervals for an <input> element",
-    "type": "String"
+    "description": "Specifies the legal number intervals for an input field",
+    "type": "Number"
   },
   "style": {
     "description": "Specifies an inline CSS style for an element",
+    "type": "String"
+  },
+  "summary": {
+    "description": "Specifies a summary of the content of a table",
     "type": "String"
   },
   "tabindex": {
@@ -419,8 +514,12 @@
     "type": "Number"
   },
   "target": {
-    "description": "Specifies the target for where to open the linked document or where to submit the form",
-    "type": "String"
+    "description": "Specifies where to display the linked URL",
+    "type_": "_blank | _parent | _self | _top | framename",
+    "type": [
+      "Variant",
+      ["_blank", "_parent", "_self", "_top", ["framename", "String"]]
+    ]
   },
   "title": {
     "description": "Specifies extra information about an element",
@@ -434,24 +533,17 @@
     "description": "Specifies the type of element",
     "type": "String"
   },
-  "typemustmatch": {
-    "description": "Specifies whether the type attribute and the actual content of the resource must match to be displayed",
-    "type": "Boolean"
-  },
   "usemap": {
-    "description": "Specifies an image as a client-side image map",
+    "description": "Specifies an image as a client-side image-map",
     "type": "String"
   },
   "value": {
-    "description": "Specifies the value of an element",
+    "description": "Specifies the value of the element",
     "type": "String"
-  },
-  "width": {
-    "description": "Specifies the width of an element",
-    "type": "Number"
   },
   "wrap": {
     "description": "Specifies how the text in a text area is to be wrapped when submitted in a form",
-    "type": "String"
+    "type_": "hard | soft",
+    "type": ["Variant", ["hard", "soft"]]
   }
 }

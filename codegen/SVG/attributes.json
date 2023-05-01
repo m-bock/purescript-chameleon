@@ -1,106 +1,1032 @@
 {
-  "cx": {
-    "description": "Specifies the x coordinate of the center of a circle",
-    "type": "String"
+  "accent-height": {
+    "description": "The 'accent-height' attribute controls the vertical position of an accent glyph on a text glyph (usually a vowel, like 'a', 'e', 'i', 'o', 'u') in a text element.",
+    "type": "number | <percentage>",
+    "type_": "Variant ( | _Number + Percentage )"
   },
-  "cy": {
-    "description": "Specifies the y coordinate of the center of a circle",
-    "type": "String"
+  "accumulate": {
+    "description": "The 'accumulate' attribute controls whether or not the animation will accumulate values over time. If specified, it indicates that the animation will preserve the previous value of the attribute being animated and add the current value to it.",
+    "type": "none | sum",
+    "type_": "Variant ( \"none\" :: Unit , \"sum\" :: Unit )"
   },
-  "d": {
-    "description": "Defines a path to be drawn",
-    "type": "String"
+  "additive": {
+    "description": "The 'additive' attribute controls whether or not the animation will override or add to the base value of the animated attribute. If specified, it indicates that the animation will add its values to the base value of the attribute being animated. If not specified, the animation will replace the base value of the attribute being animated with its own values.",
+    "type": "replace | sum",
+    "type_": "Variant ( \"replace\" :: Unit , \"sum\" :: Unit )"
   },
-  "fill": {
-    "description": "Specifies the fill color of a graphic",
-    "type": "String"
+  "alignment-baseline": {
+    "description": "The 'alignment-baseline' attribute specifies how an element is aligned with respect to its parent baseline.",
+    "type": "auto | baseline | before-edge | text-before-edge | middle | central | after-edge | text-after-edge | ideographic | alphabetic | hanging | mathematical | top | center | bottom",
+    "type_": [
+      "Variant",
+      [
+        "auto",
+        "baseline",
+        "before-edge",
+        "text-before-edge",
+        "middle",
+        "central",
+        "after-edge",
+        "text-after-edge",
+        "ideographic",
+        "alphabetic",
+        "hanging",
+        "mathematical",
+        "top",
+        "center",
+        "bottom"
+      ]
+    ]
   },
-  "height": {
-    "description": "Specifies the height of an element",
-    "type": "String"
+  "alphabetic": {
+    "description": "The 'alphabetic' attribute defines the vertical position of the text within the 'line-height' of the text element.",
+    "type": "number | <percentage>",
+    "type_": ["Variant", [], ["Num", "Percentage"]]
   },
-  "href": {
-    "description": "Specifies the URL of the linked resource",
-    "type": "String"
+  "amplitude": {
+    "description": "The 'amplitude' attribute specifies the amplitude of the wave function used to distort the filter primitive.",
+    "type": "<number>",
+    "type_": "Number"
   },
-  "opacity": {
-    "description": "Specifies the opacity of an element",
-    "type": "String"
+  "arabic-form": {
+    "description": "The 'arabic-form' attribute controls the rendering of numbers within an SVG document. It is used to specify whether numbers should be rendered in the standard Arabic (Western) or Hindi (Eastern) numeric format.",
+    "type": "initial | medial | terminal | isolate | <number>",
+    "type_": ["Variant", ["initial", "medial", "terminal", "isolate"], ["Num"]]
   },
-  "r": {
-    "description": "Specifies the radius of a circle",
-    "type": "String"
+  "ascent": {
+    "description": "The 'ascent' attribute defines the distance from the top of the tallest glyph in the font to the baseline of the text.",
+    "type": "number | <percentage>",
+    "type_": ["Variant", [], ["Num", "Percentage"]]
   },
-  "stroke": {
-    "description": "Specifies the stroke color of a graphic",
-    "type": "String"
+  "attributeName": {
+    "description": "The 'attributeName' attribute specifies the name of the attribute being animated.",
+    "type": "<attribute-name>"
   },
-  "stroke-width": {
-    "description": "Specifies the width of the stroke",
-    "type": "String"
+  "attributeType": {
+    "description": "The 'attributeType' attribute specifies the namespace in which the attribute being animated is defined. It can be either 'CSS' or 'XML'.",
+    "type": "'CSS' | 'XML'",
+    "type_": ["Variant", ["CSS", "XML"]]
   },
-  "transform": {
-    "description": "Specifies a list of transformations",
-    "type": "String"
+  "azimuth": {
+    "description": "The 'azimuth' attribute specifies the direction of the light source in a lighting filter.",
+    "type": "angle | [ direction | behind ]"
   },
-  "viewBox": {
-    "description": "Defines the position and size of the viewport",
-    "type": "String"
+  "baseFrequency": {
+    "description": "The 'baseFrequency' attribute specifies the base frequency parameter for the noise function of the 'feTurbulence' filter primitive.",
+    "type": "<number-optional-number>"
   },
-  "width": {
-    "description": "Specifies the width of an element",
-    "type": "String"
+  "baseline-shift": {
+    "description": "The 'baseline-shift' attribute specifies how much an element is shifted up or down from its baseline position.",
+    "type": "<length> | <percentage>",
+    "type_": ["Variant", [], ["Length", "Percentage"]]
   },
-  "x": {
-    "description": "Specifies the x coordinate of an element",
-    "type": "String"
+  "baseProfile": {
+    "description": "The 'baseProfile' attribute specifies the version of SVG that the document conforms to.",
+    "type": "<IRI>"
   },
-  "y": {
-    "description": "Specifies the y coordinate of an element",
-    "type": "String"
+  "bbox": {
+    "description": "The 'bbox' attribute indicates the tight bounding box of the current object. It's used for layout.",
+    "type": "list of four numbers",
+    "type_": "Array Number"
   },
-  "z": {
-    "description": "Specifies the position of the element along the z-axis",
-    "type": "String"
+  "begin": {
+    "description": "The 'begin' attribute specifies the begin time for the element, when it becomes active in the animation timeline.",
+    "type": "clock-value"
+  },
+  "bias": {
+    "description": "The 'bias' attribute indicates the slope bias for the light filter kernel.",
+    "type": "<number>",
+    "type_": "Number"
+  },
+  "by": {
+    "description": "The 'by' attribute specifies the offset from the initial value to the final value of the animation.",
+    "type": "list of numbers",
+    "type_": "Array Number"
+  },
+  "calcMode": {
+    "description": "The 'calcMode' attribute specifies the calculation mode for the animation function.",
+    "type": "discrete | linear | paced | spline",
+    "type_": ["Variant", ["discrete", "linear", "paced", "spline"]]
+  },
+  "cap-height": {
+    "description": "The 'cap-height' attribute specifies the height of the capital letters in the font.",
+    "type": "number | <percentage> | <length> | inherit",
+    "type_": ["Variant", ["inherit"], ["Num", "Percentage", "Length"]]
   },
   "class": {
-    "description": "Specifies one or more classnames for an element",
-    "type": "String"
+    "description": "The 'class' attribute specifies the class(es) for an element.",
+    "type": "<string>",
+    "type_": "String"
+  },
+  "clip": {
+    "description": "The 'clip' attribute specifies the clipping region for an element.",
+    "type": "list of four numbers | auto",
+    "type_": [
+      "Variant",
+      ["auto", ["numbers", "Number /\\ Number /\\ Number /\\Number"]],
+      []
+    ]
   },
   "clip-path": {
-    "description": "Specifies a clipping path",
-    "type": "String"
+    "description": "The 'clip-path' attribute specifies the clipping path for an element.",
+    "type": "<URL> | none"
+  },
+  "clip-rule": {
+    "description": "The 'clip-rule' attribute only applies to graphics elements that are contained within a 'clipPath' element. The 'clip-rule' attribute basically works as the 'fill-rule' attribute, except that it applies to 'clipPath' definitions.",
+    "type": "nonzero | evenodd | inherit",
+    "type_": ["Variant", ["nonzero", "evenodd", "inherit"]]
+  },
+  "clipPathUnits": {
+    "description": "The 'clipPathUnits' attribute defines the coordinate system for the contents of the 'clipPath' element.",
+    "type": "userSpaceOnUse | objectBoundingBox"
+  },
+  "color": {
+    "description": "The 'color' attribute specifies the color of the text.",
+    "type": "<color>"
+  },
+  "color-interpolation": {
+    "description": "The 'color-interpolation' attribute specifies the color space for gradient interpolations, color animations, and alpha compositing.",
+    "type": "auto | sRGB | linearRGB"
+  },
+  "color-interpolation-filters": {
+    "description": "The 'color-interpolation-filters' attribute specifies the color space for imaging operations performed via filter effects.",
+    "type": "auto | sRGB | linearRGB"
+  },
+  "color-profile": {
+    "description": "The 'color-profile' attribute specifies the name of the color profile to use when performing color correction operations within a filter primitive.",
+    "type": "<IRI> | auto"
+  },
+  "color-rendering": {
+    "description": "The 'color-rendering' attribute provides a hint to the SVG user agent about how to optimize its color interpolation and compositing operations.",
+    "type": "auto | optimizeSpeed | optimizeQuality"
+  },
+  "contentScriptType": {
+    "description": "The 'contentScriptType' attribute specifies the default scripting language for the given document fragment.",
+    "type": "<MIME_type>"
+  },
+  "contentStyleType": {
+    "description": "The 'contentStyleType' attribute specifies the default style sheet language for the given document fragment.",
+    "type": "<MIME_type>"
+  },
+  "cursor": {
+    "description": "The 'cursor' attribute specifies the mouse cursor displayed when the mouse pointer is over an element.",
+    "type": "<URL> | auto"
+  },
+  "cx": {
+    "description": "The 'cx' attribute defines the x-axis coordinate of the center of the circle.",
+    "type": "<length>"
+  },
+  "cy": {
+    "description": "The 'cy' attribute defines the y-axis coordinate of the center of the circle.",
+    "type": "<length>"
+  },
+  "d": {
+    "description": "The 'd' attribute defines a path to be drawn.",
+    "type": "<path>"
+  },
+  "descent": {
+    "description": "The 'descent' attribute specifies the suggested distance that the author recommends between the baselines of adjacent rows.",
+    "type": "<number>"
+  },
+  "diffuseConstant": {
+    "description": "The 'diffuseConstant' attribute specifies the diffuse constant of the light source for the light filter kernel.",
+    "type": "<number>"
+  },
+  "direction": {
+    "description": "The 'direction' attribute specifies the base direction of directionally neutral text and the directionality of tables.",
+    "type": "ltr | rtl"
+  },
+  "display": {
+    "description": "The 'display' attribute specifies whether or not the given element is rendered.",
+    "type": "inline | block | list-item | run-in | compact | marker | table | inline-table | table-row-group | table-header-group | table-footer-group | table-row | table-column-group | table-column | table-cell | table-caption | none"
+  },
+  "divisor": {
+    "description": "The 'divisor' attribute specifies the divisor for the light filter kernel.",
+    "type": "<number>"
+  },
+  "dominant-baseline": {
+    "description": "The 'dominant-baseline' attribute specifies a baseline shift that should be applied to the dominant-baseline of all of the glyphs corresponding to a particular graphics element.",
+    "type": "auto | use-script | no-change | reset-size | ideographic | alphabetic | hanging | mathematical | central | middle | text-after-edge | text-before-edge"
+  },
+  "dur": {
+    "description": "The 'dur' attribute specifies the simple duration of the animation.",
+    "type": "<clock-value>"
+  },
+  "dx": {
+    "description": "The 'dx' attribute specifies a shift along the x-axis on the position of an element's text or the position of a 'tspan' element's text.",
+    "type": "<length>"
+  },
+  "dy": {
+    "description": "The 'dy' attribute specifies a shift along the y-axis on the position of an element's text or the position of a 'tspan' element's text.",
+    "type": "<length>"
+  },
+  "edgeMode": {
+    "description": "The 'edgeMode' attribute specifies which edge condition is to be used to determine the values of pixels that lie outside the filter region.",
+    "type": "duplicate | wrap | none"
+  },
+  "elevation": {
+    "description": "The 'elevation' attribute specifies the light source elevation angle in the light filter kernel.",
+    "type": "<number>"
+  },
+  "enable-background": {
+    "description": "The 'enable-background' attribute specifies the color space for imaging operations performed via filter effects.",
+    "type": "<color-interpolation-filters> | accumulate"
+  },
+  "end": {
+    "description": "The 'end' attribute specifies the end time for the element, when it becomes inactive in the animation timeline.",
+    "type": "<clock-value>"
+  },
+  "exponent": {
+    "description": "The 'exponent' attribute specifies the exponent value for the light filter kernel.",
+    "type": "<number>"
+  },
+  "externalResourcesRequired": {
+    "description": "The 'externalResourcesRequired' attribute specifies whether or not to force various resource attributes to take into account external resource references.",
+    "type": "true | false"
+  },
+  "fill": {
+    "description": "The 'fill' attribute specifies the color used to paint the element.",
+    "type": "<paint>"
+  },
+  "fill-opacity": {
+    "description": "The 'fill-opacity' attribute specifies the opacity of the painting operation used to paint the interior the current object.",
+    "type": "<opacity-value>"
+  },
+  "fill-rule": {
+    "description": "The 'fill-rule' attribute specifies the algorithm which is to be used to determine what parts of the canvas are included inside the shape.",
+    "type": "nonzero | evenodd"
+  },
+  "filter": {
+    "description": "The 'filter' attribute specifies the filter effects defined by the 'filter' element.",
+    "type": "<funciri> | none"
+  },
+  "filterRes": {
+    "description": "The 'filterRes' attribute specifies the width and height on the intermediate images in a filter chain.",
+    "type": "<number-optional-number>"
+  },
+  "filterUnits": {
+    "description": "The 'filterUnits' attribute specifies the coordinate system for attributes 'x', 'y', 'width' and 'height'.",
+    "type": "userSpaceOnUse | objectBoundingBox"
+  },
+  "flood-color": {
+    "description": "The 'flood-color' attribute specifies the color to use when applying the 'flood' filter primitive.",
+    "type": "<color>"
+  },
+  "flood-opacity": {
+    "description": "The 'flood-opacity' attribute specifies the opacity value to use across the current filter primitive subregion.",
+    "type": "<opacity-value>"
+  },
+  "font-family": {
+    "description": "The 'font-family' attribute specifies a prioritized list of font family names or generic family names.",
+    "type": "<font-family>"
+  },
+  "font-size": {
+    "description": "The 'font-size' attribute specifies the size of glyphs from the font specified by 'font-family'.",
+    "type": "<absolute-size> | <relative-size> | <length> | <percentage>"
+  },
+  "font-size-adjust": {
+    "description": "The 'font-size-adjust' attribute specifies the aspect value of the glyphs in the font specified via 'font-family' relative to the font size.",
+    "type": "<number>"
+  },
+  "font-stretch": {
+    "description": "The 'font-stretch' attribute selects a normal, condensed, or expanded face from a font family.",
+    "type": "normal | wider | narrower | ultra-condensed | extra-condensed | condensed | semi-condensed | semi-expanded | expanded | extra-expanded | ultra-expanded"
+  },
+  "font-style": {
+    "description": "The 'font-style' attribute specifies whether the text is to be rendered using a normal, italic or oblique face.",
+    "type": "normal | italic | oblique"
+  },
+  "font-variant": {
+    "description": "The 'font-variant' attribute selects a normal or small-caps face from a font family.",
+    "type": "normal | small-caps"
+  },
+  "font-weight": {
+    "description": "The 'font-weight' attribute specifies the boldness or lightness of the glyphs in the font.",
+    "type": "normal | bold | bolder | lighter | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900"
+  },
+  "format": {
+    "description": "The 'format' attribute indicates the image format of the referenced resource.",
+    "type": "<mime-type>"
+  },
+  "from": {
+    "description": "The 'from' attribute specifies the initial value of the animation.",
+    "type": "<list-of-numbers>"
+  },
+  "fx": {
+    "description": "The 'fx' attribute specifies the x-coordinate on the starting bounding box of the filter primitive subregion.",
+    "type": "<number>"
+  },
+  "fy": {
+    "description": "The 'fy' attribute specifies the y-coordinate on the starting bounding box of the filter primitive subregion.",
+    "type": "<number>"
+  },
+  "g1": {
+    "description": "The 'g1' attribute specifies the first gradient transform which is applied to the gradient coordinate system.",
+    "type": "<transform-list>"
+  },
+  "g2": {
+    "description": "The 'g2' attribute specifies the second gradient transform which is applied to the gradient coordinate system.",
+    "type": "<transform-list>"
+  },
+  "glyph-name": {
+    "description": "The 'glyph-name' attribute specifies the name of the glyph within the font.",
+    "type": "<glyph-name>"
+  },
+  "glyph-orientation-horizontal": {
+    "description": "The 'glyph-orientation-horizontal' attribute specifies the orientation of the dominant baseline of the glyph.",
+    "type": "<angle>"
+  },
+  "glyph-orientation-vertical": {
+    "description": "The 'glyph-orientation-vertical' attribute specifies the orientation of the dominant baseline of the glyph.",
+    "type": "<angle>"
+  },
+  "glyphRef": {
+    "description": "The 'glyphRef' attribute references a 'glyph' element by name.",
+    "type": "<funciri>"
+  },
+  "gradientTransform": {
+    "description": "The 'gradientTransform' attribute specifies an additional transformation from the gradient coordinate system onto the target coordinate system.",
+    "type": "<transform-list>"
+  },
+  "gradientUnits": {
+    "description": "The 'gradientUnits' attribute specifies the coordinate system for attributes 'x1', 'y1', 'x2', 'y2'.",
+    "type": "userSpaceOnUse | objectBoundingBox"
+  },
+  "hanging": {
+    "description": "The 'hanging' attribute specifies the amount of the overhang required for glyph shaping for this font.",
+    "type": "<number>"
+  },
+  "height": {
+    "description": "The 'height' attribute specifies the height of the rectangle.",
+    "type": "<length>"
+  },
+  "horiz-adv-x": {
+    "description": "The 'horiz-adv-x' attribute specifies the horizontal advance after rendering the glyph.",
+    "type": "<number>"
+  },
+  "horiz-origin-x": {
+    "description": "The 'horiz-origin-x' attribute specifies the X coordinate in the font coordinate system of the horizontal origin of the glyph.",
+    "type": "<number>"
+  },
+  "horiz-origin-y": {
+    "description": "The 'horiz-origin-y' attribute specifies the Y coordinate in the font coordinate system of the horizontal origin of the glyph.",
+    "type": "<number>"
   },
   "id": {
-    "description": "Specifies a unique ID for an element",
-    "type": "String"
+    "description": "The 'id' attribute specifies a unique id for an element.",
+    "type": "<id>"
+  },
+  "ideographic": {
+    "description": "The 'ideographic' attribute specifies the amount of the overhang required for glyph shaping for this font.",
+    "type": "<number>"
+  },
+  "image-rendering": {
+    "description": "The 'image-rendering' attribute provides a hint to the browser about how to make speed vs. quality tradeoffs as it performs image processing.",
+    "type": "auto | optimizeSpeed | optimizeQuality"
+  },
+  "in": {
+    "description": "The 'in' attribute identifies input for the given filter primitive.",
+    "type": "<in-attr>"
+  },
+  "in2": {
+    "description": "The 'in2' attribute identifies input for the given filter primitive.",
+    "type": "<in2-attr>"
+  },
+  "intercept": {
+    "description": "The 'intercept' attribute specifies the intercept of the linear function.",
+    "type": "<number>"
+  },
+  "k": {
+    "description": "The 'k' attribute specifies the slope of the linear function.",
+    "type": "<number>"
+  },
+  "k1": {
+    "description": "The 'k1' attribute specifies the slope of the linear function.",
+    "type": "<number>"
+  },
+  "k2": {
+    "description": "The 'k2' attribute specifies the slope of the linear function.",
+    "type": "<number>"
+  },
+  "k3": {
+    "description": "The 'k3' attribute specifies the slope of the linear function.",
+    "type": "<number>"
+  },
+  "k4": {
+    "description": "The 'k4' attribute specifies the slope of the linear function.",
+    "type": "<number>"
+  },
+  "kernelMatrix": {
+    "description": "The 'kernelMatrix' attribute contains the list of numbers that make up the kernel matrix for the convolution.",
+    "type": "<number>"
+  },
+
+  "kernelUnitLength": {
+    "description": "The 'kernelUnitLength' attribute specifies the intended distance in current filter units (i.e., units as determined by the value of attribute 'primitiveUnits') between successive columns and rows, respectively, in the 'kernelMatrix'.",
+    "type": "<number>"
+  },
+  "kerning": {
+    "description": "The 'kerning' attribute specifies whether the browser should adjust inter-glyph spacing based on kerning tables that are included in the relevant font.",
+    "type": "auto | <length>"
+  },
+  "keyPoints": {
+    "description": "The 'keyPoints' attribute specifies a list of points at which keyTimes for the animation element occur.",
+    "type": "<list-of-numbers>"
+  },
+  "keySplines": {
+    "description": "The 'keySplines' attribute specifies a set of Bézier control points associated with the keyTimes list, defining a cubic Bézier function that controls interval pacing.",
+    "type": "<list-of-numbers>"
+  },
+  "keyTimes": {
+    "description": "The 'keyTimes' attribute specifies a list of time values used to control the pacing of the animation.",
+    "type": "<list-of-times>"
+  },
+  "lang": {
+    "description": "The 'lang' attribute specifies the primary language(s) for the element's contents and for any of the element's attributes that contain text.",
+    "type": "<langcode>"
+  },
+  "lengthAdjust": {
+    "description": "The 'lengthAdjust' attribute specifies a hint for vertical font size scaling.",
+    "type": "spacing | spacingAndGlyphs"
+  },
+  "letter-spacing": {
+    "description": "The 'letter-spacing' attribute specifies spacing behavior between text characters.",
+    "type": "<length>"
+  },
+  "lighting-color": {
+    "description": "The 'lighting-color' attribute defines the color of the light source for filter primitives 'feDiffuseLighting' and 'feSpecularLighting'.",
+    "type": "<color>"
+  },
+  "limitingConeAngle": {
+    "description": "The 'limitingConeAngle' attribute specifies the angle in degrees between the spot light axis and the spot light cone.",
+    "type": "<number>"
+  },
+  "local": {
+    "description": "The 'local' attribute specifies the transformation applied to the geometry within the 'feDisplacementMap' element.",
+    "type": "<list-of-numbers>"
+  },
+  "marker-end": {
+    "description": "The 'marker-end' attribute defines the arrowhead or polymarker that will be drawn at the final vertex of the given shape.",
+    "type": "<funciri> | none"
+  },
+  "marker-mid": {
+    "description": "The 'marker-mid' attribute defines the arrowhead or polymarker that shall be drawn at every vertex other than the first and last vertex of the given shape.",
+    "type": "<funciri> | none"
+  },
+  "marker-start": {
+    "description": "The 'marker-start' attribute defines the arrowhead or polymarker that will be drawn at the first vertex of the given shape.",
+    "type": "<funciri> | none"
+  },
+  "markerHeight": {
+    "description": "The 'markerHeight' attribute defines the height of the viewport into which the marker is to be fitted when it is rendered.",
+    "type": "<length>"
+  },
+  "markerUnits": {
+    "description": "The 'markerUnits' attribute specifies the coordinate system for the various length values within the marker.",
+    "type": "strokeWidth | userSpaceOnUse"
+  },
+  "markerWidth": {
+    "description": "The 'markerWidth' attribute defines the width of the viewport into which the marker is to be fitted when it is rendered.",
+    "type": "<length>"
   },
   "mask": {
-    "description": "Specifies a mask for an element",
-    "type": "String"
+    "description": "The 'mask' attribute specifies an IRI reference to a mask element that defines the mask image.",
+    "type": "<funciri> | none"
+  },
+  "maskContentUnits": {
+    "description": "The 'maskContentUnits' attribute defines the coordinate system for the contents of the mask.",
+    "type": "userSpaceOnUse | objectBoundingBox"
+  },
+  "maskUnits": {
+    "description": "The 'maskUnits' attribute defines the coordinate system for attributes 'x', 'y', 'width' and 'height' on the mask element.",
+    "type": "userSpaceOnUse | objectBoundingBox"
+  },
+  "mathematical": {
+    "description": "The 'mathematical' attribute specifies whether the font is to be treated as a mathematical font.",
+    "type": "true | false"
+  },
+  "max": {
+    "description": "The 'max' attribute specifies the maximum value allowed.",
+    "type": "<number>"
+  },
+  "media": {
+    "description": "The 'media' attribute specifies the intended medium of the style information.",
+    "type": "<media-query>"
+  },
+  "method": {
+    "description": "The 'method' attribute defines what color interpolation method to use when the gradient stops are not evenly spaced.",
+    "type": "align | stretch"
+  },
+  "min": {
+    "description": "The 'min' attribute specifies the minimum value allowed.",
+    "type": "<number>"
+  },
+  "mode": {
+    "description": "The 'mode' attribute specifies the blending mode used to compose the source graphic and destination images.",
+    "type": "normal | multiply | screen | darken | lighten"
+  },
+  "name": {
+    "description": "The 'name' attribute specifies the name of the given element.",
+    "type": "<string>"
+  },
+  "numOctaves": {
+    "description": "The 'numOctaves' attribute specifies the number of octaves for the noise function of the 'feTurbulence' element.",
+    "type": "<integer>"
+  },
+  "offset": {
+    "description": "The 'offset' attribute specifies the offset distance of the end of the filter primitive from its nominal position along the x-axis.",
+    "type": "<number>"
+  },
+  "opacity": {
+    "description": "The 'opacity' attribute specifies the transparency of an object or of a group of objects, that is, the degree to which the background behind the element is overlaid.",
+    "type": "<opacity-value>"
+  },
+  "operator": {
+    "description": "The 'operator' attribute defines the compositing operator that is applied when processing the given filter primitive.",
+    "type": "over | in | out | atop | xor | arithmetic"
+  },
+  "order": {
+    "description": "The 'order' attribute specifies the number of times to iterate the 'feConvolveMatrix' operation.",
+    "type": "<number>"
+  },
+  "orient": {
+    "description": "The 'orient' attribute specifies how the marker is rotated when it is placed at its position on the shape.",
+    "type": "auto | <angle>"
+  },
+  "orientation": {
+    "description": "The 'orientation' attribute specifies the orientation of the gradient vector for the x-axis direction.",
+    "type": "auto | <angle>"
+  },
+  "origin": {
+    "description": "The 'origin' attribute specifies the location of the SVG viewport for the referenced content.",
+    "type": "<list-of-numbers>"
+  },
+  "overflow": {
+    "description": "The 'overflow' attribute specifies what to do with elements that render outside the viewport area.",
+    "type": "visible | hidden | scroll | auto"
+  },
+  "overline-position": {
+    "description": "The 'overline-position' attribute specifies the position of the overline in the font.",
+    "type": "<number> | <percentage> | <length> | inherit"
+  },
+  "overline-thickness": {
+    "description": "The 'overline-thickness' attribute specifies the thickness of the overline in the font.",
+    "type": "<number> | <percentage> | <length> | inherit"
+  },
+  "paint-order": {
+    "description": "The 'paint-order' attribute specifies the order that the fill, stroke and markers of a given shape or text element are painted.",
+    "type": "normal | fill | stroke | markers"
+  },
+  "panose-1": {
+    "description": "The 'panose-1' attribute specifies the PANOSE-1 classification number for the font.",
+    "type": "<number>"
+  },
+  "path": {
+    "description": "The 'path' attribute defines the outline of the glyph.",
+    "type": "<string>"
+  },
+  "pathLength": {
+    "description": "The 'pathLength' attribute lets authors specify the total length for the path, in user units.",
+    "type": "<number>"
+  },
+  "patternContentUnits": {
+    "description": "The 'patternContentUnits' attribute defines the coordinate system for the contents of the 'pattern' element.",
+    "type": "userSpaceOnUse | objectBoundingBox"
+  },
+  "patternTransform": {
+    "description": "The 'patternTransform' attribute contains the definition of an optional additional transformation from the pattern coordinate system onto the target coordinate system.",
+    "type": "<transform-list>"
+  },
+  "patternUnits": {
+    "description": "The 'patternUnits' attribute defines the coordinate system for attributes 'x', 'y', 'width' and 'height' on the 'pattern' element.",
+    "type": "userSpaceOnUse | objectBoundingBox"
+  },
+  "pointer-events": {
+    "description": "The 'pointer-events' attribute determines whether or not the given element reacts to pointer events.",
+    "type": "visiblePainted | visibleFill | visibleStroke | visible | painted | fill | stroke | all | none"
+  },
+  "points": {
+    "description": "The 'points' attribute defines the list of points defining the polyline.",
+    "type": "<list-of-points>"
+  },
+  "pointsAtX": {
+    "description": "The 'pointsAtX' attribute specifies the x location in the coordinate system established by attribute 'primitiveUnits' on the 'filter' element of the point at which the light source is pointing.",
+    "type": "<number>"
+  },
+  "pointsAtY": {
+    "description": "The 'pointsAtY' attribute specifies the y location in the coordinate system established by attribute 'primitiveUnits' on the 'filter' element of the point at which the light source is pointing.",
+    "type": "<number>"
+  },
+  "pointsAtZ": {
+    "description": "The 'pointsAtZ' attribute specifies the z location in the coordinate system established by attribute 'primitiveUnits' on the 'filter' element of the point at which the light source is pointing.",
+    "type": "<number>"
+  },
+  "preserveAlpha": {
+    "description": "The 'preserveAlpha' attribute specifies whether or not to allow the alpha channel of the input image to be used for compositing.",
+    "type": "<boolean>"
   },
   "preserveAspectRatio": {
-    "description": "Defines how an element's viewBox will be scaled and positioned",
-    "type": "String"
+    "description": "The 'preserveAspectRatio' attribute indicates whether or not to force uniform scaling.",
+    "type": "none | xMinYMin | xMidYMin | xMaxYMin | xMinYMid | xMidYMid | xMaxYMid | xMinYMax | xMidYMax | xMaxYMax | meet | slice"
   },
-  "style": {
-    "description": "Specifies an inline style for an element",
-    "type": "String"
+  "primitiveUnits": {
+    "description": "The 'primitiveUnits' attribute defines the coordinate system for the various length values within the filter primitives and for the attributes that define the filter primitive subregion.",
+    "type": "userSpaceOnUse | objectBoundingBox"
+  },
+  "r": {
+    "description": "The 'r' attribute defines a radius on an elliptical arc.",
+    "type": "<number> | <percentage> | <length>"
+  },
+  "radius": {
+    "description": "The 'radius' attribute defines the radius of the circle.",
+    "type": "<number> | <percentage> | <length>"
+  },
+  "refX": {
+    "description": "The 'refX' attribute specifies the x-coordinate of an additional point on the marker which is used to align the marker with its reference point.",
+    "type": "<number> | <percentage> | <length>"
+  },
+  "refY": {
+    "description": "The 'refY' attribute specifies the y-coordinate of an additional point on the marker which is used to align the marker with its reference point.",
+    "type": "<number> | <percentage> | <length>"
+  },
+  "rendering-intent": {
+    "description": "The 'rendering-intent' attribute specifies the color rendering intent.",
+    "type": "auto | perceptual | relative-colorimetric | saturation | absolute-colorimetric"
+  },
+  "repeatCount": {
+    "description": "The 'repeatCount' attribute specifies the number of times an animation will take place.",
+    "type": "<number> | indefinite"
+  },
+  "repeatDur": {
+    "description": "The 'repeatDur' attribute specifies the total duration for repeating an animation.",
+    "type": "<clock-value> | indefinite"
+  },
+  "requiredExtensions": {
+    "description": "The 'requiredExtensions' attribute indicates that the given element requires a set of features to be present in the implementation.",
+    "type": "<list-of-IRIs>"
+  },
+  "requiredFeatures": {
+    "description": "The 'requiredFeatures' attribute indicates that the given element requires a set of features to be present in the implementation.",
+    "type": "<list-of-IRIs>"
+  },
+  "restart": {
+    "description": "The 'restart' attribute specifies the conditions under which an animation element is restarted.",
+    "type": "always | whenNotActive | never"
+  },
+  "result": {
+    "description": "The 'result' attribute specifies the name of the result of processing the 'feImage' filter primitive.",
+    "type": "<string>"
+  },
+  "rotate": {
+    "description": "The 'rotate' attribute indicates the rotation angle about the origin of the current user coordinate system to be applied to the element.",
+    "type": "<number> | <percentage>"
+  },
+  "rx": {
+    "description": "The 'rx' attribute defines a radius on the x-axis of an ellipse.",
+    "type": "<number> | <percentage> | <length>"
+  },
+  "ry": {
+    "description": "The 'ry' attribute defines a radius on the y-axis of an ellipse.",
+    "type": "<number> | <percentage> | <length>"
+  },
+  "scale": {
+    "description": "The 'scale' attribute specifies a scale factor by which the current user coordinate system is scaled relative to the initial user coordinate system.",
+    "type": "<number> | <percentage>"
+  },
+  "seed": {
+    "description": "The 'seed' attribute specifies the seed for the pseudo random number generator of the 'feTurbulence' filter primitive.",
+    "type": "<number>"
+  },
+  "shape-rendering": {
+    "description": "The 'shape-rendering' attribute provides hints to the renderer about what tradeoffs to make as it renders vector graphics elements such as paths and basic shapes such as circles and rectangles.",
+    "type": "auto | optimizeSpeed | crispEdges | geometricPrecision"
+  },
+  "slope": {
+    "description": "The 'slope' attribute indicates the slope of the linear function used to remap pixel values.",
+    "type": "<number>"
+  },
+  "spacing": {
+    "description": "The 'spacing' attribute specifies the spacing behavior between text characters.",
+    "type": "auto | exact"
+  },
+  "specularConstant": {
+    "description": "The 'specularConstant' attribute indicates the ks value in the Phong lighting model.",
+    "type": "<number>"
+  },
+  "specularExponent": {
+    "description": "The 'specularExponent' attribute indicates the specular exponent in the Phong lighting model.",
+    "type": "<number>"
+  },
+  "spreadMethod": {
+    "description": "The 'spreadMethod' attribute specifies the type of spread method which shall be used to define how the color from the gradient vector spreads outside the gradient bounds.",
+    "type": "pad | reflect | repeat"
+  },
+  "startOffset": {
+    "description": "The 'startOffset' attribute specifies an offset from the start of the path for the initial current text position along the path.",
+    "type": "<number> | <percentage> | <length>"
+  },
+  "stdDeviation": {
+    "description": "The 'stdDeviation' attribute specifies the standard deviation for the blur operation.",
+    "type": "<number> | <list-of-numbers>"
+  },
+  "stemh": {
+    "description": "The 'stemh' attribute specifies the dominant height of the font.",
+    "type": "<number> | <percentage> | <length>"
+  },
+  "stemv": {
+    "description": "The 'stemv' attribute specifies the dominant vertical stem width of the font.",
+    "type": "<number> | <percentage> | <length>"
+  },
+  "stitchTiles": {
+    "description": "The 'stitchTiles' attribute specifies whether to force edge pixels to be repeated.",
+    "type": "noStitch | stitch"
+  },
+  "stop-color": {
+    "description": "The 'stop-color' attribute indicates what color to use at that gradient stop.",
+    "type": "<color>"
+  },
+  "stop-opacity": {
+    "description": "The 'stop-opacity' attribute indicates the opacity of a given gradient stop.",
+    "type": "<opacity-value>"
+  },
+  "strikethrough-position": {
+    "description": "The 'strikethrough-position' attribute specifies the position of the strikethrough stroke relative to the dominant baseline.",
+    "type": "<number> | <percentage> | <length>"
+  },
+  "strikethrough-thickness": {
+    "description": "The 'strikethrough-thickness' attribute specifies the thickness of the strikethrough stroke relative to the thickness of the text.",
+    "type": "<number> | <percentage> | <length>"
+  },
+  "string": {
+    "description": "The 'string' attribute specifies the string to be rendered.",
+    "type": "<string>"
+  },
+  "stroke": {
+    "description": "The 'stroke' attribute specifies paint to be applied to the outline of the shape.",
+    "type": "<paint>"
+  },
+  "stroke-dasharray": {
+    "description": "The 'stroke-dasharray' attribute controls the pattern of dashes and gaps used to stroke paths.",
+    "type": "<dasharray>"
+  },
+  "stroke-dashoffset": {
+    "description": "The 'stroke-dashoffset' attribute specifies the distance into the dash pattern to start the dash.",
+    "type": "<percentage> | <length>"
+  },
+  "stroke-linecap": {
+    "description": "The 'stroke-linecap' attribute specifies the shape to be used at the end of open subpaths when they are stroked.",
+    "type": "butt | round | square"
+  },
+  "stroke-linejoin": {
+    "description": "The 'stroke-linejoin' attribute specifies the shape to be used at the corners of paths or basic shapes when they are stroked.",
+    "type": "miter | round | bevel"
+  },
+  "stroke-miterlimit": {
+    "description": "The 'stroke-miterlimit' attribute specifies the limit on the ratio of the miter length to the 'stroke-width'.",
+    "type": "<number>"
+  },
+  "stroke-opacity": {
+    "description": "The 'stroke-opacity' attribute specifies the opacity of the painting operation used to stroke the current object.",
+    "type": "<opacity-value>"
+  },
+  "stroke-width": {
+    "description": "The 'stroke-width' attribute specifies the width of the stroke on the current object.",
+    "type": "<percentage> | <length>"
+  },
+  "surfaceScale": {
+    "description": "The 'surfaceScale' attribute specifies a scale factor that determines the size of the light's rendering surface relative to the filter primitive's bounding box.",
+    "type": "<number>"
+  },
+  "systemLanguage": {
+    "description": "The 'systemLanguage' attribute specifies a comma-separated list of language codes that represent the user's preferred languages.",
+    "type": "<language-code>"
+  },
+  "tableValues": {
+    "description": "The 'tableValues' attribute specifies the lookup table values.",
+    "type": "<number> | <list-of-numbers>"
+  },
+  "target": {
+    "description": "The 'target' attribute specifies the target element on which the animation is applied.",
+    "type": "<string>"
+  },
+  "targetX": {
+    "description": "The 'targetX' attribute specifies the x-axis component of the target vector.",
+    "type": "<number>"
+  },
+  "targetY": {
+    "description": "The 'targetY' attribute specifies the y-axis component of the target vector.",
+    "type": "<number>"
   },
   "text-anchor": {
-    "description": "Specifies the horizontal alignment of text",
-    "type": "String"
+    "description": "The 'text-anchor' attribute specifies the alignment of the text relative to the current text position.",
+    "type": "start | middle | end"
   },
   "text-decoration": {
-    "description": "Specifies the decoration added to text",
-    "type": "String"
+    "description": "The 'text-decoration' attribute specifies decorations that are added to the text of an element.",
+    "type": "none | underline | overline | line-through | blink"
+  },
+  "text-rendering": {
+    "description": "The 'text-rendering' attribute provides a hint to the SVG user agent about how to optimize its rendering for speed and legibility.",
+    "type": "auto | optimizeSpeed | optimizeLegibility | geometricPrecision"
+  },
+  "textLength": {
+    "description": "The 'textLength' attribute specifies the desired width of the entire text span.",
+    "type": "<percentage> | <length>"
+  },
+  "title": {
+    "description": "The 'title' attribute specifies advisory information about the element.",
+    "type": "<string>"
+  },
+  "to": {
+    "description": "The 'to' attribute specifies the ending value of the animation.",
+    "type": "<list-of-numbers>"
+  },
+  "transform": {
+    "description": "The 'transform' attribute specifies a list of transformations that are applied to an element and the types of coordinate systems.",
+    "type": "<transform-list>"
+  },
+  "type": {
+    "description": "The 'type' attribute specifies the type of filter primitive.",
+    "type": "identity | gaussianBlur | colorMatrix | componentTransfer | convolution | displacementMap | morphology | offset | specularLighting | composite | blend | flood | image | tile | turbulence | feDistantLight | fePointLight | feSpotLight | feBlend | feColorMatrix | feComponentTransfer | feComposite | feConvolveMatrix | feDiffuseLighting | feDisplacementMap | feFlood | feGaussianBlur | feImage | feMerge | feMorphology | feOffset | feSpecularLighting | feTile | feTurbulence"
+  },
+  "u1": {
+    "description": "The 'u1' attribute specifies the x-axis coordinate of the first control point.",
+    "type": "<number>"
+  },
+  "u2": {
+    "description": "The 'u2' attribute specifies the x-axis coordinate of the second control point.",
+    "type": "<number>"
+  },
+  "underline-position": {
+    "description": "The 'underline-position' attribute specifies the position of the underline decoration on text.",
+    "type": "<number> | <percentage> | <length>"
+  },
+  "underline-thickness": {
+    "description": "The 'underline-thickness' attribute specifies the thickness of the underline decoration on text.",
+    "type": "<number> | <percentage> | <length>"
+  },
+  "unicode": {
+    "description": "The 'unicode' attribute specifies the Unicode value of the text to be rendered.",
+    "type": "<string>"
+  },
+  "unicode-bidi": {
+    "description": "The 'unicode-bidi' attribute specifies the level of embedding with respect to the bidirectional algorithm.",
+    "type": "normal | embed | bidi-override"
+  },
+  "unicode-range": {
+    "description": "The 'unicode-range' attribute specifies the range of Unicode code points that are supported by the font-face.",
+    "type": "<string>"
+  },
+  "units-per-em": {
+    "description": "The 'units-per-em' attribute specifies the number of coordinate units on the x-axis and the y-axis that correspond to the height of the em square.",
+    "type": "<number>"
+  },
+  "v-alphabetic": {
+    "description": "The 'v-alphabetic' attribute specifies the vertical position of the 'alphabetic' baseline of the glyph.",
+    "type": "<number> | <percentage> | <length>"
+  },
+  "v-hanging": {
+    "description": "The 'v-hanging' attribute specifies the vertical position of the 'hanging' baseline of the glyph.",
+    "type": "<number> | <percentage> | <length>"
+  },
+  "v-ideographic": {
+    "description": "The 'v-ideographic' attribute specifies the vertical position of the 'ideographic' baseline of the glyph.",
+    "type": "<number> | <percentage> | <length>"
+  },
+  "v-mathematical": {
+    "description": "The 'v-mathematical' attribute specifies the vertical position of the 'mathematical' baseline of the glyph.",
+    "type": "<number> | <percentage> | <length>"
+  },
+  "values": {
+    "description": "The 'values' attribute specifies the set of values to interpolate between.",
+    "type": "<list-of-numbers>"
+  },
+  "version": {
+    "description": "The 'version' attribute specifies the version number of the SVG specification that the document fragment conforms to.",
+    "type": "<string>"
+  },
+  "vert-adv-y": {
+    "description": "The 'vert-adv-y' attribute specifies the vertical distance from the origin of a glyph in a horizontal font to the advance point of the next glyph.",
+    "type": "<number> | <percentage> | <length>"
+  },
+  "vert-origin-x": {
+    "description": "The 'vert-origin-x' attribute specifies the x-coordinate in the font coordinate system of the origin of a glyph.",
+    "type": "<number> | <percentage> | <length>"
+  },
+  "vert-origin-y": {
+    "description": "The 'vert-origin-y' attribute specifies the y-coordinate in the font coordinate system of the origin of a glyph.",
+    "type": "<number> | <percentage> | <length>"
+  },
+  "viewBox": {
+    "description": "The 'viewBox' attribute specifies the position and size, in user space, of an SVG viewport.",
+    "type": "<list-of-numbers>"
   },
   "viewTarget": {
-    "description": "Specifies the target of a hyperlink in a 'view' element",
-    "type": "String"
+    "description": "The 'viewTarget' attribute specifies the name of a view that should be used when processing the element.",
+    "type": "<string>"
   },
   "visibility": {
-    "description": "Specifies whether or not an element is visible",
-    "type": "String"
+    "description": "The 'visibility' attribute specifies whether the given graphics element is visible.",
+    "type": "visible | hidden | collapse | inherit"
+  },
+  "width": {
+    "description": "The 'width' attribute specifies the width of the element.",
+    "type": "<number> | <percentage> | <length>"
+  },
+  "widths": {
+    "description": "The 'widths' attribute specifies the widths of the glyphs in the font.",
+    "type": "<list-of-numbers>"
+  },
+  "word-spacing": {
+    "description": "The 'word-spacing' attribute specifies the spacing behavior between words.",
+    "type": "<number> | <percentage> | <length>"
+  },
+  "writing-mode": {
+    "description": "The 'writing-mode' attribute specifies whether the initial inline-progression-direction for a text element is horizontal or vertical.",
+    "type": "lr-tb | rl-tb | tb-rl | lr | rl | tb"
+  },
+  "x": {
+    "description": "The 'x' attribute specifies the x-axis coordinate of the top-left corner of the element.",
+    "type": "<number> | <percentage> | <length>"
+  },
+  "x-height": {
+    "description": "The 'x-height' attribute specifies the height of lowercase letters in the font.",
+    "type": "<number> | <percentage> | <length>"
+  },
+  "x1": {
+    "description": "The 'x1' attribute specifies the x-axis coordinate of the first control point.",
+    "type": "<number> | <percentage> | <length>"
+  },
+  "x2": {
+    "description": "The 'x2' attribute specifies the x-axis coordinate of the second control point.",
+    "type": "<number> | <percentage> | <length>"
+  },
+  "xChannelSelector": {
+    "description": "The 'xChannelSelector' attribute specifies which color channel (R, G, or B) that the 'x' attribute will affect.",
+    "type": "R | G | B"
+  },
+  "xlink:actuate": {
+    "description": "The 'xlink:actuate' attribute specifies the timing of the element's activation.",
+    "type": "onLoad | onRequest | other | none"
+  },
+  "xlink:arcrole": {
+    "description": "The 'xlink:arcrole' attribute defines the meaning of the link based on the application context.",
+    "type": "<string>"
+  },
+  "xlink:href": {
+    "description": "The 'xlink:href' attribute defines a link to a resource as a reference IRI.",
+    "type": "<string>"
+  },
+  "xlink:role": {
+    "description": "The 'xlink:role' attribute defines the meaning of the link based on the application context.",
+    "type": "<string>"
+  },
+  "xlink:show": {
+    "description": "The 'xlink:show' attribute specifies whether or not to show the referenced resource in a new view.",
+    "type": "new | replace | embed | other | none"
+  },
+  "xlink:title": {
+    "description": "The 'xlink:title' attribute provides a title for the resource described by the link.",
+    "type": "<string>"
+  },
+  "xlink:type": {
+    "description": "The 'xlink:type' attribute defines the type of the link based on the application context.",
+    "type": "simple | extended"
+  },
+  "xml:base": {
+    "description": "The 'xml:base' attribute specifies the base URI for resolving any relative URI's within the scope of the element on which it appears.",
+    "type": "<string>"
+  },
+  "xml:lang": {
+    "description": "The 'xml:lang' attribute specifies the natural or formal language in which the document is written.",
+    "type": "<string>"
+  },
+  "xml:space": {
+    "description": "The 'xml:space' attribute specifies whether whitespace is preserved.",
+    "type": "default | preserve"
+  },
+  "y": {
+    "description": "The 'y' attribute specifies the y-axis coordinate of the top-left corner of the element.",
+    "type": "<number> | <percentage> | <length>"
+  },
+  "y1": {
+    "description": "The 'y1' attribute specifies the y-axis coordinate of the first control point.",
+    "type": "<number> | <percentage> | <length>"
+  },
+  "y2": {
+    "description": "The 'y2' attribute specifies the y-axis coordinate of the second control point.",
+    "type": "<number> | <percentage> | <length>"
+  },
+  "yChannelSelector": {
+    "description": "The 'yChannelSelector' attribute specifies which color channel (R, G, or B) that the 'y' attribute will affect.",
+    "type": "R | G | B"
+  },
+  "z": {
+    "description": "The 'z' attribute specifies the z-axis coordinate of the top-left corner of the element.",
+    "type": "<number> | <percentage> | <length>"
+  },
+  "zoomAndPan": {
+    "description": "The 'zoomAndPan' attribute specifies whether magnification is allowed for the current SVG document fragment.",
+    "type": "disable | magnify"
   }
 }
