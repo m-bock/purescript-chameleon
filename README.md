@@ -48,9 +48,7 @@ view props =
     ]
 ```
 ## Demo
-```hs
 
-```
 The test suite contains a demo app that renders the same component in both
 halogen and react-basic. To run it:
 
