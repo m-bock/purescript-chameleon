@@ -9,8 +9,8 @@ your pure views in a framework agnostic way with this library. And you can
 integrate it in any framework that does provide a matching implementation. 
 
 Currently available implementations:
-  - [halogen](http:://github.com/thought2/virtual-dom-halogen)
-  - [react-basic](http:://github.com/thought2/virtual-dom-react-basic)
+  - [halogen](https:://github.com/thought2/virtual-dom-halogen)
+  - [react-basic](https:://github.com/thought2/virtual-dom-react-basic)
 
 ## Example
 ```hs
