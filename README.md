@@ -9,7 +9,7 @@ your pure views in a framework agnostic way with this library. And you can
 integrate it in any framework that does provide a matching implementation. 
 
 The test suite contains reference implementations for `halogen` and
-`react-basic-hooks`. You can run the sample app with 
+`react-basic`. You can run the sample app with 
 
 ```
 yarn install
@@ -26,10 +26,10 @@ module Test.SampleReadme where
 
 import Prelude
 
-import TaglessVirtualDOM (class Html, text)
-import TaglessVirtualDOM.HTML.Attributes as TA
-import TaglessVirtualDOM.HTML.Elements as T
-import TaglessVirtualDOM.HTML.Events as TE
+import VirtualDOM (class Html, text)
+import VirtualDOM.HTML.Attributes as TA
+import VirtualDOM.HTML.Elements as T
+import VirtualDOM.HTML.Events as TE
 
 type State = Int
 
