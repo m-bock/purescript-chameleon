@@ -12,6 +12,10 @@ import Prim.RowList as RL
 import VirtualDOM (Prop(..))
 import Type.Proxy (Proxy(..))
 
+------------------------------------------------------------------------------- 
+--- class IsAttrib
+-------------------------------------------------------------------------------
+
 class IsAttrib a where
   toAttrib :: a -> String
 
@@ -33,6 +37,10 @@ instance IsAttrib (Array String) where
 instance (RowToList r rl, IsAttribVariantRL rl r) => IsAttrib (Variant r) where
   toAttrib = toAttribVariantRL (Proxy :: Proxy rl)
 
+------------------------------------------------------------------------------- 
+--- class IsAttribVariantRL
+-------------------------------------------------------------------------------
+
 class IsAttribVariantRL :: RowList Type -> Row Type -> Constraint
 class IsAttribVariantRL rl r where
   toAttribVariantRL :: Proxy rl -> Variant r -> String
@@ -51,6 +59,10 @@ instance
       # V.on prxSym (const $ reflectSymbol prxSym)
     where
     prxSym = Proxy :: _ sym
+
+------------------------------------------------------------------------------- 
+--- Attributes
+-------------------------------------------------------------------------------
 
 -- | Specifies the types of files that the server accepts (only for type="file")
 accept :: forall a. String -> Prop a
@@ -538,3 +550,126 @@ width val = Attr "width" (toAttrib val)
 wrap :: forall a. String -> Prop a
 wrap val = Attr "wrap" (toAttrib val)
 
+------------------------------------------------------------------------------- 
+--- Variant Constructors
+-------------------------------------------------------------------------------
+
+_none :: forall r. Variant ("none" :: Unit | r)
+_none = V.inj (Proxy :: Proxy "none") unit
+
+_metadata :: forall r. Variant ("metadata" :: Unit | r)
+_metadata = V.inj (Proxy :: Proxy "metadata") unit
+
+_auto :: forall r. Variant ("auto" :: Unit | r)
+_auto = V.inj (Proxy :: Proxy "auto") unit
+
+_noReferrer :: forall r. Variant ("no-referrer" :: Unit | r)
+_noReferrer = V.inj (Proxy :: Proxy "no-referrer") unit
+
+_noReferrerWhenDowngrade :: forall r. Variant ("no-referrer-when-downgrade" :: Unit | r)
+_noReferrerWhenDowngrade = V.inj (Proxy :: Proxy "no-referrer-when-downgrade") unit
+
+_origin :: forall r. Variant ("origin" :: Unit | r)
+_origin = V.inj (Proxy :: Proxy "origin") unit
+
+_originWhenCrossOrigin :: forall r. Variant ("origin-when-cross-origin" :: Unit | r)
+_originWhenCrossOrigin = V.inj (Proxy :: Proxy "origin-when-cross-origin") unit
+
+_sameOrigin :: forall r. Variant ("same-origin" :: Unit | r)
+_sameOrigin = V.inj (Proxy :: Proxy "same-origin") unit
+
+_strictOrigin :: forall r. Variant ("strict-origin" :: Unit | r)
+_strictOrigin = V.inj (Proxy :: Proxy "strict-origin") unit
+
+_strictOriginWhenCrossOrigin :: forall r. Variant ("strict-origin-when-cross-origin" :: Unit | r)
+_strictOriginWhenCrossOrigin = V.inj (Proxy :: Proxy "strict-origin-when-cross-origin") unit
+
+_unsafeUrl :: forall r. Variant ("unsafe-url" :: Unit | r)
+_unsafeUrl = V.inj (Proxy :: Proxy "unsafe-url") unit
+
+_alternate :: forall r. Variant ("alternate" :: Unit | r)
+_alternate = V.inj (Proxy :: Proxy "alternate") unit
+
+_author :: forall r. Variant ("author" :: Unit | r)
+_author = V.inj (Proxy :: Proxy "author") unit
+
+_bookmark :: forall r. Variant ("bookmark" :: Unit | r)
+_bookmark = V.inj (Proxy :: Proxy "bookmark") unit
+
+_external :: forall r. Variant ("external" :: Unit | r)
+_external = V.inj (Proxy :: Proxy "external") unit
+
+_help :: forall r. Variant ("help" :: Unit | r)
+_help = V.inj (Proxy :: Proxy "help") unit
+
+_license :: forall r. Variant ("license" :: Unit | r)
+_license = V.inj (Proxy :: Proxy "license") unit
+
+_next :: forall r. Variant ("next" :: Unit | r)
+_next = V.inj (Proxy :: Proxy "next") unit
+
+_nofollow :: forall r. Variant ("nofollow" :: Unit | r)
+_nofollow = V.inj (Proxy :: Proxy "nofollow") unit
+
+_noreferrer :: forall r. Variant ("noreferrer" :: Unit | r)
+_noreferrer = V.inj (Proxy :: Proxy "noreferrer") unit
+
+_noopener :: forall r. Variant ("noopener" :: Unit | r)
+_noopener = V.inj (Proxy :: Proxy "noopener") unit
+
+_prev :: forall r. Variant ("prev" :: Unit | r)
+_prev = V.inj (Proxy :: Proxy "prev") unit
+
+_search :: forall r. Variant ("search" :: Unit | r)
+_search = V.inj (Proxy :: Proxy "search") unit
+
+_tag :: forall r. Variant ("tag" :: Unit | r)
+_tag = V.inj (Proxy :: Proxy "tag") unit
+
+_allowForms :: forall r. Variant ("allow-forms" :: Unit | r)
+_allowForms = V.inj (Proxy :: Proxy "allow-forms") unit
+
+_allowModals :: forall r. Variant ("allow-modals" :: Unit | r)
+_allowModals = V.inj (Proxy :: Proxy "allow-modals") unit
+
+_allowOrientationLock :: forall r. Variant ("allow-orientation-lock" :: Unit | r)
+_allowOrientationLock = V.inj (Proxy :: Proxy "allow-orientation-lock") unit
+
+_allowPointerLock :: forall r. Variant ("allow-pointer-lock" :: Unit | r)
+_allowPointerLock = V.inj (Proxy :: Proxy "allow-pointer-lock") unit
+
+_allowPopups :: forall r. Variant ("allow-popups" :: Unit | r)
+_allowPopups = V.inj (Proxy :: Proxy "allow-popups") unit
+
+_allowPopupsToEscapeSandbox :: forall r. Variant ("allow-popups-to-escape-sandbox" :: Unit | r)
+_allowPopupsToEscapeSandbox = V.inj (Proxy :: Proxy "allow-popups-to-escape-sandbox") unit
+
+_allowPresentation :: forall r. Variant ("allow-presentation" :: Unit | r)
+_allowPresentation = V.inj (Proxy :: Proxy "allow-presentation") unit
+
+_allowSameOrigin :: forall r. Variant ("allow-same-origin" :: Unit | r)
+_allowSameOrigin = V.inj (Proxy :: Proxy "allow-same-origin") unit
+
+_allowScripts :: forall r. Variant ("allow-scripts" :: Unit | r)
+_allowScripts = V.inj (Proxy :: Proxy "allow-scripts") unit
+
+_allowTopNavigation :: forall r. Variant ("allow-top-navigation" :: Unit | r)
+_allowTopNavigation = V.inj (Proxy :: Proxy "allow-top-navigation") unit
+
+_allowTopNavigationByUserActivation
+  :: forall r. Variant ("allow-top-navigation-by-user-activation" :: Unit | r)
+_allowTopNavigationByUserActivation = V.inj
+  (Proxy :: Proxy "allow-top-navigation-by-user-activation")
+  unit
+
+_row :: forall r. Variant ("row" :: Unit | r)
+_row = V.inj (Proxy :: Proxy "row") unit
+
+_col :: forall r. Variant ("col" :: Unit | r)
+_col = V.inj (Proxy :: Proxy "col") unit
+
+_rowgroup :: forall r. Variant ("rowgroup" :: Unit | r)
+_rowgroup = V.inj (Proxy :: Proxy "rowgroup") unit
+
+_colgroup :: forall r. Variant ("colgroup" :: Unit | r)
+_colgroup = V.inj (Proxy :: Proxy "colgroup") unit

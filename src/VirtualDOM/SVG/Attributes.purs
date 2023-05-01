@@ -12,6 +12,10 @@ import Prim.RowList as RL
 import VirtualDOM (Prop(..))
 import Type.Proxy (Proxy(..))
 
+------------------------------------------------------------------------------- 
+--- class IsAttrib
+-------------------------------------------------------------------------------
+
 class IsAttrib a where
   toAttrib :: a -> String
 
@@ -33,6 +37,10 @@ instance IsAttrib (Array String) where
 instance (RowToList r rl, IsAttribVariantRL rl r) => IsAttrib (Variant r) where
   toAttrib = toAttribVariantRL (Proxy :: Proxy rl)
 
+------------------------------------------------------------------------------- 
+--- class IsAttribVariantRL
+-------------------------------------------------------------------------------
+
 class IsAttribVariantRL :: RowList Type -> Row Type -> Constraint
 class IsAttribVariantRL rl r where
   toAttribVariantRL :: Proxy rl -> Variant r -> String
@@ -51,6 +59,10 @@ instance
       # V.on prxSym (const $ reflectSymbol prxSym)
     where
     prxSym = Proxy :: _ sym
+
+------------------------------------------------------------------------------- 
+--- Attributes
+-------------------------------------------------------------------------------
 
 -- | Specifies the x coordinate of the center of a circle
 cx :: forall a. String -> Prop a
@@ -155,4 +167,8 @@ viewTarget val = Attr "viewTarget" (toAttrib val)
 -- | Specifies whether or not an element is visible
 visibility :: forall a. String -> Prop a
 visibility val = Attr "visibility" (toAttrib val)
+
+------------------------------------------------------------------------------- 
+--- Variant Constructors
+-------------------------------------------------------------------------------
 

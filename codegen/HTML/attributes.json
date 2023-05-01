@@ -285,7 +285,7 @@
   },
   "preload": {
     "description": "Specifies if and how the author thinks the audio/video should be loaded when the page loads",
-    "type": "Variant (\"none\" :: Unit, \"metadata\" :: Unit, \"auto\" :: Unit)"
+    "type": ["none", "metadata", "auto"]
   },
   "readonly": {
     "description": "Specifies that the input field is read-only",
@@ -293,11 +293,34 @@
   },
   "referrerpolicy": {
     "description": "Specifies which referrer information to send when fetching the resource",
-    "type": "Variant (\"no-referrer\" :: Unit, \"no-referrer-when-downgrade\" :: Unit, \"origin\" :: Unit, \"origin-when-cross-origin\" :: Unit, \"same-origin\" :: Unit, \"strict-origin\" :: Unit, \"strict-origin-when-cross-origin\" :: Unit, \"unsafe-url\" :: Unit)"
+    "type": [
+      "no-referrer",
+      "no-referrer-when-downgrade",
+      "origin",
+      "origin-when-cross-origin",
+      "same-origin",
+      "strict-origin",
+      "strict-origin-when-cross-origin",
+      "unsafe-url"
+    ]
   },
   "rel": {
     "description": "Specifies the relationship between the current document and the linked document/resource",
-    "type": "Variant (\"alternate\" :: Unit, \"author\" :: Unit, \"bookmark\" :: Unit, \"external\" :: Unit, \"help\" :: Unit, \"license\" :: Unit, \"next\" :: Unit, \"nofollow\" :: Unit, \"noreferrer\" :: Unit, \"noopener\" :: Unit, \"prev\" :: Unit, \"search\" :: Unit, \"tag\" :: Unit)"
+    "type": [
+      "alternate",
+      "author",
+      "bookmark",
+      "external",
+      "help",
+      "license",
+      "next",
+      "nofollow",
+      "noreferrer",
+      "noopener",
+      "prev",
+      "search",
+      "tag"
+    ]
   },
   "required": {
     "description": "Specifies that the input field must be filled out before submitting the form",
@@ -317,11 +340,23 @@
   },
   "sandbox": {
     "description": "Enables an extra set of restrictions for the content in an iframe",
-    "type": "Variant(\"allow-forms\" :: Unit, \"allow-modals\" :: Unit, \"allow-orientation-lock\" :: Unit, \"allow-pointer-lock\" :: Unit, \"allow-popups\" :: Unit, \"allow-popups-to-escape-sandbox\" :: Unit, \"allow-presentation\" :: Unit, \"allow-same-origin\" :: Unit, \"allow-scripts\" :: Unit, \"allow-top-navigation\" :: Unit, \"allow-top-navigation-by-user-activation\" :: Unit)"
+    "type": [
+      "allow-forms",
+      "allow-modals",
+      "allow-orientation-lock",
+      "allow-pointer-lock",
+      "allow-popups",
+      "allow-popups-to-escape-sandbox",
+      "allow-presentation",
+      "allow-same-origin",
+      "allow-scripts",
+      "allow-top-navigation",
+      "allow-top-navigation-by-user-activation"
+    ]
   },
   "scope": {
     "description": "Specifies whether a header cell is a header for a column, row, or group of columns or rows",
-    "type": "Variant (\"row\" :: Unit, \"col\" :: Unit, \"rowgroup\" :: Unit, \"colgroup\" :: Unit)"
+    "type": ["row", "col", "rowgroup", "colgroup"]
   },
   "selected": {
     "description": "Indicates whether an option in a <select> element is pre-selected on page load",

@@ -1,7 +1,7 @@
 module VirtualDOM.SVG.KeyedElements where
 
 import Data.Tuple.Nested (type (/\))
-import VirtualDOM (class Html, Key(..), ElemName(..), Prop, elemKeyed)
+import VirtualDOM (class Html, Key, ElemName(..), Prop, elemKeyed)
 
 -- | Creates a hyperlink element
 a :: forall html ctx a. Html html => Array (Prop a) -> Array (Key /\ html ctx a) -> html ctx a
