@@ -19,7 +19,7 @@ import React.Basic.DOM (render)
 import React.Basic.Hooks (useState, (/\))
 import React.Basic.Hooks as React
 import Test.Sample.Impls.Halogen (runHalogenHTML)
-import Test.Sample.Impls.ReactBasicHooks (runReactHTML)
+import Test.Sample.Impls.ReactBasic (runReactHTML)
 import Test.Sample.Views.Counter as Counter
 import Web.DOM.NonElementParentNode (getElementById)
 import Web.HTML (window)

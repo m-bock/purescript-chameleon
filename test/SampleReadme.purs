@@ -9,7 +9,7 @@
 -- integrate it in any framework that does provide a matching implementation. 
 --
 -- The test suite contains reference implementations for `halogen` and
--- `react-basic-hooks`. You can run the sample app with 
+-- `react-basic`. You can run the sample app with 
 --
 -- ```
 -- yarn install

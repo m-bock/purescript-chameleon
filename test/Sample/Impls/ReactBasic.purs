@@ -1,4 +1,4 @@
-module Test.Sample.Impls.ReactBasicHooks
+module Test.Sample.Impls.ReactBasic
   ( ReactHTML
   , runReactHTML
   )
@@ -9,7 +9,7 @@ import Prelude
 import Data.Maybe (Maybe(..))
 import Data.String (toUpper)
 import Data.String as Str
-import Data.Tuple.Nested (type (/\))
+import Data.Tuple.Nested (type (/\), (/\))
 import Effect (Effect)
 import Effect.Uncurried (EffectFn1, mkEffectFn1)
 import Effect.Unsafe (unsafePerformEffect)
@@ -18,7 +18,7 @@ import Foreign.Object (Object)
 import Foreign.Object as Obj
 import React.Basic.DOM (text) as DOM
 import React.Basic.DOM (unsafeCreateDOMComponent)
-import React.Basic.Hooks (JSX, ReactComponent, element, (/\))
+import React.Basic (JSX, ReactComponent, element)
 import VirtualDOM (class Html, ElemName(..), Key, Prop(..))
 import Unsafe.Coerce (unsafeCoerce)
 

@@ -12,6 +12,7 @@
   , "maybe"
   , "prelude"
   , "react-basic-dom"
+  , "react-basic"
   , "react-basic-hooks"
   , "record"
   , "strings"
