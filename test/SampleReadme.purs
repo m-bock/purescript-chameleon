@@ -4,21 +4,13 @@
 -- aspects like state management, virtual DOM implementation or native solution
 -- or JS-bindings? Many difficult questions, many pros and cons.
 --
--- I'd argue that for a large part of many apps this does not matter. Just write
+-- I'd argue that for a large part of the apps this does not matter. Just write
 -- your pure views in a framework agnostic way with this library. And you can
 -- integrate it in any framework that does provide a matching implementation. 
 --
--- The test suite contains reference implementations for `halogen` and
--- `react-basic`. You can run the sample app with 
---
--- ```
--- yarn install
--- spago --config test.dhall build
--- yarn run parcel serve web/index.html 
--- ```
---
--- In the browser you should see the sample component rendered in both
--- frameworks side by side.
+-- Currently available implementations:
+--   - [halogen](http:://github.com/thought2/virtual-dom-halogen)
+--   - [react-basic](http:://github.com/thought2/virtual-dom-react-basic)
 --
 -- ## Example
 
@@ -55,3 +47,16 @@ view props =
         [ text "-" ]
     ]
 
+-- ## Demo
+
+-- The test suite contains a demo app that renders the same component in both
+-- halogen and react-basic. To run it:
+--
+-- ```
+-- yarn install
+-- spago --config test.dhall build
+-- yarn run parcel serve web/index.html 
+-- ```
+--
+-- In the browser you should see the sample component rendered in both
+-- frameworks side by side.
