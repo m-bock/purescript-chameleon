@@ -1,4 +1,4 @@
-# virtual-dom
+# purescript-virtual-dom
 
 In which framework should I write my PureScript web app? They differ in many
 aspects like state management, virtual DOM implementation or native solution
