@@ -19,7 +19,7 @@ const genElement = ([tagName, { children, description }]) => {
 -- | ${description}
 ${kebabToCamel(
   tagName
-)} :: forall html ctx a. Html html => Array (Prop a) -> Array (html ctx a) -> html ctx a
+)} :: forall html ctx a. Html html ctx => Array (Prop a) -> Array (html a) -> html a
 ${kebabToCamel(
   tagName
 )} props children = elem (ElemName "${tagName}") props children
@@ -27,7 +27,7 @@ ${kebabToCamel(
 -- | ${description} [No Attributes]
 ${kebabToCamel(
   tagName
-)}_ :: forall html ctx a. Html html => Array (html ctx a) -> html ctx a
+)}_ :: forall html ctx a. Html html ctx => Array (html a) -> html a
 ${kebabToCamel(tagName)}_ children = elem (ElemName "${tagName}") [] children
 
 `
@@ -35,11 +35,11 @@ ${kebabToCamel(tagName)}_ children = elem (ElemName "${tagName}") [] children
 -- | ${description}
 ${kebabToCamel(
   tagName
-)} :: forall html ctx a. Html html => Array (Prop a) -> html ctx a
+)} :: forall html ctx a. Html html ctx => Array (Prop a) -> html a
 ${kebabToCamel(tagName)} props = elem (ElemName "${tagName}") props []
 
 -- | ${description} [No Attributes]
-${kebabToCamel(tagName)}_ :: forall html ctx a. Html html => html ctx a
+${kebabToCamel(tagName)}_ :: forall html ctx a. Html html ctx => html a
 ${kebabToCamel(tagName)}_ = elem (ElemName "${tagName}") [] []
 
 `;
@@ -69,7 +69,7 @@ const genKeyedElement = ([tagName, { children, description }]) => {
 -- | ${description}
 ${kebabToCamel(
   tagName2
-)} :: forall html ctx a. Html html => Array (Prop a) -> Array (Key /\\ html ctx a) -> html ctx a
+)} :: forall html ctx a. Html html ctx => Array (Prop a) -> Array (Key /\\ html a) -> html a
 ${kebabToCamel(
   tagName2
 )} props children = elemKeyed (ElemName "${tagName}") props children
@@ -77,7 +77,7 @@ ${kebabToCamel(
 -- | ${description} [No Attributes]
 ${kebabToCamel(
   tagName2
-)}_ :: forall html ctx a. Html html => Array (Key /\\ html ctx a) -> html ctx a
+)}_ :: forall html ctx a. Html html ctx => Array (Key /\\ html a) -> html a
 ${kebabToCamel(
   tagName2
 )}_ children = elemKeyed (ElemName "${tagName}") [] children
@@ -87,11 +87,11 @@ ${kebabToCamel(
 -- | ${description}
 ${kebabToCamel(
   tagName
-)} :: forall html ctx a. Html html => Array (Prop a) -> html ctx a
+)} :: forall html ctx a. Html html ctx =>  Array (Prop a) -> html a
 ${kebabToCamel(tagName)} props = elemKeyed (ElemName "${tagName}") props []
 
 -- | ${description} [No Attributes]
-${kebabToCamel(tagName)}_ :: forall html ctx a. Html html => html ctx a
+${kebabToCamel(tagName)}_ :: forall html ctx a. Html html ctx =>  html a
 ${kebabToCamel(tagName)}_ = elemKeyed (ElemName "${tagName}") [] []
 `;
 };

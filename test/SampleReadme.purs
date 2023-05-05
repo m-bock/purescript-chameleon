@@ -34,7 +34,7 @@ update msg state = case msg of
   Increment n -> state + n
   Decrement n -> state - n
 
-view :: forall html ctx. Html html => { count :: Int } -> html ctx Msg
+view :: forall html ctx. Html html ctx => { count :: Int } -> html Msg
 view props =
   T.div
     [ TA.style "border: 1px solid red"
@@ -46,17 +46,3 @@ view props =
     , T.button [ TE.onClick (Decrement 1) ]
         [ text "-" ]
     ]
-
--- ## Demo
---
--- The test suite contains a demo app that renders the same component in both
--- halogen and react-basic. To run it:
---
--- ```
--- yarn install
--- spago --config test.dhall build
--- yarn run parcel serve web/index.html 
--- ```
---
--- In the browser you should see the sample component rendered in both
--- frameworks side by side.
