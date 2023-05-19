@@ -51,7 +51,7 @@ const genElements = (scope) => (data) => {
   return `
 module VirtualDOM.${scope}.Elements where
 
-import VirtualDOM (class Html, ElemName(..), Prop, elem)
+import VirtualDOM.Class (class Html, ElemName(..), Prop, elem)
 
 ${code}
 `;
@@ -103,7 +103,7 @@ const genKeyedElements = (scope) => (data) => {
 module VirtualDOM.${scope}.KeyedElements where
 
 import Data.Tuple.Nested (type (/\\))
-import VirtualDOM (class Html, Key, ElemName(..), Prop, elemKeyed)
+import VirtualDOM.Class (class Html, Key, ElemName(..), Prop, elemKeyed)
 
 ${code}
 `;
@@ -168,7 +168,7 @@ import Data.Variant as V
 import Prim.Row as Row
 import Prim.RowList (class RowToList, RowList)
 import Prim.RowList as RL
-import VirtualDOM (Prop(..))
+import VirtualDOM.Class (Prop(..))
 import Type.Proxy (Proxy(..))
 
 ${genSection("class IsAttrib")}
@@ -289,7 +289,7 @@ import Data.Maybe (Maybe(..))
 import Foreign (Foreign)
 import Foreign as F
 import Foreign.Index as FI
-import VirtualDOM (Prop(..))
+import VirtualDOM.Class (Prop(..))
 
 class FromForeign a where
   fromForeign :: Foreign -> Maybe a

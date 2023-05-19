@@ -1,6 +1,6 @@
 module VirtualDOM.HTML.Elements where
 
-import VirtualDOM (class Html, ElemName(..), Prop, elem)
+import VirtualDOM.Class (class Html, ElemName(..), Prop, elem)
 
 -- | Defines a hyperlink
 a :: forall html a. Html html => Array (Prop a) -> Array (html a) -> html a

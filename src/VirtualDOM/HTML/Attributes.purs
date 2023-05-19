@@ -9,7 +9,7 @@ import Data.Variant as V
 import Prim.Row as Row
 import Prim.RowList (class RowToList, RowList)
 import Prim.RowList as RL
-import VirtualDOM (Prop(..))
+import VirtualDOM.Class (Prop(..))
 import Type.Proxy (Proxy(..))
 
 ------------------------------------------------------------------------------- 
