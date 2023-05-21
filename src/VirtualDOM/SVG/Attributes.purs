@@ -159,7 +159,7 @@ capHeight val = Attr "cap-height" (toAttrib val)
 
 -- | The 'class' attribute specifies the class(es) for an element.
 class_ :: forall a. String -> Prop a
-class_ val = Attr "class_" (toAttrib val)
+class_ val = Attr "class" (toAttrib val)
 
 -- | The 'clip' attribute specifies the clipping region for an element.
 clip :: forall a. String -> Prop a
@@ -423,7 +423,7 @@ imageRendering val = Attr "image-rendering" (toAttrib val)
 
 -- | The 'in' attribute identifies input for the given filter primitive.
 in_ :: forall a. String -> Prop a
-in_ val = Attr "in_" (toAttrib val)
+in_ val = Attr "in" (toAttrib val)
 
 -- | The 'in2' attribute identifies input for the given filter primitive.
 in2 :: forall a. String -> Prop a
@@ -883,7 +883,7 @@ transform val = Attr "transform" (toAttrib val)
 
 -- | The 'type' attribute specifies the type of filter primitive.
 type_ :: forall a. String -> Prop a
-type_ val = Attr "type_" (toAttrib val)
+type_ val = Attr "type" (toAttrib val)
 
 -- | The 'u1' attribute specifies the x-axis coordinate of the first control point.
 u1 :: forall a. String -> Prop a

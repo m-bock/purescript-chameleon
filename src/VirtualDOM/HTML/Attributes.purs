@@ -147,7 +147,7 @@ cite val = Attr "cite" (toAttrib val)
 
 -- | Specifies one or more classnames for an element (refers to a class in a style sheet)
 class_ :: forall a. String -> Prop a
-class_ val = Attr "class_" (toAttrib val)
+class_ val = Attr "class" (toAttrib val)
 
 -- | Not supported in HTML5. Specifies the URL of the plugin used to display the <object>
 code :: forall a. String -> Prop a
@@ -191,7 +191,7 @@ crossorigin val = Attr "crossorigin" (toAttrib val)
 
 -- | Specifies the URL of the resource to be used by the object
 data_ :: forall a. String -> Prop a
-data_ val = Attr "data_" (toAttrib val)
+data_ val = Attr "data" (toAttrib val)
 
 -- | Specifies the date and time
 datetime :: forall a. String -> Prop a
@@ -618,7 +618,7 @@ translate val = Attr "translate" (toAttrib val)
 
 -- | Specifies the type of element
 type_ :: forall a. String -> Prop a
-type_ val = Attr "type_" (toAttrib val)
+type_ val = Attr "type" (toAttrib val)
 
 -- | Specifies an image as a client-side image-map
 usemap :: forall a. String -> Prop a

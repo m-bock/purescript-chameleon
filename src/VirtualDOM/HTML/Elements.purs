@@ -172,11 +172,11 @@ colgroup_ children = elem (ElemName "colgroup") [] children
 
 -- | Defines machine-readable data
 data_ :: forall html a. Html html => Array (Prop a) -> Array (html a) -> html a
-data_ props children = elem (ElemName "data_") props children
+data_ props children = elem (ElemName "data") props children
 
 -- | Defines machine-readable data [No Attributes]
 data__ :: forall html a. Html html => Array (html a) -> html a
-data__ children = elem (ElemName "data_") [] children
+data__ children = elem (ElemName "data") [] children
 
 -- | Defines a list of pre-defined options for input controls
 datalist :: forall html a. Html html => Array (Prop a) -> Array (html a) -> html a

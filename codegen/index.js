@@ -12,35 +12,35 @@ const replaceMap = {
 // ----------------------------------------------------------------------------
 
 const genElement = ([tagName, { children, description }]) => {
-  tagName = replaceMap[tagName] || tagName;
+  tagName_ = replaceMap[tagName] || tagName;
 
   return children
     ? `
 -- | ${description}
 ${kebabToCamel(
-  tagName
+  tagName_
 )} :: forall html a. Html html => Array (Prop a) -> Array (html a) -> html a
 ${kebabToCamel(
-  tagName
+  tagName_
 )} props children = elem (ElemName "${tagName}") props children
 
 -- | ${description} [No Attributes]
 ${kebabToCamel(
-  tagName
+  tagName_
 )}_ :: forall html a. Html html => Array (html a) -> html a
-${kebabToCamel(tagName)}_ children = elem (ElemName "${tagName}") [] children
+${kebabToCamel(tagName_)}_ children = elem (ElemName "${tagName}") [] children
 
 `
     : `
 -- | ${description}
 ${kebabToCamel(
-  tagName
+  tagName_
 )} :: forall html a. Html html => Array (Prop a) -> html a
-${kebabToCamel(tagName)} props = elem (ElemName "${tagName}") props []
+${kebabToCamel(tagName_)} props = elem (ElemName "${tagName}") props []
 
 -- | ${description} [No Attributes]
-${kebabToCamel(tagName)}_ :: forall html a. Html html => html a
-${kebabToCamel(tagName)}_ = elem (ElemName "${tagName}") [] []
+${kebabToCamel(tagName_)}_ :: forall html a. Html html => html a
+${kebabToCamel(tagName_)}_ = elem (ElemName "${tagName}") [] []
 
 `;
 };
@@ -62,37 +62,37 @@ ${code}
 // ----------------------------------------------------------------------------
 
 const genKeyedElement = ([tagName, { children, description }]) => {
-  tagName2 = replaceMap[tagName] || tagName;
+  tagName_ = replaceMap[tagName] || tagName;
 
   return children
     ? `
 -- | ${description}
 ${kebabToCamel(
-  tagName2
+  tagName_
 )} :: forall html a. Html html => Array (Prop a) -> Array (Key /\\ html a) -> html a
 ${kebabToCamel(
-  tagName2
+  tagName_
 )} props children = elemKeyed (ElemName "${tagName}") props children
 
 -- | ${description} [No Attributes]
 ${kebabToCamel(
-  tagName2
+  tagName_
 )}_ :: forall html a. Html html => Array (Key /\\ html a) -> html a
 ${kebabToCamel(
-  tagName2
+  tagName_
 )}_ children = elemKeyed (ElemName "${tagName}") [] children
 
 `
     : `
 -- | ${description}
 ${kebabToCamel(
-  tagName
+  tagName_
 )} :: forall html a. Html html =>  Array (Prop a) -> html a
-${kebabToCamel(tagName)} props = elemKeyed (ElemName "${tagName}") props []
+${kebabToCamel(tagName_)} props = elemKeyed (ElemName "${tagName}") props []
 
 -- | ${description} [No Attributes]
-${kebabToCamel(tagName)}_ :: forall html a. Html html =>  html a
-${kebabToCamel(tagName)}_ = elemKeyed (ElemName "${tagName}") [] []
+${kebabToCamel(tagName_)}_ :: forall html a. Html html =>  html a
+${kebabToCamel(tagName_)}_ = elemKeyed (ElemName "${tagName}") [] []
 `;
 };
 
@@ -114,7 +114,7 @@ ${code}
 // ----------------------------------------------------------------------------
 
 const genAttribute = ([attrName, { description, type }], untyped) => {
-  attrName = replaceMap[attrName] || attrName;
+  attrName_ = replaceMap[attrName] || attrName;
 
   let variants = {};
 
@@ -138,8 +138,8 @@ const genAttribute = ([attrName, { description, type }], untyped) => {
 
   code = `
 -- | ${description}
-${kebabToCamel(attrName)} :: forall a. ${type2} -> Prop a
-${kebabToCamel(attrName)} val = Attr "${attrName}" (toAttrib val)
+${kebabToCamel(attrName_)} :: forall a. ${type2} -> Prop a
+${kebabToCamel(attrName_)} val = Attr "${attrName}" (toAttrib val)
 `;
 
   return { code, variants };
@@ -258,19 +258,19 @@ _${kebabToCamel(k)} = V.inj (Proxy :: Proxy "${k}")
 // ----------------------------------------------------------------------------
 
 const genEvent = ([eventName, { description, type }]) => {
-  eventName = replaceMap[eventName] || eventName;
+  eventName_ = replaceMap[eventName] || eventName;
 
   return !type
     ? `
 -- | ${description}
-on${upperFirst(eventName)} :: forall a. a -> Prop a
-on${upperFirst(eventName)} msg = Event "${eventName}" \\_ -> Just msg
+on${upperFirst(eventName_)} :: forall a. a -> Prop a
+on${upperFirst(eventName_)} msg = Event "${eventName}" \\_ -> Just msg
   `
     : `
 -- | ${description}
-on${upperFirst(eventName)} :: forall a. (${type} -> a) -> Prop a
+on${upperFirst(eventName_)} :: forall a. (${type} -> a) -> Prop a
 on${upperFirst(
-        eventName
+        eventName_
       )} mkMsg = Event "${eventName}" (fromForeign >>> map mkMsg)
   `;
 };
