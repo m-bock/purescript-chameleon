@@ -32,7 +32,7 @@ instance Show msg => Show (TestProp msg) where
   show = genericShow
 
 instance Show msg => Show (TestHtml msg) where
-  show = genericShow
+  show x = genericShow x
 
 instance C.Html TestHtml where
   text = Text
