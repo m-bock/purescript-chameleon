@@ -5,7 +5,9 @@ module VirtualDOM.Impl.TestHtml
 
 import Prelude
 
+import Data.Generic.Rep (class Generic)
 import Data.Maybe (Maybe)
+import Data.Show.Generic (genericShow)
 import Data.Tuple.Nested (type (/\))
 import Foreign (Foreign, unsafeToForeign)
 import VirtualDOM.Class as C
@@ -23,6 +25,14 @@ derive instance Functor TestProp
 derive instance Functor TestHtml
 derive instance Eq msg => Eq (TestHtml msg)
 derive instance Eq a => Eq (TestProp a)
+derive instance Generic (TestHtml msg) _
+derive instance Generic (TestProp msg) _
+
+instance Show msg => Show (TestProp msg) where
+  show = genericShow
+
+instance Show msg => Show (TestHtml msg) where
+  show = genericShow
 
 instance C.Html TestHtml where
   text = Text

@@ -2,7 +2,9 @@ module VirtualDOM.Class where
 
 import Prelude
 
+import Data.Generic.Rep (class Generic)
 import Data.Maybe (Maybe)
+import Data.Show.Generic (genericShow)
 import Data.Tuple.Nested (type (/\))
 import Foreign (Foreign)
 
@@ -30,4 +32,13 @@ class Ctx html ctx | html -> ctx where
 
 derive instance Eq ElemName
 derive instance Eq Key
+
+derive instance Generic ElemName _
+derive instance Generic Key _
+
+instance Show ElemName where
+  show = genericShow
+
+instance Show Key where
+  show = genericShow
 
