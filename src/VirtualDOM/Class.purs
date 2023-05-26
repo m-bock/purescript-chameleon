@@ -27,3 +27,7 @@ class Ctx :: (Type -> Type) -> Type -> Constraint
 class Ctx html ctx | html -> ctx where
   withCtx
     :: forall a. (ctx -> html a) -> html a
+
+derive instance Eq ElemName
+derive instance Eq Key
+
