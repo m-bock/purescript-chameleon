@@ -8,13 +8,21 @@ import Data.Show.Generic (genericShow)
 import Data.Tuple.Nested (type (/\))
 import Foreign (Foreign)
 
-data Prop a
-  = Event String (Foreign -> Maybe a)
+-------------------------------------------------------------------------------
+--- Types
+-------------------------------------------------------------------------------
+
+data Prop msg
+  = Event String (Foreign -> Maybe msg)
   | Attr String String
 
 newtype Key = Key String
 
 newtype ElemName = ElemName String
+
+-------------------------------------------------------------------------------
+--- Classes
+-------------------------------------------------------------------------------
 
 class Html :: (Type -> Type) -> Constraint
 class Functor html <= Html html where
@@ -30,6 +38,20 @@ class Ctx html ctx | html -> ctx where
   withCtx
     :: forall a. (ctx -> html a) -> html a
 
+-------------------------------------------------------------------------------
+--- Utils
+-------------------------------------------------------------------------------
+
+noProp :: forall msg. Prop msg
+noProp = Attr "" ""
+
+noHtml :: forall html msg. Html html => html msg
+noHtml = text ""
+
+-------------------------------------------------------------------------------
+--- Instances
+-------------------------------------------------------------------------------
+
 derive instance Eq ElemName
 derive instance Eq Key
 
@@ -41,4 +63,3 @@ instance Show ElemName where
 
 instance Show Key where
   show = genericShow
-
