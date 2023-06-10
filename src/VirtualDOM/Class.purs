@@ -38,7 +38,7 @@ class Ctx html ctx | html -> ctx where
   withCtx
     :: forall a. (ctx -> html a) -> html a
   setCtx
-    :: forall a. html a -> ctx -> html a
+    :: forall a. ctx -> html a -> html a
 
 class (Html html, Ctx html ctx) <= CtxHtml html ctx | html -> ctx
 
