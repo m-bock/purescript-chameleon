@@ -1,6 +1,7 @@
 { name = "virtual-dom"
 , dependencies =
-  [ "either"
+  [ "arrays"
+  , "either"
   , "foreign"
   , "maybe"
   , "prelude"

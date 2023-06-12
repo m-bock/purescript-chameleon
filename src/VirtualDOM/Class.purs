@@ -33,15 +33,6 @@ class Functor html <= Html html where
   text
     :: forall a. String -> html a
 
-class Ctx :: (Type -> Type) -> Type -> Constraint
-class Ctx html ctx | html -> ctx where
-  withCtx
-    :: forall a. (ctx -> html a) -> html a
-  setCtx
-    :: forall a. ctx -> html a -> html a
-
-class (Html html, Ctx html ctx) <= CtxHtml html ctx | html -> ctx
-
 -------------------------------------------------------------------------------
 --- Utils
 -------------------------------------------------------------------------------
@@ -67,3 +58,5 @@ instance Show ElemName where
 
 instance Show Key where
   show = genericShow
+
+derive instance Functor Prop
