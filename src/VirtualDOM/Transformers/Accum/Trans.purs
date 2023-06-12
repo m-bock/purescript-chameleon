@@ -30,7 +30,7 @@ instance Semigroup acc => TellAccum (AccumT acc html) acc where
     where
     Tuple acc html' = runAccumT html
 
-instance TellAccum html acc => Accum (AccumT acc html) acc where
+instance Semigroup acc => Accum (AccumT acc html) acc where
   listenAccum html = acc
     where
     acc /\ _ = runAccumT html
