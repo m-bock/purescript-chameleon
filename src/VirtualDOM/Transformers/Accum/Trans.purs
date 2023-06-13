@@ -8,8 +8,6 @@ import Data.Tuple.Nested (type (/\), (/\))
 import VirtualDOM.Class (class Html, Key)
 import VirtualDOM.Class as C
 import VirtualDOM.Transformers.Accum.Class (class Accum, class TellAccum)
-import VirtualDOM.Transformers.Ctx.Class (class AskCtx, class Ctx)
-import VirtualDOM.Transformers.Ctx.Class as Ctx
 
 data AccumT :: forall k. Type -> (k -> Type) -> k -> Type
 data AccumT acc html a = AccumT acc (html a)
@@ -25,16 +23,12 @@ execAccumT (AccumT acc _) = acc
 evalAccumT :: forall acc html a. AccumT acc html a -> html a
 evalAccumT (AccumT _ html) = html
 
-instance Semigroup acc => TellAccum (AccumT acc html) acc where
+instance Semigroup acc => TellAccum acc (AccumT acc html) where
   tellAccum acc' html = AccumT (acc <> acc') html'
     where
     Tuple acc html' = runAccumT html
 
-instance Semigroup acc => Accum (AccumT acc html) acc where
-  listenAccum html = acc
-    where
-    acc /\ _ = runAccumT html
-
+instance Semigroup acc => Accum acc (AccumT acc html) where
   censorAccum f (AccumT acc html) = AccumT (f acc) html
 
 instance (Html html, Monoid acc) => Html (AccumT acc html) where
@@ -62,8 +56,3 @@ instance (Html html, Monoid acc) => Html (AccumT acc html) where
 
   text str = AccumT mempty (C.text str)
 
-instance (AskCtx ctx html) => AskCtx ctx (AccumT acc html) where
-  withCtx f = Ctx.withCtx f
-
-instance (Ctx ctx html) => Ctx ctx (AccumT acc html) where
-  setCtx f html = Ctx.setCtx f html

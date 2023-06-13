@@ -6,11 +6,11 @@
   , "foreign"
   , "maybe"
   , "prelude"
-  , "record"
   , "strings"
   , "transformers"
   , "tuples"
   , "variant"
+  , "arrays"
   ]
 , packages = ./packages.dhall
 , sources = [ "src/**/*.purs", "test/**/*.purs" ]

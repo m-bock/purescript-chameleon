@@ -5,7 +5,7 @@ import Prelude
 import Data.Tuple.Nested ((/\))
 import VirtualDOM.Class (class Html)
 import VirtualDOM.Class as C
-import VirtualDOM.Transformers.Accum.Class (class TellAccum)
+import VirtualDOM.Transformers.Accum.Class (class Accum, class TellAccum)
 import VirtualDOM.Transformers.Accum.Class as Accum
 import VirtualDOM.Transformers.Ctx.Class (class AskCtx, class Ctx)
 
@@ -32,5 +32,8 @@ instance (Html html) => Html (CtxT ctx html) where
 
   text str = CtxT \_ -> C.text str
 
-instance (Semigroup acc, TellAccum html acc) => TellAccum (CtxT ctx html) acc where
+instance (Semigroup acc, TellAccum acc html) => TellAccum acc (CtxT ctx html) where
   tellAccum acc (CtxT f) = CtxT \ctx -> Accum.tellAccum acc (f ctx)
+
+instance (Accum acc html) => Accum acc (CtxT ctx html) where
+  censorAccum f html = CtxT \ctx -> Accum.censorAccum f (runCtxT html ctx)
