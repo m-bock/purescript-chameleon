@@ -8,6 +8,8 @@ import VirtualDOM.Class as C
 import VirtualDOM.Transformers.Accum.Class (class Accum, class TellAccum)
 import VirtualDOM.Transformers.Accum.Class as Accum
 import VirtualDOM.Transformers.Ctx.Class (class AskCtx, class Ctx)
+import VirtualDOM.Transformers.TreeAccum.Class (class TellAccumTree)
+import VirtualDOM.Transformers.TreeAccum.Class as AccumTree
 
 newtype CtxT :: forall k. Type -> (k -> Type) -> k -> Type
 newtype CtxT ctx html a = CtxT (ctx -> html a)
@@ -37,3 +39,6 @@ instance (Semigroup acc, TellAccum acc html) => TellAccum acc (CtxT ctx html) wh
 
 instance (Accum acc html) => Accum acc (CtxT ctx html) where
   censorAccum f html = CtxT \ctx -> Accum.censorAccum f (runCtxT html ctx)
+
+instance (Semigroup acc, TellAccumTree tree acc html) => TellAccumTree tree acc (CtxT ctx html) where
+  tellAccumTree acc (CtxT f) = CtxT \ctx -> AccumTree.tellAccumTree acc (f ctx)
