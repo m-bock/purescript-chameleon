@@ -2,6 +2,7 @@
 , dependencies =
   [ "arrays"
   , "either"
+  , "foldable-traversable"
   , "foreign"
   , "maybe"
   , "prelude"
