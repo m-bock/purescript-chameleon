@@ -40,5 +40,5 @@ instance (Semigroup acc, TellAccum acc html) => TellAccum acc (CtxT ctx html) wh
 instance (Accum acc html) => Accum acc (CtxT ctx html) where
   censorAccum f html = CtxT \ctx -> Accum.censorAccum f (runCtxT html ctx)
 
-instance (Semigroup acc, TellAccumTree tree acc html) => TellAccumTree tree acc (CtxT ctx html) where
+instance (TellAccumTree tree acc html) => TellAccumTree tree acc (CtxT ctx html) where
   tellAccumTree acc (CtxT f) = CtxT \ctx -> AccumTree.tellAccumTree acc (f ctx)

@@ -67,12 +67,16 @@ instance (Html html, IsTree tree) => Html (AccumTreeT tree acc html) where
 --- 
 data Tree a = Tree (Maybe a) (Array (Tree a))
 
+derive instance Functor Tree
+
 instance IsTree Tree where
+  setLabel a (Tree _ [ Tree Nothing xs]) = Tree (Just a) xs
   setLabel a (Tree _ xs) = Tree (Just a) xs
   nodes = Tree Nothing
   isEmpty (Tree x xs) = case x, xs of
     Nothing, [] -> true
     _, _ -> false
-  tryFlatten t@(Tree x xs) = case x, xs of
-    Nothing, [ t1 ] -> t1
-    _, _ -> t
+  tryFlatten = case _ of
+    Tree x [ Tree Nothing xs ] -> Tree x xs 
+    Tree Nothing [ Tree x xs ] -> Tree x xs 
+    t -> t
