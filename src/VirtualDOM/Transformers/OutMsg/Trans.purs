@@ -12,8 +12,8 @@ newtype OutMsgT out html msg = OutMsgT (html (These msg out))
 
 derive instance (Functor html) => Functor (OutMsgT ctx html)
 
-runOutMsg :: forall out html msg. Functor html => msg -> OutMsgT out html msg -> html msg
-runOutMsg msg' (OutMsgT html) = map changeMsg html
+runOutMsgT :: forall out html msg. Functor html => msg -> OutMsgT out html msg -> html msg
+runOutMsgT msg' (OutMsgT html) = map changeMsg html
   where
   changeMsg = case _ of
     This msg -> msg
