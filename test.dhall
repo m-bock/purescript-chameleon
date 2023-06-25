@@ -10,7 +10,8 @@
   , "transformers"
   , "tuples"
   , "variant"
-  , "arrays"
+  , "these"
+  , "foldable-traversable"
   ]
 , packages = ./packages.dhall
 , sources = [ "src/**/*.purs", "test/**/*.purs" ]

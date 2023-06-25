@@ -8,6 +8,7 @@ import VirtualDOM.Class as C
 import VirtualDOM.Transformers.Accum.Class (class Accum, class TellAccum)
 import VirtualDOM.Transformers.Accum.Class as Accum
 import VirtualDOM.Transformers.Ctx.Class (class AskCtx, class Ctx)
+import VirtualDOM.Transformers.OutMsg.Class (class OutMsg, class RunOutMsg, elemOut, runOutMsg)
 import VirtualDOM.Transformers.TreeAccum.Class (class TellAccumTree)
 import VirtualDOM.Transformers.TreeAccum.Class as AccumTree
 
@@ -42,3 +43,11 @@ instance (Accum acc html) => Accum acc (CtxT ctx html) where
 
 instance (TellAccumTree tree acc html) => TellAccumTree tree acc (CtxT ctx html) where
   tellAccumTree acc (CtxT f) = CtxT \ctx -> AccumTree.tellAccumTree acc (f ctx)
+
+instance OutMsg out html => OutMsg out (CtxT ctx html) where
+  elemOut elemName props children = CtxT \ctx ->
+    elemOut elemName props (map (flip runCtxT ctx) children)
+
+instance RunOutMsg out html => RunOutMsg out (CtxT ctx html) where
+  runOutMsg (CtxT f) = CtxT \ctx ->
+    runOutMsg (f ctx)
