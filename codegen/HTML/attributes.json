@@ -68,7 +68,7 @@
     "description": "Specifies a URL which explains the quote/deleted/inserted text",
     "type": "String"
   },
-  "class": {
+  "className": {
     "description": "Specifies one or more classnames for an element (refers to a class in a style sheet)",
     "type": "String"
   },

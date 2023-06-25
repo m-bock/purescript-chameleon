@@ -146,8 +146,8 @@ cite :: forall a. String -> Prop a
 cite val = Attr "cite" (toAttrib val)
 
 -- | Specifies one or more classnames for an element (refers to a class in a style sheet)
-class_ :: forall a. String -> Prop a
-class_ val = Attr "class" (toAttrib val)
+className :: forall a. String -> Prop a
+className val = Attr "className" (toAttrib val)
 
 -- | Not supported in HTML5. Specifies the URL of the plugin used to display the <object>
 code :: forall a. String -> Prop a
