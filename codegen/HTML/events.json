@@ -82,7 +82,7 @@
   "hashChange": {
     "description": "Occurs when there has been changes to the anchor part of a URL"
   },
-  "input": { "description": "Occurs when an element gets user input" },
+  "input": { "description": "Occurs when an element gets user input", "type": "String" },
   "invalid": { "description": "Occurs when an element is invalid" },
   "keyDown": { "description": "Occurs when a user is pressing a key" },
   "keyPress": { "description": "Occurs when a user presses a key" },

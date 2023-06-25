@@ -149,8 +149,8 @@ onHashChange :: forall a. a -> Prop a
 onHashChange msg = Event "hashChange" \_ -> Just msg
 
 -- | Occurs when an element gets user input
-onInput :: forall a. a -> Prop a
-onInput msg = Event "input" \_ -> Just msg
+onInput :: forall a. (String -> a) -> Prop a
+onInput mkMsg = Event "input" (fromForeign >>> map mkMsg)
 
 -- | Occurs when an element is invalid
 onInvalid :: forall a. a -> Prop a
