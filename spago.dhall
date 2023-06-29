@@ -1,9 +1,11 @@
 { name = "virtual-dom"
 , dependencies =
-  [ "either"
+  [ "arrays"
+  , "either"
   , "foldable-traversable"
   , "foreign"
   , "maybe"
+  , "newtype"
   , "prelude"
   , "strings"
   , "these"
