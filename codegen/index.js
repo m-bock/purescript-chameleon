@@ -8,6 +8,32 @@ const replaceMap = {
 };
 
 // ----------------------------------------------------------------------------
+// ElemNames
+// ----------------------------------------------------------------------------
+
+const genElemNames = (scope) => (data) => {
+  const code = Object.entries(data).map(genElemName).join("");
+
+  return `
+module VirtualDOM.${scope}.ElemNames where
+
+import VirtualDOM.Class (ElemName(..))
+
+${code}
+`;
+};
+
+const genElemName = ([tagName, { description }]) => {
+  tagName_ = replaceMap[tagName] || tagName;
+
+  return `
+-- | ${description}
+${kebabToCamel(tagName_)} :: ElemName
+${kebabToCamel(tagName_)} = ElemName "${tagName}"
+  `
+};
+
+// ----------------------------------------------------------------------------
 // Elements
 // ----------------------------------------------------------------------------
 
@@ -344,15 +370,22 @@ const readJSON = (filePath) => JSON.parse(fs.readFileSync(filePath).toString());
 const genHTML = () => {
   const scope = "HTML";
 
-  const elements1 = readJSON(`codegen/${scope}/elements.json`);
-  const elements2 = genElements(scope)(elements1);
-  fs.writeFileSync(`src/VirtualDOM/${scope}/Elements.purs`, elements2);
+  
+  const elementsData = readJSON(`codegen/${scope}/elements.json`);
+  
+  const elemNames = genElemNames(scope)(elementsData);
+  fs.writeFileSync(
+    `src/VirtualDOM/${scope}/ElemNames.purs`,
+    elemNames
+  );
 
-  const keyedElements1 = readJSON(`codegen/${scope}/elements.json`);
-  const keyedElements2 = genKeyedElements(scope)(keyedElements1);
+  const elements = genElements(scope)(elementsData);
+  fs.writeFileSync(`src/VirtualDOM/${scope}/Elements.purs`, elements);
+
+  const keyedElements = genKeyedElements(scope)(elementsData);
   fs.writeFileSync(
     `src/VirtualDOM/${scope}/KeyedElements.purs`,
-    keyedElements2
+    keyedElements
   );
 
   const attributes1 = readJSON(`codegen/${scope}/attributes.json`);
@@ -366,15 +399,21 @@ const genHTML = () => {
 
 const genSVG = () => {
   const scope = "SVG";
-  const elements1 = readJSON(`codegen/${scope}/elements.json`);
-  const elements2 = genElements(scope)(elements1);
-  fs.writeFileSync(`src/VirtualDOM/${scope}/Elements.purs`, elements2);
+  const elementsData = readJSON(`codegen/${scope}/elements.json`);
 
-  const keyedElements1 = readJSON(`codegen/${scope}/elements.json`);
-  const keyedElements2 = genKeyedElements(scope)(keyedElements1);
+  const elemNames = genElemNames(scope)(elementsData);
+  fs.writeFileSync(
+    `src/VirtualDOM/${scope}/ElemNames.purs`,
+    elemNames
+  );
+  
+  const elements = genElements(scope)(elementsData);
+  fs.writeFileSync(`src/VirtualDOM/${scope}/Elements.purs`, elements);
+
+  const keyedElements = genKeyedElements(scope)(elementsData);
   fs.writeFileSync(
     `src/VirtualDOM/${scope}/KeyedElements.purs`,
-    keyedElements2
+    keyedElements
   );
 
   const attributes1 = readJSON(`codegen/${scope}/attributes.json`);
