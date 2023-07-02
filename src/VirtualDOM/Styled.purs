@@ -24,7 +24,9 @@ newtype InlineStyle = InlineStyle String
 
 newtype ClassName = ClassName String
 
-newtype StyleDecl = StyleDecl String
+newtype StyleDecl = StyleDecl (Array (Maybe Selector /\ String))
+
+newtype Selector = Selector String
 
 newtype Style = Style
   { inline :: Array InlineStyle
@@ -35,6 +37,11 @@ newtype Style = Style
 -------------------------------------------------------------------------------
 -- StyleMap
 -------------------------------------------------------------------------------
+
+class RegisterStyleMap (html :: Type -> Type) where
+  registerStyleMap :: forall msg. StyleMap -> html msg -> html msg
+
+type StyleMap = HashMap ClassName StyleDecl
 
 getStyleMap :: Style -> StyleMap /\ Style
 getStyleMap style@(Style { declarations }) =
@@ -53,24 +60,40 @@ getStyleMap style@(Style { declarations }) =
         , classes = HashMap.keys styleMap
         }
 
-  prefix = "hashed-"
-
-type StyleMap = HashMap ClassName StyleDecl
-
-class RegisterStyleMap (html :: Type -> Type) where
-  registerStyleMap :: forall msg. StyleMap -> html msg -> html msg
+  prefix = "hashed"
 
 printStyleMap :: StyleMap -> String
 printStyleMap styleMap =
   HashMap.toArrayBy printEntry styleMap
+    # join
     # Str.joinWith "\n"
   where
-  printEntry :: ClassName -> StyleDecl -> String
-  printEntry (ClassName className) (StyleDecl styleDecl) =
-    "." <> className <> " {\n" <> styleDecl <> "\n}"
+  printEntry :: ClassName -> StyleDecl -> Array String
+  printEntry className (StyleDecl styleDecls) =
+    map (printScopedEntry className) styleDecls
+
+  printScopedEntry :: ClassName -> Maybe Selector /\ String -> String
+  printScopedEntry (ClassName className) (selector /\ styleDecl) =
+    Str.joinWith ""
+      [ "."
+      , className
+      , case selector of
+          Nothing -> ""
+          Just (Selector str) -> str
+      , " {\n"
+      , styleDecl
+      , "\n}"
+      ]
 
 viewStylemap :: forall html msg. Html html => StyleMap -> html msg
-viewStylemap styleMap = VDE.style_ [ VDC.text $ printStyleMap styleMap ]
+viewStylemap styleMap =
+  VDE.style_ [ VDC.text $ printStyleMap styleMap ]
+
+decl :: String -> StyleDecl
+decl str = StyleDecl [ Nothing /\ str ]
+
+declWith :: String -> String -> StyleDecl
+declWith selector str = StyleDecl [ Just (Selector selector) /\ str ]
 
 -------------------------------------------------------------------------------
 -- Style Elements
@@ -157,7 +180,11 @@ derive newtype instance Monoid Style
 derive newtype instance Hashable ClassName
 derive instance Eq ClassName
 
+derive newtype instance Hashable Selector
+derive instance Eq Selector
+
 derive newtype instance Hashable StyleDecl
+derive newtype instance Semigroup StyleDecl
 derive instance Eq StyleDecl
 
 instance IsStyle Style where
