@@ -11,6 +11,7 @@
   , "these"
   , "transformers"
   , "tuples"
+  , "unordered-collections"
   , "variant"
   ]
 , packages = ./packages.dhall
