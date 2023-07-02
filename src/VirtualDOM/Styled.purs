@@ -24,7 +24,7 @@ newtype InlineStyle = InlineStyle String
 
 newtype ClassName = ClassName String
 
-newtype StyleDecl = StyleDecl (Array (Maybe Selector /\ String))
+newtype StyleDecl = StyleDecl (Array (Maybe Selector /\ Array String))
 
 newtype Selector = Selector String
 
@@ -72,7 +72,7 @@ printStyleMap styleMap =
   printEntry className (StyleDecl styleDecls) =
     map (printScopedEntry className) styleDecls
 
-  printScopedEntry :: ClassName -> Maybe Selector /\ String -> String
+  printScopedEntry :: ClassName -> Maybe Selector /\ Array String -> String
   printScopedEntry (ClassName className) (selector /\ styleDecl) =
     Str.joinWith ""
       [ "."
@@ -81,7 +81,7 @@ printStyleMap styleMap =
           Nothing -> ""
           Just (Selector str) -> str
       , " {\n"
-      , styleDecl
+      , Str.joinWith ";\n" styleDecl
       , "\n}"
       ]
 
@@ -89,11 +89,11 @@ viewStylemap :: forall html msg. Html html => StyleMap -> html msg
 viewStylemap styleMap =
   VDE.style_ [ VDC.text $ printStyleMap styleMap ]
 
-decl :: String -> StyleDecl
-decl str = StyleDecl [ Nothing /\ str ]
+decl :: Array String -> StyleDecl
+decl strs = StyleDecl [ Nothing /\ strs ]
 
-declWith :: String -> String -> StyleDecl
-declWith selector str = StyleDecl [ Just (Selector selector) /\ str ]
+declWith :: String -> Array String -> StyleDecl
+declWith selector strs = StyleDecl [ Just (Selector selector) /\ strs ]
 
 -------------------------------------------------------------------------------
 -- Style Elements
