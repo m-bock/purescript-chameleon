@@ -20,11 +20,15 @@ derive instance (Functor html) => Functor (CtxT ctx html)
 runCtxT :: forall ctx html a. CtxT ctx html a -> ctx -> html a
 runCtxT (CtxT f) = f
 
+-- Ctx
+
 instance AskCtx ctx (CtxT ctx html) where
   withCtx f = CtxT \ctx -> runCtxT (f ctx) ctx
 
 instance Ctx ctx (CtxT ctx html) where
   setCtx f html = CtxT \ctx -> runCtxT html $ f ctx
+
+-- Html
 
 instance (Html html) => Html (CtxT ctx html) where
   elem elemName props children = CtxT \ctx ->
@@ -35,14 +39,20 @@ instance (Html html) => Html (CtxT ctx html) where
 
   text str = CtxT \_ -> C.text str
 
+-- Accum
+
 instance (Semigroup acc, TellAccum acc html) => TellAccum acc (CtxT ctx html) where
   tellAccum acc (CtxT f) = CtxT \ctx -> Accum.tellAccum acc (f ctx)
 
 instance (Accum acc html) => Accum acc (CtxT ctx html) where
   censorAccum f html = CtxT \ctx -> Accum.censorAccum f (runCtxT html ctx)
 
+-- AccumTree
+
 instance (TellAccumTree tree acc html) => TellAccumTree tree acc (CtxT ctx html) where
   tellAccumTree acc (CtxT f) = CtxT \ctx -> AccumTree.tellAccumTree acc (f ctx)
+
+-- OutMsg
 
 instance OutMsg out html => OutMsg out (CtxT ctx html) where
   elemOut elemName props children = CtxT \ctx ->
