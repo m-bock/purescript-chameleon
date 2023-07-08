@@ -23,7 +23,7 @@ instance IsAttrib String where
   toAttrib = identity
 
 instance IsAttrib Boolean where
-  toAttrib = if _ then "true" else "false"
+  toAttrib = if _ then "true" else ""
 
 instance IsAttrib Number where
   toAttrib = show

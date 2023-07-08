@@ -43,6 +43,9 @@ noProp = Attr "" ""
 noHtml :: forall html msg. Html html => html msg
 noHtml = text ""
 
+attr :: forall msg. String -> String -> Prop msg
+attr = Attr
+
 -------------------------------------------------------------------------------
 --- Instances
 -------------------------------------------------------------------------------

@@ -66,7 +66,7 @@ printStyleMap :: StyleMap -> String
 printStyleMap styleMap =
   HashMap.toArrayBy printEntry styleMap
     # join
-    # Str.joinWith "\n"
+    # Str.joinWith ";\n"
   where
   printEntry :: ClassName -> StyleDecl -> Array String
   printEntry className (StyleDecl styleDecls) =
