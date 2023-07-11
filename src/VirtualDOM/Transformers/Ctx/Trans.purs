@@ -2,13 +2,14 @@ module VirtualDOM.Transformers.Ctx.Trans where
 
 import Prelude
 
+import Data.These (These)
 import Data.Tuple.Nested ((/\))
 import VirtualDOM.Class (class Html)
 import VirtualDOM.Class as C
 import VirtualDOM.Transformers.Accum.Class (class Accum, class TellAccum)
 import VirtualDOM.Transformers.Accum.Class as Accum
 import VirtualDOM.Transformers.Ctx.Class (class AskCtx, class Ctx)
-import VirtualDOM.Transformers.OutMsg.Class (class OutMsg, class RunOutMsg, elemOut, runOutMsg)
+import VirtualDOM.Transformers.OutMsg.Class (class OutMsg, class RunOutMsg, fromOutHtml, runOutMsg)
 import VirtualDOM.Transformers.TreeAccum.Class (class TellAccumTree)
 import VirtualDOM.Transformers.TreeAccum.Class as AccumTree
 
@@ -55,8 +56,9 @@ instance (TellAccumTree tree acc html) => TellAccumTree tree acc (CtxT ctx html)
 -- OutMsg
 
 instance OutMsg out html => OutMsg out (CtxT ctx html) where
-  elemOut elemName props children = CtxT \ctx ->
-    elemOut elemName props (map (flip runCtxT ctx) children)
+  fromOutHtml :: forall msg. CtxT ctx html (These msg out) -> CtxT ctx html msg
+  fromOutHtml (CtxT f) = CtxT \ctx ->
+    fromOutHtml (f ctx)
 
 instance RunOutMsg out html => RunOutMsg out (CtxT ctx html) where
   runOutMsg (CtxT f) = CtxT \ctx ->

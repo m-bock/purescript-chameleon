@@ -21,8 +21,11 @@ runOutMsgT msg' (OutMsgT html) = map changeMsg html
     Both msg _ -> msg
 
 instance C.Html html => OutMsg out (OutMsgT out html) where
-  elemOut elemName props children = OutMsgT $
-    C.elem elemName props (map unOutMsgT children)
+  fromOutHtml :: forall msg. OutMsgT out html (These msg out) -> OutMsgT out html msg
+  fromOutHtml (OutMsgT h) = OutMsgT $ h # map case _ of
+    This msg -> msg
+    That out -> That out
+    Both msg _ -> msg
 
 instance C.Html html => RunOutMsg out (OutMsgT out html) where
   runOutMsg (OutMsgT html) = OutMsgT (map This html)

@@ -3,13 +3,14 @@ module VirtualDOM.Transformers.Accum.Trans where
 import Prelude
 
 import Control.Monad.Writer (runWriter, tell)
+import Data.These (These)
 import Data.Traversable (for)
 import Data.Tuple (Tuple(..))
 import Data.Tuple.Nested (type (/\), (/\))
 import VirtualDOM.Class (class Html, Key)
 import VirtualDOM.Class as C
 import VirtualDOM.Transformers.Accum.Class (class Accum, class TellAccum)
-import VirtualDOM.Transformers.OutMsg.Class (class OutMsg, class RunOutMsg)
+import VirtualDOM.Transformers.OutMsg.Class (class OutMsg, class RunOutMsg, fromOutHtml)
 import VirtualDOM.Transformers.OutMsg.Class as O
 
 data AccumT :: Type -> (Type -> Type) -> Type -> Type
@@ -66,16 +67,8 @@ instance (Html html, Monoid acc) => Html (AccumT acc html) where
 -- OutMsg
 
 instance (Monoid acc, OutMsg out html) => OutMsg out (AccumT acc html) where
-  elemOut elemName props children =
-    AccumT accum (O.elemOut elemName props children')
-    where
-    runChildren :: forall a. Array (AccumT acc html a) -> Array (html a) /\ acc
-    runChildren xs = runWriter do
-      for xs \(AccumT acc html) -> do
-        tell acc
-        pure html
-
-    children' /\ accum = runChildren children
+  fromOutHtml :: forall msg. AccumT acc html (These msg out) -> AccumT acc html msg
+  fromOutHtml (AccumT acc html) = (AccumT acc $ fromOutHtml html)
 
 instance (Monoid acc, RunOutMsg out html) => RunOutMsg out (AccumT acc html) where
   runOutMsg (AccumT acc html) = AccumT acc (O.runOutMsg html)
