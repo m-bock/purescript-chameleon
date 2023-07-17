@@ -1594,6 +1594,11 @@ puppeteer@^19.11.1:
     proxy-from-env "1.1.0"
     puppeteer-core "19.11.1"
 
+purs-to-md@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/purs-to-md/-/purs-to-md-0.3.0.tgz#8b547d7251869455f7f2bf4f5b3f2769e0c35307"
+  integrity sha512-+2+qyCGTqbgYNWEG1C4LzuhYjg9ipct+HcYBRqO8i+YdnrbdzDYpZxM4YRRP2OV4Zdt3MSKFd31lwr2jTkAKIA==
+
 react-dom@^18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.2.0.tgz#22aaf38708db2674ed9ada224ca4aa708d821e3d"

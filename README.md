@@ -13,15 +13,14 @@ Currently available implementations:
   - [react-basic](https://github.com/thought2/purescript-virtual-dom-react-basic)
 
 ## Example
+
+
 ```hs
-module Test.SampleReadme where
+module Test.Sample.Views.Counter where
 
 import Prelude
 
-import VirtualDOM (class Html, text)
-import VirtualDOM.HTML.Attributes as TA
-import VirtualDOM.HTML.Elements as T
-import VirtualDOM.HTML.Events as TE
+import VirtualDOM as VD
 
 type State = Int
 
@@ -34,16 +33,16 @@ update msg state = case msg of
   Increment n -> state + n
   Decrement n -> state - n
 
-view :: forall html. Html html => { count :: Int } -> html Msg
+view :: forall html. VD.Html html => { count :: Int } -> html Msg
 view props =
-  T.div
-    [ TA.style "border: 1px solid red"
+  VD.div
+    [ VD.style "border: 1px solid red"
     ]
-    [ text "Counter"
-    , T.div [] [ text $ show props.count ]
-    , T.button [ TE.onClick (Increment 1) ]
-        [ text "+" ]
-    , T.button [ TE.onClick (Decrement 1) ]
-        [ text "-" ]
+    [ VD.text "Counter"
+    , VD.div [] [ VD.text $ show props.count ]
+    , VD.button [ VD.onClick (Increment 1) ]
+        [ VD.text "+" ]
+    , VD.button [ VD.onClick (Decrement 1) ]
+        [ VD.text "-" ]
     ]
 ```

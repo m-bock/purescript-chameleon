@@ -16,7 +16,9 @@ codegen:
     purs-tidy format-in-place --width 100 'src/VirtualDOM/SVG/**/*.purs'
 
 gen-readme:
-    purs-to-md test/SampleReadme.purs README.md
+    yarn purs-to-md --input-purs test/SampleReadme.purs --output-md README.md
+
+gen: gen-readme
 
 format:
     purs-tidy format-in-place 'src/**/*.purs'
