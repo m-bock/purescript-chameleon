@@ -1,8 +1,8 @@
 # purescript-virtual-dom
 
 In which framework should I write my PureScript web app? They differ in many
-aspects like state management, virtual DOM implementation or native solution
-or JS-bindings? Many difficult questions, many pros and cons.
+aspects like state management, virtual DOM implementation or native solution or
+JS-bindings? Many difficult questions, many pros and cons.
 
 I'd argue that for a large part of the apps this does not matter. Just write
 your pure views in a framework agnostic way with this library. And you can
@@ -11,6 +11,12 @@ integrate it in any framework that does provide a matching implementation.
 Currently available implementations:
   - [halogen](https://github.com/thought2/purescript-virtual-dom-halogen)
   - [react-basic](https://github.com/thought2/purescript-virtual-dom-react-basic)
+
+With this library web views are written in tagless final style. Instead of
+returning a concrete type like `HTML Msg` they return `html Msg`, along with the
+constraint `Html html`. This is analogous to writing monadic code like `Monad m
+=> .... -> m Unit`.
+
 
 ## Example
 
