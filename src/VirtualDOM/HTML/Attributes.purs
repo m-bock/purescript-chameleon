@@ -23,7 +23,7 @@ instance IsAttrib String where
   toAttrib = identity
 
 instance IsAttrib Boolean where
-  toAttrib = if _ then "true" else ""
+  toAttrib = if _ then "true" else "false"
 
 instance IsAttrib Number where
   toAttrib = show
@@ -376,11 +376,11 @@ max :: forall a. Number -> Prop a
 max val = Attr "max" (toAttrib val)
 
 -- | Specifies the maximum number of characters allowed in an element
-maxlength :: forall a. Number -> Prop a
+maxlength :: forall a. Int -> Prop a
 maxlength val = Attr "maxlength" (toAttrib val)
 
 -- | Specifies the minimum number of characters allowed in an element
-minlength :: forall a. Number -> Prop a
+minlength :: forall a. Int -> Prop a
 minlength val = Attr "minlength" (toAttrib val)
 
 -- | Specifies what media/device the linked document is optimized for

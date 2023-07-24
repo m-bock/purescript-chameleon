@@ -289,11 +289,11 @@
   },
   "maxlength": {
     "description": "Specifies the maximum number of characters allowed in an element",
-    "type": "Number"
+    "type": "Int"
   },
   "minlength": {
     "description": "Specifies the minimum number of characters allowed in an element",
-    "type": "Number"
+    "type": "Int"
   },
   "media": {
     "description": "Specifies what media/device the linked document is optimized for",
