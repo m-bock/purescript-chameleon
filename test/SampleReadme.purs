@@ -22,7 +22,7 @@ constraint `Html html`. This is analogous to writing monadic code like `Monad m
 ## Example
 -}
 
-module Test.Sample.Views.Counter where
+module Test.SampleReadme where
 
 import Prelude
 

@@ -5,7 +5,7 @@ build:
     spago build
 
 test:
-    spago --config test.dhall build
+    spago test
 
 build-prod:
     yarn run parcel build --dist-dir dist web/index.html
