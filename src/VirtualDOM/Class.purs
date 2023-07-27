@@ -33,6 +33,9 @@ class Functor html <= Html html where
   text
     :: forall a. String -> html a
 
+class CensorMsg html where
+  censorMsg :: forall msg. (msg -> Maybe msg) -> html msg -> html msg
+
 -------------------------------------------------------------------------------
 --- Utils
 -------------------------------------------------------------------------------
