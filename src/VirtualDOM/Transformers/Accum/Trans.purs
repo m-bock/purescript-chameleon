@@ -7,7 +7,7 @@ import Data.These (These)
 import Data.Traversable (for)
 import Data.Tuple (Tuple(..))
 import Data.Tuple.Nested (type (/\), (/\))
-import VirtualDOM.Class (class Html, Key)
+import VirtualDOM.Class (class Html, class MapMaybe, Key)
 import VirtualDOM.Class as C
 import VirtualDOM.Transformers.Accum.Class (class Accum, class TellAccum)
 import VirtualDOM.Transformers.OutMsg.Class (class OutMsg, class RunOutMsg, fromOutHtml)
@@ -63,6 +63,11 @@ instance (Html html, Monoid acc) => Html (AccumT acc html) where
     children' /\ accum = runChildren children
 
   text str = AccumT mempty (C.text str)
+
+-- MapMaybe
+
+instance (MapMaybe html) => MapMaybe (AccumT acc html) where
+  mapMaybe f (AccumT acc html) = AccumT acc (C.mapMaybe f html)
 
 -- OutMsg
 

@@ -25,7 +25,11 @@ newtype ElemName = ElemName String
 -------------------------------------------------------------------------------
 
 class Html :: (Type -> Type) -> Constraint
-class Functor html <= Html html where
+class
+  ( Functor html
+  , MapMaybe html
+  ) <=
+  Html html where
   elem
     :: forall a. ElemName -> Array (Prop a) -> Array (html a) -> html a
   elemKeyed
@@ -33,8 +37,8 @@ class Functor html <= Html html where
   text
     :: forall a. String -> html a
 
-class MaybeMsg html where
-  fromMaybeMsg :: forall msg. html (Maybe msg) -> html msg
+class MapMaybe html where
+  mapMaybe :: forall msg1 msg2. (msg1 -> Maybe msg2) -> html msg1 -> html msg2
 
 -------------------------------------------------------------------------------
 --- Utils

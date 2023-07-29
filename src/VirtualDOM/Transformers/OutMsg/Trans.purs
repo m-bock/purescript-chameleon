@@ -4,7 +4,7 @@ import Prelude
 
 import Data.Maybe (Maybe(..))
 import Data.These (These(..))
-import VirtualDOM.Class (class MaybeMsg, Prop(..), fromMaybeMsg)
+import VirtualDOM.Class (class Html, class MapMaybe, Prop(..), mapMaybe)
 import VirtualDOM.Class as C
 import VirtualDOM.Transformers.OutMsg.Class (class OutMsg, class RunOutMsg)
 
@@ -12,8 +12,25 @@ newtype OutMsgT out html msg = OutMsgT (html (These msg out))
 
 derive instance (Functor html) => Functor (OutMsgT ctx html)
 
-runOutMsgT :: forall out html msg. MaybeMsg html => Functor html => OutMsgT out html msg -> html msg
-runOutMsgT (OutMsgT html) = fromMaybeMsg $ map changeMsg html
+instance (MapMaybe html) => MapMaybe (OutMsgT out html) where
+  mapMaybe
+    :: forall msg1 msg2
+     . (msg1 -> Maybe msg2)
+    -> OutMsgT out html msg1
+    -> OutMsgT out html msg2
+  mapMaybe f (OutMsgT html) = OutMsgT $ mapMaybe theseToMaybe html
+    where
+    theseToMaybe :: These msg1 out -> Maybe (These msg2 out)
+    theseToMaybe = case _ of
+      This msg -> f msg # map This
+      That out -> Just (That out)
+      Both msg out -> f msg # case _ of
+        Just msg' -> Just $ Both msg' out
+        Nothing -> Just (That out)
+
+runOutMsgT :: forall out html msg. Html html => OutMsgT out html msg -> html msg
+runOutMsgT (OutMsgT html) =
+  mapMaybe changeMsg html
   where
   changeMsg :: These msg out -> Maybe msg
   changeMsg = case _ of

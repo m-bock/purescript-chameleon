@@ -39,10 +39,32 @@ instance C.Html TestHtml where
   elem name props = Elem name (map mapProp props)
   elemKeyed name props = ElemKeyed name (map mapProp props)
 
+instance C.MapMaybe TestHtml where
+  mapMaybe f =
+    case _ of
+      Elem name props children ->
+        Elem
+          name
+          (map (C.mapMaybe f) props)
+          (map (C.mapMaybe f) children)
+
+      ElemKeyed name props children ->
+        ElemKeyed
+          name
+          (map (C.mapMaybe f) props)
+          (map (map $ C.mapMaybe f) children)
+
+      Text str -> Text str
+
 mapProp :: forall msg. C.Prop msg -> TestProp msg
 mapProp = case _ of
   C.Event name mkMsg -> Event name (mkMsg foreignRecord)
   C.Attr key val -> Attr key val
+
+instance C.MapMaybe TestProp where
+  mapMaybe f = case _ of
+    Event name mkMsg -> Event name (mkMsg >>= f)
+    Attr key val -> Attr key val
 
 foreignRecord :: Foreign
 foreignRecord = unsafeToForeign {}

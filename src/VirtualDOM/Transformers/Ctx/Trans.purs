@@ -2,16 +2,15 @@ module VirtualDOM.Transformers.Ctx.Trans where
 
 import Prelude
 
+import Data.Maybe (Maybe)
 import Data.These (These)
 import Data.Tuple.Nested ((/\))
-import VirtualDOM.Class (class Html)
+import VirtualDOM.Class (class Html, class MapMaybe, mapMaybe)
 import VirtualDOM.Class as C
 import VirtualDOM.Transformers.Accum.Class (class Accum, class TellAccum)
 import VirtualDOM.Transformers.Accum.Class as Accum
 import VirtualDOM.Transformers.Ctx.Class (class AskCtx, class Ctx)
 import VirtualDOM.Transformers.OutMsg.Class (class OutMsg, class RunOutMsg, fromOutHtml, runOutMsg)
-import VirtualDOM.Transformers.TreeAccum.Class (class TellAccumTree)
-import VirtualDOM.Transformers.TreeAccum.Class as AccumTree
 
 newtype CtxT :: forall k. Type -> (k -> Type) -> k -> Type
 newtype CtxT ctx html a = CtxT (ctx -> html a)
@@ -40,6 +39,13 @@ instance (Html html) => Html (CtxT ctx html) where
 
   text str = CtxT \_ -> C.text str
 
+-- MapMaybe
+
+instance MapMaybe html => MapMaybe (CtxT ctx html) where
+  mapMaybe :: forall msg1 msg2. (msg1 -> Maybe msg2) -> CtxT ctx html msg1 -> CtxT ctx html msg2
+  mapMaybe f mkHtml = CtxT \ctx ->
+    mapMaybe f (runCtxT mkHtml ctx)
+
 -- Accum
 
 instance (Semigroup acc, TellAccum acc html) => TellAccum acc (CtxT ctx html) where
@@ -47,11 +53,6 @@ instance (Semigroup acc, TellAccum acc html) => TellAccum acc (CtxT ctx html) wh
 
 instance (Accum acc html) => Accum acc (CtxT ctx html) where
   censorAccum f html = CtxT \ctx -> Accum.censorAccum f (runCtxT html ctx)
-
--- AccumTree
-
-instance (TellAccumTree tree acc html) => TellAccumTree tree acc (CtxT ctx html) where
-  tellAccumTree acc (CtxT f) = CtxT \ctx -> AccumTree.tellAccumTree acc (f ctx)
 
 -- OutMsg
 
