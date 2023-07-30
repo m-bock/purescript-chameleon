@@ -1,20 +1,22 @@
 package:
   dependencies:
     - either
-    - foldable-traversable
     - foreign
     - maybe
     - prelude
     - strings
-    - these
     - transformers
     - tuples
     - variant
   name: virtual-dom
   test:
-    dependencies: []
+    dependencies:
+      - console
+      - effect
     main: Test.Main
 workspace:
   extra_packages: {}
   package_set:
     registry: 31.0.0
+  build_opts:
+    pedantic_packages: true
