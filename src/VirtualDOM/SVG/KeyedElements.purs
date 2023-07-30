@@ -1,7 +1,7 @@
-module VirtualDOM.SVG.KeyedElements where
+module Chameleon.SVG.KeyedElements where
 
 import Data.Tuple.Nested (type (/\))
-import VirtualDOM.Class (class Html, Key, ElemName(..), Prop, elemKeyed)
+import Chameleon.Class (class Html, Key, ElemName(..), Prop, elemKeyed)
 
 -- | Creates a hyperlink element
 a :: forall html a. Html html => Array (Prop a) -> Array (Key /\ html a) -> html a

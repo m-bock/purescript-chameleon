@@ -2,7 +2,7 @@ module Test.Sample.Views.Counter where
 
 import Prelude
 
-import VirtualDOM as VD
+import Chameleon as VD
 
 type State = Int
 

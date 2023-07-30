@@ -12,8 +12,8 @@ build-prod:
 
 codegen:
     node codegen/index.js
-    purs-tidy format-in-place --width 100 'src/VirtualDOM/HTML/**/*.purs'
-    purs-tidy format-in-place --width 100 'src/VirtualDOM/SVG/**/*.purs'
+    purs-tidy format-in-place --width 100 'src/Chameleon/HTML/**/*.purs'
+    purs-tidy format-in-place --width 100 'src/Chameleon/SVG/**/*.purs'
 
 gen-readme:
     yarn purs-to-md --input-purs test/SampleReadme.purs --output-md README.md

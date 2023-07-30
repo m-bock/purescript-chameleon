@@ -26,7 +26,7 @@ module Test.SampleReadme where
 
 import Prelude
 
-import VirtualDOM as VD
+import Chameleon as VD
 
 type State = Int
 

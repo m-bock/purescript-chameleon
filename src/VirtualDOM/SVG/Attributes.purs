@@ -1,4 +1,4 @@
-module VirtualDOM.SVG.Attributes where
+module Chameleon.SVG.Attributes where
 
 import Prelude
 
@@ -9,7 +9,7 @@ import Data.Variant as V
 import Prim.Row as Row
 import Prim.RowList (class RowToList, RowList)
 import Prim.RowList as RL
-import VirtualDOM.Class (Prop(..))
+import Chameleon.Class (Prop(..))
 import Type.Proxy (Proxy(..))
 
 ------------------------------------------------------------------------------- 

@@ -1,7 +1,7 @@
-module VirtualDOM.HTML.KeyedElements where
+module Chameleon.HTML.KeyedElements where
 
 import Data.Tuple.Nested (type (/\))
-import VirtualDOM.Class (class Html, Key, ElemName(..), Prop, elemKeyed)
+import Chameleon.Class (class Html, Key, ElemName(..), Prop, elemKeyed)
 
 -- | Defines a hyperlink
 a :: forall html a. Html html => Array (Prop a) -> Array (Key /\ html a) -> html a

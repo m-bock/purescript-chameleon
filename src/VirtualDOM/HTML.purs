@@ -1,13 +1,13 @@
-module VirtualDOM.HTML
+module Chameleon.HTML
   ( module Export
   ) where
 
-import VirtualDOM.HTML.Elements hiding
+import Chameleon.HTML.Elements hiding
   ( style
   , title
   ) as Export
 
-import VirtualDOM.HTML.Attributes hiding
+import Chameleon.HTML.Attributes hiding
   ( cite
   , code
   , data_
@@ -17,4 +17,4 @@ import VirtualDOM.HTML.Attributes hiding
   , span
   , summary
   ) as Export
-import VirtualDOM.HTML.Events as Export
+import Chameleon.HTML.Events as Export

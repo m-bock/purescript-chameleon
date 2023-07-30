@@ -1,6 +1,6 @@
-module VirtualDOM.HTML.Elements where
+module Chameleon.HTML.Elements where
 
-import VirtualDOM.Class (class Html, ElemName(..), Prop, elem)
+import Chameleon.Class (class Html, ElemName(..), Prop, elem)
 
 -- | Defines a hyperlink
 a :: forall html a. Html html => Array (Prop a) -> Array (html a) -> html a

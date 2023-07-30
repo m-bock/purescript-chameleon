@@ -1,7 +1,7 @@
-module VirtualDOM.Types where
+module Chameleon.Types where
 
 import Data.Tuple.Nested (type (/\))
-import VirtualDOM.Class (Key, Prop)
+import Chameleon.Class (Key, Prop)
 
 type ElemNode :: (Type -> Type) -> Type -> Type
 type ElemNode html a = Array (Prop a) -> Array (html a) -> html a

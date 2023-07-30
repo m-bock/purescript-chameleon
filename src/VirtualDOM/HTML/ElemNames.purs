@@ -1,6 +1,6 @@
-module VirtualDOM.HTML.ElemNames where
+module Chameleon.HTML.ElemNames where
 
-import VirtualDOM.Class (ElemName(..))
+import Chameleon.Class (ElemName(..))
 
 -- | Defines a hyperlink
 a :: ElemName

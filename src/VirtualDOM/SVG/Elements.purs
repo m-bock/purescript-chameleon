@@ -1,6 +1,6 @@
-module VirtualDOM.SVG.Elements where
+module Chameleon.SVG.Elements where
 
-import VirtualDOM.Class (class Html, ElemName(..), Prop, elem)
+import Chameleon.Class (class Html, ElemName(..), Prop, elem)
 
 -- | Creates a hyperlink element
 a :: forall html a. Html html => Array (Prop a) -> Array (html a) -> html a

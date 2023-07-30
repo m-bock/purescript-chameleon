@@ -1,4 +1,4 @@
-module VirtualDOM (module Export) where
+module Chameleon (module Export) where
 
-import VirtualDOM.Class as Export
-import VirtualDOM.HTML as Export
+import Chameleon.Class as Export
+import Chameleon.HTML as Export

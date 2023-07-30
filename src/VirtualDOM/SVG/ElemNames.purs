@@ -1,6 +1,6 @@
-module VirtualDOM.SVG.ElemNames where
+module Chameleon.SVG.ElemNames where
 
-import VirtualDOM.Class (ElemName(..))
+import Chameleon.Class (ElemName(..))
 
 -- | Creates a hyperlink element
 a :: ElemName

@@ -15,9 +15,9 @@ const genElemNames = (scope) => (data) => {
   const code = Object.entries(data).map(genElemName).join("");
 
   return `
-module VirtualDOM.${scope}.ElemNames where
+module Chameleon.${scope}.ElemNames where
 
-import VirtualDOM.Class (ElemName(..))
+import Chameleon.Class (ElemName(..))
 
 ${code}
 `;
@@ -75,9 +75,9 @@ const genElements = (scope) => (data) => {
   const code = Object.entries(data).map(genElement).join("");
 
   return `
-module VirtualDOM.${scope}.Elements where
+module Chameleon.${scope}.Elements where
 
-import VirtualDOM.Class (class Html, ElemName(..), Prop, elem)
+import Chameleon.Class (class Html, ElemName(..), Prop, elem)
 
 ${code}
 `;
@@ -126,10 +126,10 @@ const genKeyedElements = (scope) => (data) => {
   const code = Object.entries(data).map(genKeyedElement).join("");
 
   return `
-module VirtualDOM.${scope}.KeyedElements where
+module Chameleon.${scope}.KeyedElements where
 
 import Data.Tuple.Nested (type (/\\))
-import VirtualDOM.Class (class Html, Key, ElemName(..), Prop, elemKeyed)
+import Chameleon.Class (class Html, Key, ElemName(..), Prop, elemKeyed)
 
 ${code}
 `;
@@ -183,7 +183,7 @@ const genAttributes = (scope, untyped) => (data) => {
     .join("");
 
   return `
-module VirtualDOM.${scope}.Attributes where
+module Chameleon.${scope}.Attributes where
 
 import Prelude
 
@@ -194,7 +194,7 @@ import Data.Variant as V
 import Prim.Row as Row
 import Prim.RowList (class RowToList, RowList)
 import Prim.RowList as RL
-import VirtualDOM.Class (Prop(..))
+import Chameleon.Class (Prop(..))
 import Type.Proxy (Proxy(..))
 
 ${genSection("class IsAttrib")}
@@ -305,7 +305,7 @@ const genEvents = (scope) => (data) => {
   const code = Object.entries(data).map(genEvent).join("");
 
   return `
-module VirtualDOM.${scope}.Events where
+module Chameleon.${scope}.Events where
 
 import Prelude
 
@@ -315,7 +315,7 @@ import Data.Maybe (Maybe(..))
 import Foreign (Foreign)
 import Foreign as F
 import Foreign.Index as FI
-import VirtualDOM.Class (Prop(..))
+import Chameleon.Class (Prop(..))
 
 class FromForeign a where
   fromForeign :: Foreign -> Maybe a
@@ -375,26 +375,26 @@ const genHTML = () => {
   
   const elemNames = genElemNames(scope)(elementsData);
   fs.writeFileSync(
-    `src/VirtualDOM/${scope}/ElemNames.purs`,
+    `src/Chameleon/${scope}/ElemNames.purs`,
     elemNames
   );
 
   const elements = genElements(scope)(elementsData);
-  fs.writeFileSync(`src/VirtualDOM/${scope}/Elements.purs`, elements);
+  fs.writeFileSync(`src/Chameleon/${scope}/Elements.purs`, elements);
 
   const keyedElements = genKeyedElements(scope)(elementsData);
   fs.writeFileSync(
-    `src/VirtualDOM/${scope}/KeyedElements.purs`,
+    `src/Chameleon/${scope}/KeyedElements.purs`,
     keyedElements
   );
 
   const attributes1 = readJSON(`codegen/${scope}/attributes.json`);
   const attributes2 = genAttributes(scope)(attributes1);
-  fs.writeFileSync(`src/VirtualDOM/${scope}/Attributes.purs`, attributes2);
+  fs.writeFileSync(`src/Chameleon/${scope}/Attributes.purs`, attributes2);
 
   const events1 = readJSON(`codegen/${scope}/events.json`);
   const events2 = genEvents(scope)(events1);
-  fs.writeFileSync(`src/VirtualDOM/${scope}/Events.purs`, events2);
+  fs.writeFileSync(`src/Chameleon/${scope}/Events.purs`, events2);
 };
 
 const genSVG = () => {
@@ -403,22 +403,22 @@ const genSVG = () => {
 
   const elemNames = genElemNames(scope)(elementsData);
   fs.writeFileSync(
-    `src/VirtualDOM/${scope}/ElemNames.purs`,
+    `src/Chameleon/${scope}/ElemNames.purs`,
     elemNames
   );
   
   const elements = genElements(scope)(elementsData);
-  fs.writeFileSync(`src/VirtualDOM/${scope}/Elements.purs`, elements);
+  fs.writeFileSync(`src/Chameleon/${scope}/Elements.purs`, elements);
 
   const keyedElements = genKeyedElements(scope)(elementsData);
   fs.writeFileSync(
-    `src/VirtualDOM/${scope}/KeyedElements.purs`,
+    `src/Chameleon/${scope}/KeyedElements.purs`,
     keyedElements
   );
 
   const attributes1 = readJSON(`codegen/${scope}/attributes.json`);
   const attributes2 = genAttributes(scope, true)(attributes1);
-  fs.writeFileSync(`src/VirtualDOM/${scope}/Attributes.purs`, attributes2);
+  fs.writeFileSync(`src/Chameleon/${scope}/Attributes.purs`, attributes2);
 };
 
 const main = () => {

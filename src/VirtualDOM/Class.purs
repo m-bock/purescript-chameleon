@@ -1,4 +1,4 @@
-module VirtualDOM.Class where
+module Chameleon.Class where
 
 import Prelude
 

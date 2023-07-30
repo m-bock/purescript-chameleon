@@ -1,4 +1,4 @@
-module VirtualDOM.Impl.TestHtml
+module Chameleon.Impl.TestHtml
   ( TestProp(..)
   , TestHtml(..)
   ) where
@@ -10,7 +10,7 @@ import Data.Maybe (Maybe)
 import Data.Show.Generic (genericShow)
 import Data.Tuple.Nested (type (/\))
 import Foreign (Foreign, unsafeToForeign)
-import VirtualDOM.Class as C
+import Chameleon.Class as C
 
 data TestProp msg
   = Event String (Maybe msg)
