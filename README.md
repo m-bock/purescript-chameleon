@@ -1,5 +1,8 @@
 # purescript-chameleon
 
+<img src="https://github.com/thought2/assets/blob/407d97eba23f3137572f43ea6b754fb591d415bb/chameleon/logo.svg" width="200">
+
+
 In which framework should I write my PureScript web app? They differ in many
 aspects like state management, virtual DOM implementation or native solution or
 JS-bindings? Many difficult questions, many pros and cons.
