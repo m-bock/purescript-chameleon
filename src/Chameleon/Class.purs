@@ -44,6 +44,9 @@ class MapMaybe html where
 --- Utils
 -------------------------------------------------------------------------------
 
+fromMaybeMsg :: forall html msg. MapMaybe html => html (Maybe msg) -> html msg
+fromMaybeMsg = mapMaybe identity
+
 noProp :: forall msg. Prop msg
 noProp = Attr "" ""
 
