@@ -16,8 +16,8 @@ codegen:
     purs-tidy format-in-place --width 100 'src/Chameleon/SVG/**/*.purs'
 
 gen-readme:
-    yarn purs-to-md --input-purs test/SampleReadme.purs --output-md README.md
-
+    node scripts/gen-readme.js
+    
 gen: gen-readme
 
 format:
